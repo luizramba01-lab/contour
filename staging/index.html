@@ -3,15 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CONTOUR — Every city has a summit.</title>
     <meta name="robots" content="noindex" />
+    <title>CONTOUR — Every city has a summit.</title>
     <script>if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)&&"IntersectionObserver" in window)document.documentElement.classList.add("mo");</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    />
+    <link rel="stylesheet" href="contour-fonts.css" />
     <link rel="stylesheet" href="../hark.css" />
     <link rel="stylesheet" href="../hark-hero.css" />
     <style>
@@ -366,6 +361,15 @@
         .x-g > .x-way--b { grid-column: 1 / span 5; margin-top: clamp(24px, 4vw, 64px); }
         .x-g > .x-tagline { grid-column: 6 / -1; align-self: end; margin-top: 0; padding-bottom: 8px; }
       }
+      /* legal: consent + footer links (staging) */
+      .x-consent { display: flex; align-items: flex-start; gap: 12px; max-width: 600px; font: var(--weight-regular) var(--size-small)/1.5 var(--sans); cursor: pointer; }
+      .x-consent input { flex: none; appearance: none; -webkit-appearance: none; width: 20px; height: 20px; margin: 1px 0 0; border: 1px solid var(--x-ink); border-radius: 0; background: transparent; display: grid; place-items: center; cursor: pointer; }
+      .x-consent input:checked { background: var(--x-green); border-color: var(--x-green); }
+      .x-consent input:checked::after { content: ""; width: 10px; height: 5px; border-left: 2px solid var(--x-paper); border-bottom: 2px solid var(--x-paper); transform: translateY(-1px) rotate(-45deg); }
+      .x-consent a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+      .x-join.is-sent .x-consent { display: none; }
+      .x-foot__legal { display: flex; flex-wrap: wrap; gap: 0 20px; }
+      .x-foot__legal .x-a { min-height: 32px; text-decoration: underline; text-underline-offset: 4px; }
     </style>
   </head>
   <body>
@@ -637,6 +641,10 @@
                 <input id="x-email" name="email" type="email" placeholder="you@trailhead.com" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" required />
                 <button class="x-btn" type="submit">Join the list</button>
               </form>
+              <label class="x-consent" for="x-consent">
+                <input id="x-consent" name="consent" type="checkbox" form="x-form" value="yes" required />
+                <span>I agree that Contour may email me about Expedition 01 and future drops. I can unsubscribe at any time. Details in the <a href="privacy.html#signup">Privacy Policy</a> · <span lang="de">Einwilligung, siehe <a href="privacy.html#de-anmeldung">Datenschutzerklärung</a></span>.</span>
+              </label>
               <div class="x-thanks" role="status" aria-live="polite">
                 <p class="x-cap">Position logged</p>
                 <p class="x-h3">You're on the list.</p>
@@ -666,6 +674,10 @@
               <a class="x-a" href="#join">05 Join</a>
             </nav>
             <p class="x-foot__social x-cap"><span>Instagram</span><span>Strava</span></p>
+            <nav class="x-foot__legal x-cap" aria-label="Legal">
+              <a class="x-a" href="impressum.html">Impressum</a>
+              <a class="x-a" href="privacy.html">Privacy / Datenschutz</a>
+            </nav>
           </div>
         </div>
         <div class="x-rule x-cap"><span>Contour is a working name. Expedition 01 — AW26</span><span>© 2026 Contour</span></div>
@@ -707,13 +719,19 @@
             input.focus();
             return;
           }
+          var consent = document.getElementById("x-consent");
+          if (!consent.checked) {
+            err.textContent = "Tick the box to confirm you want our emails.";
+            consent.focus();
+            return;
+          }
           err.textContent = "";
           var btn = form.querySelector("button");
           btn.disabled = true;
           fetch("https://formsubmit.co/ajax/luizramba01@gmail.com", {
             method: "POST",
             headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify({ email: v, _subject: "CONTOUR early access signup", _template: "table" })
+            body: JSON.stringify({ email: v, consent: "yes: email updates on Expedition 01 and future drops (privacy.html, Oct 2026)", consent_at: new Date().toISOString(), _subject: "CONTOUR early access signup", _template: "table" })
           }).then(function (r) { return r.json(); }).then(function () {
             join.classList.add("is-sent");
           }).catch(function () {
