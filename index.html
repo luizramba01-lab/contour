@@ -124,6 +124,7 @@
       .x-way__back { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding-top: 12px; border-top: 1px solid var(--x-ink); }
       .x-way__back .x-h3 { font-size: clamp(24px, 2.6vw, 34px); }
       .x-sw { display: inline-block; width: 12px; height: 12px; margin-right: 8px; border: 1px solid var(--x-ink); vertical-align: -1px; }
+      .x-g > .x-way--c { grid-column: 3 / span 8; margin-top: clamp(24px, 4vw, 64px); }
       .x-g > .x-tagline { grid-column: 1 / span 9; margin-top: clamp(64px, 9vw, 120px); font-size: clamp(44px, 7vw, 100px); }
       .x-tagline span { display: block; color: var(--x-ink); }
 
@@ -187,7 +188,7 @@
       .x-foot > .x-rule { padding-bottom: 8px; }
 
       @media (max-width: 860px) {
-        .x-g > .x-quote, .x-g > .x-mani__body, .x-g > .x-pillars, .x-g > .x-piece__h, .x-g > .x-way--a, .x-g > .x-way--b,
+        .x-g > .x-quote, .x-g > .x-mani__body, .x-g > .x-pillars, .x-g > .x-piece__h, .x-g > .x-way--a, .x-g > .x-way--b, .x-g > .x-way--c,
         .x-g > .x-tagline, .x-g > .x-spec__h, .x-g > .x-notes__fig, .x-g > .x-notes__h, .x-g > .x-join__h, .x-g > .x-join__in { grid-column: 1 / -1; }
         .x-g > .x-way--b { margin-top: 0; }
         .x-g > .x-notes__h { margin-top: 40px; }
@@ -276,7 +277,7 @@
           <div class="x-field" aria-hidden="true">
             <svg viewBox="0 0 1000 600"><g data-k="piece"><path d="M484 0 455 50 431 108 394 225 387 258 384 292 387 317 391 333 407 367 464 442 493 475 525 501 567 522 717 570 758 577 792 576 825 569 867 554 950 520 1000 505"/><path d="M509 0 486 42 469 83 423 233 417 258 415 283 420 317 435 350 492 425 521 458 553 483 592 502 717 540 750 547 775 549 808 547 842 539 883 523 958 490 1000 477"/><path d="M533 0 510 42 494 83 453 233 447 275 448 292 452 308 464 333 521 408 550 441 567 455 583 465 625 484 725 515 758 522 783 524 817 521 850 512 883 499 958 461 1000 447"/><path d="M558 0 531 50 512 100 483 217 479 242 478 267 480 283 485 300 498 325 550 392 580 425 600 440 617 451 667 472 742 495 767 500 792 501 825 496 858 486 892 469 958 429 983 418 1000 413"/><path d="M582 0 554 50 534 100 511 192 506 225 505 250 510 283 522 308 566 367 603 408 624 425 642 436 667 448 700 461 733 471 758 477 800 478 833 471 858 460 887 442 950 395 975 383 1000 376"/><path d="M609 0 573 58 552 108 533 183 528 217 528 242 534 275 551 308 588 358 625 398 658 421 708 443 758 455 783 456 800 455 825 447 851 433 872 417 917 375 942 357 967 346 1000 339"/><path d="M637 0 598 58 573 108 556 167 550 200 548 225 549 250 553 267 569 300 605 350 642 387 675 409 717 426 758 433 792 430 808 424 832 408 891 350 925 326 958 312 1000 305"/><path d="M668 0 625 58 596 108 583 139 575 167 567 217 567 242 570 258 584 292 612 333 633 358 650 374 675 390 708 404 742 408 767 405 779 400 792 392 846 342 893 308 925 292 950 284 1000 276"/><path d="M700 0 645 75 617 120 597 167 586 208 585 233 586 250 596 283 605 300 622 325 650 355 667 368 692 380 717 384 733 382 750 375 758 369 785 342 804 325 862 292 899 275 933 263 967 255 1000 250"/><path d="M731 0 697 50 633 155 617 188 605 225 603 242 604 258 611 283 630 317 658 346 675 357 692 362 708 363 717 360 725 355 733 347 758 308 767 300 783 289 820 275 925 242 960 233 1000 227"/><path d="M761 0 736 42 715 92 705 133 701 192 698 200 692 205 658 211 642 218 633 225 623 242 620 258 624 283 637 308 658 332 675 342 692 345 702 342 711 333 716 325 720 308 725 242 733 234 800 239 842 237 883 230 1000 204"/><path d="M790 0 775 25 764 50 758 75 756 100 759 125 767 147 778 167 792 183 808 195 825 202 842 206 867 207 908 202 1000 182"/><path d="M642 257 637 267 637 283 644 300 649 308 658 318 675 328 683 328 691 325 696 317 698 300 697 292 689 275 675 260 667 255 658 252 650 252 642 257Z"/><path d="M818 0 803 25 797 42 793 58 792 83 797 108 803 125 813 142 827 158 850 174 867 178 883 180 925 176 1000 159"/><path d="M658 275 650 283 651 292 655 300 662 308 667 312 675 313 681 308 682 300 679 292 667 278 658 275Z"/><path d="M845 0 835 17 828 33 824 58 825 75 828 92 835 108 845 125 858 138 867 144 883 151 908 153 942 149 1000 136"/><path d="M875 0 860 25 856 42 855 58 861 83 871 100 879 108 891 117 900 121 925 124 958 120 1000 110"/><path d="M907 0 896 17 892 25 889 42 891 58 895 67 908 82 925 89 942 91 967 90 1000 83"/><path d="M948 0 938 8 929 25 928 33 933 45 942 53 958 58 975 58 1000 54"/><path d="M983 14 975 17 972 25 983 29 991 25 990 17 983 14Z"/></g><circle class="x-dot" cx="667" cy="295" r="7" /></svg>
           </div>
-          <div class="x-rule x-cap"><span>02 / The first piece</span><span>2 colourways · XS–XXL</span></div>
+          <div class="x-rule x-cap"><span>02 / The first piece</span><span>3 colourways · XS–XXL</span></div>
           <div class="x-g">
             <h2 class="x-display x-h2 x-piece__h">The Contour<br />Long Sleeve</h2>
           </div>
@@ -301,6 +302,17 @@
                 <p class="x-body">Forest green with mint / reflective mountain contours.</p>
                 <p class="x-cap"><span class="x-sw" style="background: #1f3a2e"></span>Base: forest · Sheet B</p>
                 <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“No map. Just miles.”</p></div>
+              </div>
+            </article>
+            <article class="x-way--c">
+              <figure class="x-spec-plate">
+                <div class="x-spec-plate__bar x-cap"><span>Colourway 03 — Night Ascent</span><span>Front / Back · 45.9224°N 7.6183°E</span></div>
+                <img src="c-black-front-back.jpg" alt="Night Ascent long sleeve in black, front and back, with bone-white topo accents and sleeve coordinates" />
+              </figure>
+              <div class="x-way__meta">
+                <p class="x-body">Black with bone-white contours. Sleeves: Night Ascent · +1840 M / 45.9224°N · 7.6183°E.</p>
+                <p class="x-cap"><span class="x-sw" style="background: #111111"></span>Base: black · Sheet C</p>
+                <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“Summit by headlamp.”</p></div>
               </div>
             </article>
             <p class="x-display x-tagline">Clean front.<span>The story's on the back.</span></p>
@@ -453,7 +465,18 @@
             return;
           }
           err.textContent = "";
-          join.classList.add("is-sent");
+          var btn = form.querySelector("button");
+          btn.disabled = true;
+          fetch("https://formsubmit.co/ajax/luizramba01@gmail.com", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({ email: v, _subject: "CONTOUR early access signup", _template: "table" })
+          }).then(function (r) { return r.json(); }).then(function () {
+            join.classList.add("is-sent");
+          }).catch(function () {
+            btn.disabled = false;
+            err.textContent = "Signal lost. Try again in a moment.";
+          });
         });
       })();
     </script>
