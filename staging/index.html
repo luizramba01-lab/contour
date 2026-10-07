@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CONTOUR — Every city has a summit.</title>
     <meta name="robots" content="noindex" />
+    <script>if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)&&"IntersectionObserver" in window)document.documentElement.classList.add("mo");</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -220,9 +221,169 @@
       @media (prefers-reduced-motion: reduce) {
         .x-draw path, .x-draw .x-dot, .x-draw ~ .x-wp { transition: none; stroke-dashoffset: 0; opacity: 1; }
       }
+
+      /* ================================================================
+         MOTION + MOBILE LAYER (staging) — transform/opacity only
+         ================================================================ */
+
+      /* --- no horizontal scroll: contour fields bleed to the viewport edge, never past it --- */
+      html { overflow-x: hidden; }
+      @supports (overflow: clip) { html { overflow-x: clip; } }
+      body { -webkit-tap-highlight-color: transparent; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+      a, button, input { touch-action: manipulation; }
+
+      /* --- hero: vh fallback, then small-viewport units (no iOS URL-bar jump) --- */
+      .x-hero { min-height: min(92vh, 920px); min-height: min(92svh, 920px); }
+
+      /* --- scroll progress "altitude" bar --- */
+      .alt-bar { position: fixed; left: 0; top: 0; z-index: 80; width: 100%; height: 2px; background: var(--x-orange); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
+      .alt-read { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border: 1px solid var(--x-ink); background: var(--x-paper); opacity: 0; transform: translate3d(0, 8px, 0); transition: opacity .4s ease, transform .4s var(--ease-out); pointer-events: none; font-variant-numeric: tabular-nums; }
+      .alt-read.is-on { opacity: 1; transform: none; }
+      @media (max-width: 1023px) { .alt-read { display: none; } }
+      .alt-read i { width: 6px; height: 6px; background: var(--x-orange); border-radius: 50%; }
+
+      /* --- reveal on scroll (only when JS + motion allowed: html.mo) --- */
+      .mo [data-rv] { opacity: 0; transform: translate3d(0, var(--rv-y, 32px), 0); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform 1s var(--ease-out); transition-delay: var(--rv-d, 0ms); }
+      .mo [data-rv].is-in { opacity: 1; transform: none; }
+      .mo [data-rv="fade"] { --rv-y: 0px; }
+      .mo .o-origin .o-beat[data-rv] { opacity: 0; transform: translate3d(0, var(--rv-y, 32px), 0); transition-delay: var(--rv-d, 0ms); }
+      .mo .o-origin .o-beat[data-rv].is-in { opacity: 1; transform: none; }
+
+      /* hero intro (on first open) */
+      @keyframes rv-up { from { opacity: 0; transform: translate3d(0, 44px, 0); } to { opacity: 1; transform: none; } }
+      @keyframes rv-fade { from { opacity: 0; } to { opacity: 1; } }
+      .mo .x-hero h1 span { animation: rv-up 1.1s var(--ease-out) both; }
+      .mo .x-hero h1 span:nth-child(1) { animation-delay: .15s; }
+      .mo .x-hero h1 span:nth-child(2) { animation-delay: .3s; }
+      .mo .x-hero__row { animation: rv-up 1s var(--ease-out) .55s both; }
+      .mo .x-top { animation: rv-fade .9s ease .05s both; }
+      .mo .x-hero > .x-rule { animation: rv-fade 1s ease .8s both; }
+
+      /* contour fields re-draw when re-entered from below: reset instantly while off-screen */
+      .x-draw:not(.is-in) path { transition-duration: 0s !important; transition-delay: 0s !important; }
+      .x-foot__band.x-drawbox svg path { stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 2200ms var(--ease-out); }
+      .x-foot__band.x-drawbox.is-in svg path { stroke-dashoffset: 0; }
+      .x-foot__band.x-drawbox:not(.is-in) svg path { transition-duration: 0s !important; transition-delay: 0s !important; }
+
+      /* parallax windows */
+      .px-win { overflow: hidden; }
+      .px-win > img { display: block; }
+      .px { will-change: transform; }
+
+      /* --- Origin: scroll-scrubbed chart + markers --- */
+      #origin .x-rule { color: #F2F2EEb8; }
+      #origin .o-sub { color: #F2F2EEe0; }
+      #origin .o-h { color: #F7F7F2; }
+      #origin .o-lbl { fill: #F2F2EEcc; }
+      .o-field { -webkit-mask-image: linear-gradient(170deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.25) 38%, #000 70%); mask-image: linear-gradient(170deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.25) 38%, #000 70%); }
+      .o-pin { transform-box: fill-box; transform-origin: center; }
+      .o-lead { stroke: #ff4d00; stroke-width: 1; vector-effect: non-scaling-stroke; }
+      .mo .o-mk { opacity: 0; transition: opacity .5s ease; }
+      .mo .o-mk.on { opacity: 1; }
+      .mo .o-mk .o-pin { transform: scale(.2); transition: transform .6s var(--ease-out); }
+      .mo .o-mk.on .o-pin { transform: none; }
+      .o-alt { font-variant-numeric: tabular-nums; }
+      .o-key, .o-axis { display: none; }
+      .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+      @media (max-width: 1024px) {
+        #origin .o-lbl { font-size: 15px; }
+        #origin .o-lbl-b { font-size: 17px; }
+      }
+
+      /* --- mobile menu: header button, slide-in sheet, scroll-up mini bar --- */
+      .m-btn { display: none; align-items: center; justify-content: flex-end; gap: 10px; min-height: var(--tap); min-width: var(--tap); padding: 0; margin: 0; border: 0; background: none; color: var(--x-ink); cursor: pointer; font: var(--weight-regular) var(--size-caption)/1 var(--x-mono); letter-spacing: .06em; text-transform: uppercase; }
+      .m-btn i { position: relative; display: block; width: 18px; height: 8px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+      .m-btn.m-close i { height: 0; border: 0; }
+      .m-btn.m-close i::before, .m-btn.m-close i::after { content: ""; position: absolute; left: 0; top: 0; width: 18px; border-top: 1px solid currentColor; transform: rotate(45deg); }
+      .m-btn.m-close i::after { transform: rotate(-45deg); }
+      .m-bar { position: fixed; left: 0; right: 0; top: 0; z-index: 65; display: none; align-items: center; justify-content: space-between; gap: 16px; padding: 4px var(--gutter); padding-top: max(4px, env(safe-area-inset-top)); background: var(--x-paper); border-bottom: 1px solid var(--x-ink); transform: translate3d(0, -101%, 0); visibility: hidden; transition: transform .35s var(--ease-out), visibility 0s linear .35s; }
+      .m-bar.is-shown { transform: none; visibility: visible; transition: transform .35s var(--ease-out), visibility 0s; }
+      .m-bar .x-word { font-size: 24px; }
+      .m-sheet { position: fixed; inset: 0; z-index: 90; height: 100vh; height: 100dvh; display: flex; flex-direction: column; gap: 24px; padding: 12px var(--gutter) max(20px, env(safe-area-inset-bottom)); padding-top: max(12px, env(safe-area-inset-top)); overflow-y: auto; overscroll-behavior: contain; background: var(--x-paper); opacity: 0; transform: translate3d(0, -12px, 0); transition: opacity .3s ease, transform .4s var(--ease-out); }
+      .m-sheet[hidden] { display: none; }
+      .m-sheet.is-open { opacity: 1; transform: none; }
+      .m-sheet__top { display: flex; align-items: center; justify-content: space-between; }
+      .m-sheet__top .m-btn { display: inline-flex; }
+      .m-sheet__nav { display: grid; margin-top: auto; border-bottom: 1px solid var(--x-ink); }
+      .m-sheet__nav a { display: flex; align-items: baseline; gap: 16px; min-height: 64px; padding: 14px 0 10px; border-top: 1px solid var(--x-ink); color: var(--x-green); text-decoration: none; font: 400 clamp(34px, 10vw, 48px)/1 var(--x-cond); text-transform: uppercase; opacity: 0; transform: translate3d(0, 14px, 0); transition: opacity .4s ease, transform .5s var(--ease-out); }
+      .m-sheet__nav a .x-cap { flex: 0 0 32px; }
+      .m-sheet.is-open .m-sheet__nav a { opacity: 1; transform: none; }
+      .m-sheet.is-open .m-sheet__nav a:nth-child(2) { transition-delay: .04s; }
+      .m-sheet.is-open .m-sheet__nav a:nth-child(3) { transition-delay: .08s; }
+      .m-sheet.is-open .m-sheet__nav a:nth-child(4) { transition-delay: .12s; }
+      .m-sheet.is-open .m-sheet__nav a:nth-child(5) { transition-delay: .16s; }
+      .m-sheet .x-rule { margin-top: 8px; }
+
+      /* tap targets on touch screens */
+      @media (pointer: coarse), (max-width: 760px) {
+        .x-foot__side nav .x-a { min-height: var(--tap); }
+      }
+
+      @media (max-width: 760px) {
+        .m-btn { display: inline-flex; }
+        .m-bar { display: flex; }
+        .x-top nav { display: none; }
+        .x-top { gap: 12px; }
+        .x-top .x-word { margin-right: auto; }
+        /* lighter grain on phones: drop the full-screen multiply blend (expensive while scrolling) */
+        body::after { mix-blend-mode: normal; opacity: .22; }
+        .mo [data-rv] { --rv-y: 20px; transition-duration: .6s, .8s; }
+        /* Origin chart: HTML key + axis replace the tiny in-chart labels */
+        .o-chart .o-lbl-b, .o-chart .o-lead, .o-chart .o-km { display: none; }
+        #origin .o-chart .o-lbl { font-size: 30px; }
+        .o-chart .o-pin { transform: scale(2.2); }
+        .mo .o-mk .o-pin { transform: scale(.4); }
+        .mo .o-mk.on .o-pin { transform: scale(2.2); }
+        .o-key { display: grid; gap: 4px; margin: 18px 0 0; padding: 0; list-style: none; color: #F2F2EE; }
+        .o-key li { display: flex; align-items: center; gap: 10px; min-height: 28px; }
+        .o-key li i { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #ff4d00; }
+        .o-key li b { font-weight: 500; color: #F2F2EEaa; margin-left: auto; }
+        .o-axis { display: flex; justify-content: space-between; gap: 12px; margin-top: 6px; padding-top: 8px; border-top: 1px solid #F2F2EE24; color: #F2F2EEaa; }
+        .mo .o-key li { opacity: 0; transform: translate3d(-8px, 0, 0); transition: opacity .45s ease, transform .5s var(--ease-out); }
+        .mo .o-key li.on { opacity: 1; transform: none; }
+        #origin .o-sub { margin-bottom: 28px; }
+        #origin .o-beats { margin-top: 36px; }
+        #origin .o-close { margin-top: 44px; gap: 18px; }
+        #origin .o-close svg { width: 64px; height: 64px; }
+      }
+      @media (max-width: 600px) {
+        .x-hero h1 { font-size: clamp(46px, 15.2vw, 72px); }
+        .x-quote { font-size: clamp(44px, 13vw, 64px); }
+        .x-g > .x-join__h { font-size: clamp(48px, 14vw, 72px); }
+        .x-g > .x-tagline { font-size: clamp(38px, 11.5vw, 60px); }
+        .x-hero__row .x-btn { width: 100%; }
+        .x-form .x-btn { width: 100%; }
+        .x-call { padding: 4px 6px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .alt-read, .m-bar, .m-sheet, .m-sheet__nav a { transition: none !important; }
+        .px { will-change: auto; }
+      }
     </style>
   </head>
   <body>
+    <div class="alt-bar" aria-hidden="true"></div>
+    <div class="alt-read x-cap" aria-hidden="true"><i></i><span>Alt</span><b>2,050</b><span>m</span></div>
+    <div class="m-bar" id="m-bar">
+      <a class="x-word" href="#top">Contour</a>
+      <button class="m-btn" type="button" data-menu-open aria-controls="m-sheet" aria-expanded="false"><span>Menu</span><i aria-hidden="true"></i></button>
+    </div>
+    <div class="m-sheet" id="m-sheet" role="dialog" aria-modal="true" aria-label="Sections" hidden>
+      <div class="m-sheet__top">
+        <a class="x-word" href="#top">Contour</a>
+        <button class="m-btn m-close" type="button"><span>Close</span><i aria-hidden="true"></i></button>
+      </div>
+      <nav class="m-sheet__nav" aria-label="Sections">
+        <a href="#manifesto"><span class="x-cap">01</span>Manifesto</a>
+        <a href="#piece"><span class="x-cap">02</span>The piece</a>
+        <a href="#specs"><span class="x-cap">03</span>Specs</a>
+        <a href="#notes"><span class="x-cap">04</span>Field notes</a>
+        <a href="#join"><span class="x-cap">05</span>Join</a>
+      </nav>
+      <div class="x-rule x-cap"><span>Expedition 01 — AW26</span><span>52.52°N 13.40°E</span></div>
+    </div>
     <div class="page" id="top">
       <main class="main">
         <section class="x-hero" aria-label="Expedition 01">
@@ -239,6 +400,7 @@
               <a class="x-a" href="#notes">04 Field notes</a>
               <a class="x-a" href="#join">05 Join</a>
             </nav>
+            <button class="m-btn" type="button" data-menu-open aria-controls="m-sheet" aria-expanded="false"><span>Menu</span><i aria-hidden="true"></i></button>
           </header>
           <div class="x-hero__body">
             <h1 class="x-display"><span>Every city</span><span>has a summit.</span></h1>
@@ -251,7 +413,7 @@
         </section>
 
         <figure class="x-plate x-ridge">
-          <img src="../hero-ridge.jpg" alt="A runner on an alpine ridge at dawn" />
+          <img src="../hero-ridge.jpg" srcset="hero-ridge-640.jpg 640w, hero-ridge-1080.jpg 1080w, ../hero-ridge.jpg 1376w" sizes="(max-width: 1184px) 94vw, 1088px" width="1376" height="768" fetchpriority="high" decoding="async" alt="A runner on an alpine ridge at dawn" />
           <figcaption class="x-cap"><span>Plate 01 — Ridgeline, first light</span><span>46.55°N 07.98°E · Alt 2,970 m · 05:42 local</span></figcaption>
         </figure>
 
@@ -286,7 +448,7 @@
             <article class="x-way--a">
               <figure class="x-spec-plate">
                 <div class="x-spec-plate__bar x-cap"><span>Colourway 01 — Contour 01</span><span>Front / Back · 52.52°N 13.40°E</span></div>
-                <img src="../a-v3-front-back.jpg" alt="Contour 01 long sleeve in bone, front and back, with cobalt topo grid and orange route print" />
+                <img src="../a-v3-front-back.jpg" srcset="a-v3-front-back-640.jpg 640w, a-v3-front-back-1080.jpg 1080w, ../a-v3-front-back.jpg 1408w" sizes="(max-width: 860px) 92vw, 620px" width="1408" height="768" loading="lazy" decoding="async" alt="Contour 01 long sleeve in bone, front and back, with cobalt topo grid and orange route print" />
               </figure>
               <div class="x-way__meta">
                 <p class="x-body">Bone with cobalt topo grid and orange route print.</p>
@@ -297,7 +459,7 @@
             <article class="x-way--b">
               <figure class="x-spec-plate">
                 <div class="x-spec-plate__bar x-cap"><span>Colourway 02 — Unknown Territory</span><span>Front / Back · 46.55°N 07.98°E</span></div>
-                <img src="../b-v3-front-back.jpg" alt="Unknown Territory long sleeve in forest green, front and back, with mint reflective mountain contours" />
+                <img src="../b-v3-front-back.jpg" srcset="b-v3-front-back-640.jpg 640w, ../b-v3-front-back.jpg 880w" sizes="(max-width: 860px) 92vw, 440px" width="880" height="1192" loading="lazy" decoding="async" alt="Unknown Territory long sleeve in forest green, front and back, with mint reflective mountain contours" />
               </figure>
               <div class="x-way__meta">
                 <p class="x-body">Forest green with mint / reflective mountain contours.</p>
@@ -308,7 +470,7 @@
             <article class="x-way--c">
               <figure class="x-spec-plate">
                 <div class="x-spec-plate__bar x-cap"><span>Colourway 03 — Night Ascent</span><span>Front / Back · 45.9224°N 7.6183°E</span></div>
-                <img src="../c-black-front-back.jpg" alt="Night Ascent long sleeve in black, front and back, with bone-white topo accents and sleeve coordinates" />
+                <img src="../c-black-front-back.jpg" srcset="c-black-front-back-640.jpg 640w, c-black-front-back-1080.jpg 1080w, ../c-black-front-back.jpg 2000w" sizes="(max-width: 860px) 92vw, 700px" width="2000" height="1090" loading="lazy" decoding="async" alt="Night Ascent long sleeve in black, front and back, with bone-white topo accents and sleeve coordinates" />
               </figure>
               <div class="x-way__meta">
                 <p class="x-body">Black with bone-white contours. Sleeves: Night Ascent · +1840 M / 45.9224°N · 7.6183°E.</p>
@@ -326,7 +488,7 @@
             <h2 class="x-display x-h2 x-spec__h">Built like equipment.</h2>
             <figure class="x-plate x-cuff">
               <div class="x-cuff__in">
-                <img src="../detail-cuff.jpg" alt="Cuff detail showing the thumbhole and curved watch window" />
+                <img src="../detail-cuff.jpg" srcset="detail-cuff-640.jpg 640w, detail-cuff-1080.jpg 1080w, ../detail-cuff.jpg 1408w" sizes="(max-width: 1184px) 92vw, 1060px" width="1408" height="768" loading="lazy" decoding="async" alt="Cuff detail showing the thumbhole and curved watch window" />
                 <svg viewBox="0 0 1408 768" preserveAspectRatio="none" aria-hidden="true">
                   <path d="M478 258V112H300" />
                   <rect class="x-tick" x="472" y="252" width="12" height="12" />
@@ -360,7 +522,7 @@
           <div class="x-rule x-cap"><span>04 / Field notes</span><span>Designed in Europe</span></div>
           <div class="x-g">
             <figure class="x-plate x-notes__fig">
-              <img src="../explorer-flatlay.jpg" alt="A topographic map, compass and folded shirt laid flat" />
+              <img src="../explorer-flatlay.jpg" srcset="explorer-flatlay-640.jpg 640w, explorer-flatlay-1080.jpg 1080w, ../explorer-flatlay.jpg 1408w" sizes="(max-width: 860px) 92vw, 700px" width="1408" height="768" loading="lazy" decoding="async" alt="A topographic map, compass and folded shirt laid flat" />
               <figcaption class="x-cap"><span>Plate 02 — Studio table</span><span>48.14°N 11.58°E</span></figcaption>
             </figure>
             <h2 class="x-display x-notes__h">Drawn from survey maps.</h2>
@@ -430,14 +592,20 @@
                 <path class="o-line" d="M0 162.9 L10 141.3 L20 127.2 L30 120.1 L40 111.7 L50 95.9 L60 75.6 L70 59.8 L80 54.0 L90 54.3 L100 52.1 L110 43.7 L120 34.7 L130 33.9 L140 43.3 L150 56.2 L160 64.0 L170 66.0 L180 69.4 L190 81.1 L200 99.0 L210 114.0 L220 118.8 L230 115.8 L240 113.3 L250 116.7 L260 122.4 L270 123.0 L280 116.8 L290 111.5 L300 117.1 L310 135.9 L320 160.3 L330 181.0 L340 196.0 L350 211.2 L360 232.2 L370 256.6 L380 275.3 L390 263.4 L400 275.4 L410 283.2 L420 288.3 L430 291.4 L440 293.4 L450 294.6 L460 295.3 L470 296.4 L480 296.1 L490 295.1 L500 295.1 L510 296.1 L520 296.4 L530 295.5 L540 294.9 L550 295.7 L560 296.4 L570 295.9 L580 295.0 L590 295.3 L600 296.3 L610 296.2 L620 295.3 L630 295.0 L640 295.9 L650 296.4 L660 295.7 L670 294.9 L680 295.5 L690 296.4 L700 296.1 L710 295.1 L720 295.1 L730 295.4 L740 293.2 L750 287.4 L760 284.0 L770 287.7 L780 293.3 L790 295.2 L800 294.9 L810 295.3 L820 296.3 L830 296.2 L840 295.2 L850 295.0 L860 295.9 L870 296.4 L880 295.6 L890 294.9 L900 295.5 L910 296.4 L920 296.1 L930 295.1 L940 295.1 L950 296.1 L960 296.4 L970 295.4 L980 294.9 L990 295.7 L1000 296.4"/>
                 <path class="o-route" d="M0 162.9 L10 141.3 L20 127.2 L30 120.1 L40 111.7 L50 95.9 L60 75.6 L70 59.8 L80 54.0 L90 54.3 L100 52.1 L110 43.7 L120 34.7 L130 33.9 L140 43.3 L150 56.2 L160 64.0 L170 66.0 L180 69.4 L190 81.1 L200 99.0 L210 114.0 L220 118.8 L230 115.8 L240 113.3 L250 116.7 L260 122.4 L270 123.0 L280 116.8 L290 111.5 L300 117.1 L310 135.9 L320 160.3 L330 181.0 L340 196.0 L350 211.2 L360 232.2 L370 256.6 L380 275.3 L390 263.4 L400 275.4 L410 283.2 L420 288.3 L430 291.4 L440 293.4 L450 294.6 L460 295.3 L470 296.4 L480 296.1 L490 295.1 L500 295.1 L510 296.1 L520 296.4 L530 295.5 L540 294.9 L550 295.7 L560 296.4 L570 295.9 L580 295.0 L590 295.3 L600 296.3 L610 296.2 L620 295.3 L630 295.0 L640 295.9 L650 296.4 L660 295.7 L670 294.9 L680 295.5 L690 296.4 L700 296.1 L710 295.1 L720 295.1 L730 295.4 L740 293.2 L750 287.4 L760 284.0 L770 287.7 L780 293.3 L790 295.2 L800 294.9 L810 295.3 L820 296.3 L830 296.2 L840 295.2 L850 295.0 L860 295.9 L870 296.4 L880 295.6 L890 294.9 L900 295.5 L910 296.4 L920 296.1 L930 295.1 L940 295.1 L950 296.1 L960 296.4 L970 295.4 L980 294.9 L990 295.7 L1000 296.4"/>
               </g>
-              <line x1="126" y1="40" x2="296" y2="-12" stroke="#ff4d00" stroke-width="1"/><circle class="o-pin" cx="120" cy="40.0" r="6"/>
-              <text class="o-lbl-b" x="300" y="-8">CERVINIA · 2050 M</text>
-              <circle class="o-pin" cx="760" cy="284.8" r="5"/>
-              <text class="o-lbl-b" x="760" y="268.8" text-anchor="middle">TEUFELSBERG · 120 M</text>
-              <circle class="o-pin" cx="960" cy="295.7" r="5"/>
-              <text class="o-lbl-b" x="955" y="265" text-anchor="end">BERLIN · 34 M</text>
-              <text class="o-lbl" x="0" y="344">KM 0</text><text class="o-lbl" x="1000" y="344" text-anchor="end">KM 1,000+</text>
+              <g class="o-mk" data-at=".1"><line class="o-lead" x1="126" y1="37" x2="300" y2="-10"/><circle class="o-pin" cx="120" cy="40.0" r="6"/>
+              <text class="o-lbl-b" x="306" y="-8">CERVINIA · 2050 M</text></g>
+              <g class="o-mk" data-at=".74"><line class="o-lead" x1="760" y1="278" x2="760" y2="246"/><circle class="o-pin" cx="760" cy="284.8" r="5"/>
+              <text class="o-lbl-b" x="760" y="238" text-anchor="middle">TEUFELSBERG · 120 M</text></g>
+              <g class="o-mk" data-at=".94"><circle class="o-pin" cx="960" cy="295.7" r="5"/>
+              <text class="o-lbl-b" x="1000" y="272" text-anchor="end">BERLIN · 34 M</text></g>
+              <text class="o-lbl o-km" x="0" y="344">KM 0</text><text class="o-lbl o-km" x="1000" y="344" text-anchor="end">KM 1,000+</text>
             </svg>
+            <ul class="o-key x-cap" aria-hidden="true">
+              <li data-at=".1"><i></i>Cervinia<b>2050 M</b></li>
+              <li data-at=".74"><i></i>Teufelsberg<b>120 M</b></li>
+              <li data-at=".94"><i></i>Berlin<b>34 M</b></li>
+            </ul>
+            <div class="o-axis x-cap" aria-hidden="true"><span>KM 0</span><span>KM 1,000+</span></div>
             <ol class="o-beats">
               <li class="o-beat"><div class="o-alt">2,050<small>M</small></div><span class="x-cap">01 · Under the Matterhorn</span><p>It started in the Alps above Cervinia, where every run goes up and every map is mostly contour lines.</p></li>
               <li class="o-beat"><div class="o-alt">34<small>M</small></div><span class="x-cap">02 · Then, Berlin</span><p>A flat, fast, beautiful city, with no mountain in sight. The runs got longer. The map went blank.</p></li>
@@ -448,10 +616,6 @@
               <p>Every graphic we print starts as a real contour line, so you carry the mountain with you, even when the city is flat.</p>
             </div>
           </div>
-          <script>
-            (function(){var s=document.getElementById('origin');if(!s)return;if(!('IntersectionObserver' in window)){s.classList.add('is-in');return;}
-            var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){s.classList.add('is-in');io.disconnect();}})},{threshold:.2});io.observe(s);})();
-          </script>
         </section>
 
         <section class="x-sec x-join" id="join" data-nav="Join" aria-labelledby="join-title">
@@ -465,7 +629,7 @@
               <p class="x-lede">Expedition 01 drops in limited numbers. Join the list for first access.</p>
               <form class="x-form" id="x-form" novalidate>
                 <label for="x-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
-                <input id="x-email" name="email" type="email" placeholder="you@trailhead.com" autocomplete="email" required />
+                <input id="x-email" name="email" type="email" placeholder="you@trailhead.com" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" required />
                 <button class="x-btn" type="submit">Join the list</button>
               </form>
               <div class="x-thanks" role="status" aria-live="polite">
@@ -517,18 +681,12 @@
 
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!reduce && "IntersectionObserver" in window) {
-          var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
-            });
-          }, { threshold: 0.1 });
           svgs.forEach(function (s) {
             [].slice.call(s.querySelectorAll("path")).forEach(function (p, i) {
               p.setAttribute("pathLength", "1");
               p.style.transitionDelay = Math.min(i * 30, 1200) + "ms";
             });
             s.classList.add("x-draw");
-            requestAnimationFrame(function () { io.observe(s); });
           });
         }
 
@@ -558,6 +716,246 @@
             err.textContent = "Signal lost. Try again in a moment.";
           });
         });
+      })();
+    </script>
+
+    <script>
+      /* CONTOUR motion + mobile layer: vanilla, rAF-batched, passive listeners, transform/opacity only. */
+      (function () {
+        "use strict";
+        var d = document, root = d.documentElement, W = window;
+        var reduce = W.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var smallMq = W.matchMedia("(max-width: 760px)");
+        var $ = function (s, c) { return (c || d).querySelector(s); };
+        var $$ = function (s, c) { return [].slice.call((c || d).querySelectorAll(s)); };
+        var clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
+        var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ","); };
+        var hasIO = "IntersectionObserver" in W;
+        if (reduce || !hasIO) root.classList.remove("mo");
+
+        /* ---------- mobile menu ---------- */
+        var sheet = $("#m-sheet"), bar = $("#m-bar"), opener = null;
+        var openBtns = $$("[data-menu-open]"), closeBtn = $(".m-close", sheet);
+        function setExpanded(v) { openBtns.forEach(function (b) { b.setAttribute("aria-expanded", v ? "true" : "false"); }); }
+        function openMenu(ev) {
+          opener = ev && ev.currentTarget;
+          sheet.hidden = false;
+          root.style.overflow = "hidden";
+          setExpanded(true);
+          void sheet.offsetWidth;
+          sheet.classList.add("is-open");
+          var first = $(".m-sheet__nav a", sheet); if (first) first.focus({ preventScroll: true });
+        }
+        function closeMenu(restore) {
+          if (sheet.hidden) return;
+          sheet.classList.remove("is-open");
+          root.style.overflow = "";
+          setExpanded(false);
+          var done = function () { sheet.hidden = true; };
+          if (reduce) done(); else setTimeout(done, 320);
+          if (restore !== false && opener) opener.focus({ preventScroll: true });
+        }
+        openBtns.forEach(function (b) { b.addEventListener("click", openMenu); });
+        if (closeBtn) closeBtn.addEventListener("click", function () { closeMenu(); });
+        $$("a", sheet).forEach(function (a) { a.addEventListener("click", function () { closeMenu(false); }); });
+        d.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeMenu();
+          if (e.key === "Tab" && !sheet.hidden) {
+            var f = $$("a, button", sheet), first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        });
+        smallMq.addEventListener && smallMq.addEventListener("change", function (m) { if (!m.matches) closeMenu(false); });
+
+        /* ---------- Origin markup helpers (counters stay accessible) ---------- */
+        var origin = $("#origin");
+        var counters = $$(".o-beat .o-alt").map(function (el, i) {
+          var node = el.firstChild, txt = node && node.nodeType === 3 ? node.nodeValue.trim() : "";
+          var to = parseInt(txt.replace(/,/g, ""), 10);
+          if (!txt || isNaN(to)) return null;
+          var from = [0, 2050, 34][i] != null ? [0, 2050, 34][i] : 0;
+          var vis = d.createElement("span"); vis.setAttribute("aria-hidden", "true"); vis.textContent = txt;
+          var sr = d.createElement("span"); sr.className = "sr"; sr.textContent = txt + " metres";
+          el.replaceChild(vis, node); el.insertBefore(sr, vis);
+          return { el: vis, from: from, to: to, raf: 0 };
+        });
+        function runCounter(c) {
+          if (!c) return;
+          cancelAnimationFrame(c.raf);
+          var t0 = performance.now(), dur = 1500;
+          (function step(now) {
+            var k = clamp((now - t0) / dur, 0, 1), e = 1 - Math.pow(1 - k, 3);
+            c.el.textContent = fmt(c.from + (c.to - c.from) * e);
+            if (k < 1) c.raf = requestAnimationFrame(step);
+          })(t0);
+        }
+        function resetCounter(c) { if (!c) return; cancelAnimationFrame(c.raf); c.el.textContent = fmt(c.from); }
+
+        /* ---------- reveal targets ---------- */
+        var groups = [
+          [".x-sec > .x-rule, .o-wrap > .x-rule", "fade"],
+          [".x-ridge"], [".x-quote"], [".x-mani__body"], [".x-pillars li", null, 90],
+          [".x-piece__h"], [".x-way--a"], [".x-way--b"], [".x-way--c"], [".x-tagline"],
+          [".x-spec__h"], [".x-cuff"], [".x-legend li", null, 70], [".x-specs .x-g > p.x-cap", "fade"], [".x-sizes"],
+          [".x-notes__fig"], [".x-notes__h"], [".x-notes__c1"], [".x-notes__c2"],
+          [".o-h"], [".o-sub"], [".o-beat", null, 140], [".o-close"],
+          [".x-join__h"], [".x-join__in > *:not(.x-thanks):not(.x-err)", null, 80],
+          [".x-foot__word"], [".x-foot__side"]
+        ];
+        var revealEls = [];
+        groups.forEach(function (g) {
+          $$(g[0]).forEach(function (el, i) {
+            el.setAttribute("data-rv", g[1] || "");
+            if (g[2]) el.style.setProperty("--rv-d", (i * g[2]) + "ms");
+            revealEls.push(el);
+          });
+        });
+        var beatIndex = function (el) { return $$(".o-beat").indexOf(el); };
+        function onIn(el) { if (el.classList.contains("o-beat")) runCounter(counters[beatIndex(el)]); }
+        function onOut(el) { if (el.classList.contains("o-beat")) resetCounter(counters[beatIndex(el)]); }
+
+        if (reduce || !hasIO) {
+          revealEls.forEach(function (el) { el.classList.add("is-in"); });
+          if (origin) origin.classList.add("is-in");
+          $$(".o-mk, .o-key li").forEach(function (el) { el.classList.add("on"); });
+        } else {
+          var below = function (e) { return e.boundingClientRect.top > (e.rootBounds ? e.rootBounds.bottom : W.innerHeight); };
+          var rio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { if (!e.target.classList.contains("is-in")) { e.target.classList.add("is-in"); onIn(e.target); } }
+              else if (below(e)) { e.target.classList.remove("is-in"); onOut(e.target); }
+            });
+          }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
+          revealEls.forEach(function (el) { rio.observe(el); });
+
+          /* contour fields: draw on entry, reset when they drop back below the fold, redraw on return */
+          var dio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) e.target.classList.add("is-in");
+              else if (below(e)) e.target.classList.remove("is-in");
+            });
+          }, { threshold: 0.08 });
+          $$(".x-draw").forEach(function (s) { dio.observe(s); });
+          var band = $(".x-foot__band");
+          if (band) {
+            $$("path", band).forEach(function (p, i) { p.setAttribute("pathLength", "1"); p.style.transitionDelay = Math.min(i * 60, 900) + "ms"; });
+            band.classList.add("x-drawbox"); dio.observe(band);
+          }
+          /* Origin rings + section state toggle too */
+          if (origin) {
+            var oio = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) origin.classList.add("is-in");
+                else if (below(e)) origin.classList.remove("is-in");
+              });
+            }, { threshold: 0.12 });
+            oio.observe(origin);
+          }
+        }
+
+        /* ---------- scroll engine: progress bar, altitude readout, parallax, chart scrub, mini bar ---------- */
+        var altBar = $(".alt-bar"), altRead = $(".alt-read"), altNum = altRead && $("b", altRead);
+        var hero = $(".x-hero");
+        var chart = $(".o-chart"), mask = chart && $(".o-mask", chart);
+        var marks = chart ? $$(".o-mk", chart) : [];
+        var keys = $$(".o-key li");
+        var px = [];
+        var vh = W.innerHeight, docMax = 1, heroBottom = 0, chartTop = 0, chartH = 0;
+        var chartP = reduce ? 1 : 0, chartTarget = chartP, lastY = W.scrollY || 0, ticking = false, settling = false;
+
+        if (!reduce && hasIO) {
+          if (hero) { var hf = $(".x-field", hero); if (hf) px.push({ el: hf, ref: hero, mode: "top", k: .18, km: .08 }); }
+          $$(".x-mani, .x-piece, .x-notes, .x-join").forEach(function (s) {
+            var f = $(":scope > .x-field", s); if (f) px.push({ el: f, ref: s, mode: "center", k: -.07, km: -.035 });
+          });
+          [[".x-ridge img", 1.16, .09], [".x-notes__fig img", 1.14, .07]].forEach(function (c) {
+            var img = $(c[0]); if (!img) return;
+            var win = d.createElement("div"); win.className = "px-win";
+            img.parentNode.insertBefore(win, img); win.appendChild(img);
+            px.push({ el: img, ref: win, mode: "img", s: c[1], k: c[2], km: c[2] * .55 });
+          });
+          px.forEach(function (p) { p.el.classList.add("px"); });
+          if (mask) mask.style.transition = "none";
+        }
+
+        function measure() {
+          var y = W.scrollY || 0, small = smallMq.matches;
+          vh = W.innerHeight;
+          docMax = Math.max(1, root.scrollHeight - vh);
+          heroBottom = hero ? hero.getBoundingClientRect().bottom + y : 0;
+          if (chart) { var r = chart.getBoundingClientRect(); chartTop = r.top + y; chartH = r.height; }
+          px.forEach(function (p) {
+            var r = p.ref.getBoundingClientRect();
+            p.top = r.top + y; p.h = r.height; p.kk = small ? p.km : p.k;
+          });
+          update(true);
+        }
+
+        function update(force) {
+          var y = W.scrollY || 0, p = clamp(y / docMax, 0, 1), small = smallMq.matches;
+          if (altBar) altBar.style.transform = "scaleX(" + p.toFixed(4) + ")";
+          if (altRead) {
+            altRead.classList.toggle("is-on", y > vh * .5);
+            var alt = fmt(2050 - p * (2050 - 34));
+            if (altNum.textContent !== alt) altNum.textContent = alt;
+          }
+          if (bar) {
+            var dy = y - lastY;
+            if (y < heroBottom * .8 || !smallMq.matches) bar.classList.remove("is-shown");
+            else if (dy < -6) bar.classList.add("is-shown");
+            else if (dy > 6) bar.classList.remove("is-shown");
+          }
+          lastY = y;
+          for (var i = 0; i < px.length; i++) {
+            var q = px[i];
+            if (y + vh < q.top - 200 || y > q.top + q.h + 200) continue;
+            if (q.mode === "top") {
+              q.el.style.transform = "translate3d(0," + (y * q.kk).toFixed(1) + "px,0)";
+            } else {
+              var c = (q.top + q.h / 2) - (y + vh / 2);
+              if (q.mode === "img") {
+                var cover = q.h * (q.s - 1) / 2, t = clamp(-c * q.kk, -cover, cover);
+                q.el.style.transform = "translate3d(0," + t.toFixed(1) + "px,0) scale(" + q.s + ")";
+              } else {
+                q.el.style.transform = "translate3d(0," + (c * q.kk).toFixed(1) + "px,0)";
+              }
+            }
+          }
+          if (mask && !reduce) {
+            var start = vh * .95, end = vh * .85 - chartH;
+            var top = chartTop - y;
+            chartTarget = clamp((start - top) / Math.max(1, start - end), 0, 1);
+            if (force === true && chartP === 0 && chartTarget > 0 && top < 0) chartP = chartTarget;
+            settle();
+          }
+        }
+
+        function paintChart() {
+          mask.style.strokeDashoffset = (1400 * (1 - chartP)).toFixed(1);
+          for (var i = 0; i < marks.length; i++) marks[i].classList.toggle("on", chartP >= +marks[i].getAttribute("data-at"));
+          for (var j = 0; j < keys.length; j++) keys[j].classList.toggle("on", chartP >= +keys[j].getAttribute("data-at"));
+        }
+        function settle() {
+          if (settling) return; settling = true;
+          requestAnimationFrame(function loop() {
+            var diff = chartTarget - chartP;
+            chartP = Math.abs(diff) < .002 ? chartTarget : chartP + diff * .16;
+            paintChart();
+            if (chartP !== chartTarget) requestAnimationFrame(loop); else settling = false;
+          });
+        }
+
+        W.addEventListener("scroll", function () {
+          if (ticking) return; ticking = true;
+          requestAnimationFrame(function () { ticking = false; update(); });
+        }, { passive: true });
+        var rt; W.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(measure, 120); }, { passive: true });
+        W.addEventListener("load", measure);
+        if (d.fonts && d.fonts.ready) d.fonts.ready.then(measure);
+        if ("ResizeObserver" in W) { var ro = new ResizeObserver(function () { clearTimeout(rt); rt = setTimeout(measure, 120); }); ro.observe(d.body); }
+        measure();
+        if (mask && reduce) { mask.style.strokeDashoffset = "0"; marks.concat(keys).forEach(function (m) { m.classList.add("on"); }); }
       })();
     </script>
   </body>
