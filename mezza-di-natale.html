@@ -118,7 +118,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
             </div>
           </fieldset>
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-          <label class="consent"><input type="checkbox" name="consenso" value="si" required /><span>Acconsento al trattamento dei miei dati (nome, email, distanza) per l'organizzazione della corsa. I dati restano in un foglio privato e vengono cancellati entro 30 giorni dall'evento. <a href="privacy.html#race">Privacy</a></span></label>
+          <label class="consent"><input type="checkbox" name="consenso" value="si" required /><span>Acconsento al trattamento dei miei dati (nome, email, distanza) per l'organizzazione della corsa. I dati arrivano solo all'organizzatore e vengono cancellati entro 30 giorni dall'evento. <a href="privacy.html#race">Privacy</a></span></label>
           <p class="cap err" id="err" aria-live="assertive"></p>
           <button class="cta" type="submit" style="margin-top:0">Iscrivimi</button>
         </form>
@@ -149,10 +149,16 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
     if(!f.consenso.checked){err.textContent="Serve il consenso per iscriverti.";return}
     var b=new URLSearchParams();d.forEach(function(v,k){b.append(k,String(v).trim())});b.append("fonte","sito");
     var btn=f.querySelector("button");btn.disabled=true;btn.textContent="Invio…";
-    if(ENDPOINT.indexOf("http")!==0){err.textContent="Iscrizioni in apertura a breve: riprova tra qualche giorno.";btn.disabled=false;btn.textContent="Iscrivimi";return}
-    fetch(ENDPOINT,{method:"POST",body:b}).then(function(r){return r.json()}).then(function(j){
-      if(j&&j.ok){box.classList.add("sent")}else{throw 0}
-    }).catch(function(){err.textContent="Invio non riuscito. Riprova tra poco.";btn.disabled=false;btn.textContent="Iscrivimi"});
+    if(f.website&&f.website.value){box.classList.add("sent");return}
+    var fail=function(){err.textContent="Invio non riuscito. Riprova tra poco.";btn.disabled=false;btn.textContent="Iscrivimi"};
+    if(ENDPOINT.indexOf("http")===0){
+      fetch(ENDPOINT,{method:"POST",body:b}).then(function(r){return r.json()}).then(function(j){if(j&&j.ok){box.classList.add("sent")}else{throw 0}}).catch(fail);
+      return;
+    }
+    var o={_subject:"Iscrizione Mezza di Natale: "+f.nome.value.trim()+" "+f.cognome.value.trim()+" ("+d.get("distanza")+" km)",_template:"table",_captcha:"false",
+      Nome:f.nome.value.trim(),Cognome:f.cognome.value.trim(),Email:f.email.value.trim(),Distanza:d.get("distanza")==="21"?"21,1 km":"10 km",Consenso:"si",Data:new Date().toISOString(),Fonte:"sito"};
+    fetch("https://formsubmit.co/ajax/luizramba01@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)})
+      .then(function(r){return r.json()}).then(function(j){if(j&&(j.success===true||j.success==="true")){box.classList.add("sent")}else{throw 0}}).catch(fail);
   });
 })();
 </script>
