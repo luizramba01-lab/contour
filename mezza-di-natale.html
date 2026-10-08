@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mezza di Natale · 20.12.2026 · Arenzano — CONTOUR</title>
+<meta name="description" content="Mezza maratona & 10 km vista mare. Domenica 20 dicembre 2026, Arenzano (GE). Iscriviti." />
+<meta property="og:title" content="Mezza di Natale — Arenzano, 20.12.2026" />
+<meta property="og:description" content="Mezza maratona & 10 km vista mare. Iscriviti." />
+<meta property="og:image" content="https://luizramba01-lab.github.io/contour/og-mezza-di-natale.jpg" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="contour-fonts.css" />
+<style>
+:root{--paper:#EFE9DC;--ink:#151515;--green:#1E4636;--orange:#F0531C;--cobalt:#2E4FA3;--cond:"Anton",Impact,"Arial Narrow",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--sans:"Geist",system-ui,sans-serif;--cell:135px}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;color:var(--ink);font:400 16px/1.55 var(--sans);background-color:var(--paper);
+ background-image:linear-gradient(to right,rgba(46,79,163,.22) 1px,transparent 1px),linear-gradient(to bottom,rgba(46,79,163,.22) 1px,transparent 1px);
+ background-size:var(--cell) var(--cell);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.cap{font:500 12.5px/1.45 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.rule{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 24px;padding-top:12px;border-top:1px solid var(--ink)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.word{font:400 30px/1 var(--cond);text-transform:uppercase;text-decoration:none;letter-spacing:.01em}
+.top a.cap{text-decoration:none}
+.top a.cap:hover{text-decoration:underline;text-underline-offset:4px}
+.hero{padding:clamp(28px,5vw,56px) 0 0}
+.map{position:relative;margin:clamp(16px,3vw,32px) calc(-1*clamp(18px,4vw,48px)) 0}
+.map img{display:block;width:100%;height:auto}
+.lbl{position:absolute;transform:translateY(-80%);font-size:clamp(9px,1.5vw,15px);white-space:nowrap}
+h1{margin:clamp(8px,1.5vw,20px) 0 0;position:relative;font:400 clamp(64px,13.5vw,176px)/.88 var(--cond);text-transform:uppercase;letter-spacing:.005em}
+.sub{margin:18px 0 6px;font:500 clamp(20px,2.6vw,32px)/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.when{margin:0;font:500 clamp(15px,1.6vw,19px)/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:28px;padding:0 26px;border:0;background:var(--ink);color:var(--paper);font:500 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.cta:hover{background:var(--green)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:clamp(56px,8vw,96px) 0 0;border-top:1px solid var(--ink)}
+.facts div{padding:16px 16px 18px 0;border-right:1px solid rgba(21,21,21,.25)}
+.facts div:last-child{border-right:0}
+.facts dt{opacity:.7}
+.facts dd{margin:6px 0 0;font:400 clamp(22px,2.4vw,30px)/1.05 var(--cond);text-transform:uppercase}
+.sec{padding-top:clamp(64px,9vw,112px)}
+.sec .rule{margin-bottom:clamp(28px,4vw,48px)}
+.g{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,64px);align-items:start}
+h2{margin:0;font:400 clamp(44px,6.5vw,88px)/.9 var(--cond);text-transform:uppercase}
+.lede{font-size:clamp(17px,1.6vw,19px);max-width:38ch;margin:18px 0 0}
+form{display:grid;gap:18px;background:var(--paper);border:1px solid var(--ink);padding:clamp(20px,3vw,32px)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label.f{display:grid;gap:6px}
+input[type=text],input[type=email]{width:100%;min-height:50px;padding:0 14px;border:1px solid var(--ink);border-radius:0;background:#fff8ec;font:400 16px var(--sans);color:var(--ink)}
+input:focus{outline:2px solid var(--orange);outline-offset:0}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+legend{padding:0;margin-bottom:8px}
+.dist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dist label{position:relative;display:block;cursor:pointer}
+.dist input{position:absolute;opacity:0;inset:0}
+.dist span{display:grid;gap:4px;min-height:84px;padding:14px;border:1px solid var(--ink);background:#fff8ec}
+.dist b{font:400 30px/1 var(--cond);text-transform:uppercase}
+.dist input:checked+span{background:var(--ink);color:var(--paper)}
+.dist input:focus-visible+span{outline:2px solid var(--orange);outline-offset:3px}
+.consent{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:14px;line-height:1.45}
+.consent input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--ink)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{color:#b3261e;min-height:1em;margin:0}
+.thanks{display:none;border:1px solid var(--ink);padding:clamp(20px,3vw,32px);background:var(--paper)}
+.thanks h3{margin:8px 0;font:400 clamp(36px,4.5vw,56px)/.95 var(--cond);text-transform:uppercase}
+.sent form{display:none}.sent .thanks{display:block}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--orange);margin-right:10px;vertical-align:-1px}
+footer{margin-top:clamp(72px,10vw,128px);padding:14px 0 40px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid rgba(21,21,21,.25)}.g{grid-template-columns:1fr}.row{grid-template-columns:1fr}.top .hide-s{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="word" href="./">Contour</a>
+    <span class="cap hide-s">Evento 01 · Arenzano</span>
+    <a class="cap" href="#iscriviti">Iscriviti →</a>
+  </header>
+
+  <section class="hero">
+    <div class="rule cap"><span>Evento 01 / Arenzano (GE)</span><span>44°23′58″N · 8°41′08″E</span></div>
+    <div class="map"><span class="cap lbl" style="left:11.6%;top:82.5%">Giro di boa</span><span class="cap lbl" style="right:9.5%;top:15.2%">Partenza · Arrivo</span><img src="route-map-mezza.svg" width="1080" height="720" alt="Mappa del percorso: dal punto di partenza e arrivo ad Arenzano lungo il mare fino al giro di boa verso Cogoleto, linee di livello delle colline sopra la costa" /></div>
+    <h1>Mezza di Natale.</h1>
+    <p class="sub">Mezza maratona &amp; 10 km</p>
+    <p class="when">Arenzano (GE) · Domenica 20.12.2026</p>
+    <a class="cta" href="#iscriviti">Iscriviti alla corsa</a>
+    <dl class="facts">
+      <div><dt class="cap">Data</dt><dd>20.12.2026</dd></div>
+      <div><dt class="cap">Distanze</dt><dd>21,1 km · 10 km</dd></div>
+      <div><dt class="cap">Partenza · Arrivo</dt><dd>Arenzano</dd></div>
+      <div><dt class="cap">Percorso</dt><dd>Vista mare, andata e ritorno</dd></div>
+    </dl>
+  </section>
+
+  <section class="sec" id="iscriviti" aria-labelledby="t-iscr">
+    <div class="rule cap"><span>Iscrizioni</span><span>Every city has a summit.</span></div>
+    <div class="g" id="box">
+      <div>
+        <h2 id="t-iscr">Corri con noi.</h2>
+        <p class="lede">Lasciaci nome, email e distanza. Ti scriviamo noi con orario di partenza e dettagli prima della gara.</p>
+      </div>
+      <div>
+        <form id="f" novalidate>
+          <div class="row">
+            <label class="f"><span class="cap">Nome</span><input type="text" name="nome" autocomplete="given-name" required maxlength="60" /></label>
+            <label class="f"><span class="cap">Cognome</span><input type="text" name="cognome" autocomplete="family-name" required maxlength="60" /></label>
+          </div>
+          <label class="f"><span class="cap">Email</span><input type="email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required maxlength="120" /></label>
+          <fieldset>
+            <legend class="cap">Distanza</legend>
+            <div class="dist">
+              <label><input type="radio" name="distanza" value="21" required /><span><b>21,1 km</b><small class="cap">Mezza maratona</small></span></label>
+              <label><input type="radio" name="distanza" value="10" /><span><b>10 km</b><small class="cap">Corsa breve</small></span></label>
+            </div>
+          </fieldset>
+          <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+          <label class="consent"><input type="checkbox" name="consenso" value="si" required /><span>Acconsento al trattamento dei miei dati (nome, email, distanza) per l'organizzazione della corsa. I dati restano in un foglio privato e vengono cancellati entro 30 giorni dall'evento. <a href="privacy.html#race">Privacy</a></span></label>
+          <p class="cap err" id="err" aria-live="assertive"></p>
+          <button class="cta" type="submit" style="margin-top:0">Iscrivimi</button>
+        </form>
+        <div class="thanks" role="status" aria-live="polite">
+          <p class="cap"><span class="dot"></span>Posizione registrata</p>
+          <h3>Ci vediamo al via.</h3>
+          <p class="cap">Ti scriviamo con orario e dettagli prima del 20.12.2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cap">
+    <span>Contour · Every city has a summit.</span>
+    <span><a href="./">Home</a> · <a href="privacy.html">Privacy</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+  var ENDPOINT="__ENDPOINT__";
+  var f=document.getElementById("f"),err=document.getElementById("err"),box=document.getElementById("box");
+  f.addEventListener("submit",function(e){
+    e.preventDefault();err.textContent="";
+    var d=new FormData(f);
+    if(!f.nome.value.trim()||!f.cognome.value.trim()){err.textContent="Inserisci nome e cognome.";return}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())){err.textContent="Controlla l'indirizzo email.";return}
+    if(!d.get("distanza")){err.textContent="Scegli la distanza.";return}
+    if(!f.consenso.checked){err.textContent="Serve il consenso per iscriverti.";return}
+    var b=new URLSearchParams();d.forEach(function(v,k){b.append(k,String(v).trim())});b.append("fonte","sito");
+    var btn=f.querySelector("button");btn.disabled=true;btn.textContent="Invio…";
+    if(ENDPOINT.indexOf("http")!==0){err.textContent="Iscrizioni in apertura a breve: riprova tra qualche giorno.";btn.disabled=false;btn.textContent="Iscrivimi";return}
+    fetch(ENDPOINT,{method:"POST",body:b}).then(function(r){return r.json()}).then(function(j){
+      if(j&&j.ok){box.classList.add("sent")}else{throw 0}
+    }).catch(function(){err.textContent="Invio non riuscito. Riprova tra poco.";btn.disabled=false;btn.textContent="Iscrivimi"});
+  });
+})();
+</script>
+</body>
+</html>

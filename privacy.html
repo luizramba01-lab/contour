@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Datenschutz / Privacy — CONTOUR</title>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="contour-fonts.css" />
+    <link rel="stylesheet" href="../hark.css" />
+    <style>
+      :root, :root[data-theme] { color-scheme: light; }
+      :root { --x-paper: #f2eee4; --x-ink: #141414; --x-green: #173b2a; --x-orange: #e8642c; --x-cobalt: #3b4bc8;
+        --x-cond: "Anton", "Oswald", Impact, "Arial Narrow", sans-serif; --x-mono: "IBM Plex Mono", ui-monospace, monospace; --x-cell: 240px; }
+      html { background: var(--x-paper); }
+      body { margin: 0; background-color: var(--x-paper); color: var(--x-ink);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cpath d='M0 .5H240M.5 0V240' fill='none' stroke='%233B4BC8' stroke-opacity='.28'/%3E%3C/svg%3E");
+        background-size: var(--x-cell) var(--x-cell); background-position: center top;
+        font: var(--weight-regular) var(--size-body)/1.6 var(--sans); }
+      :focus-visible { outline: 2px solid var(--x-orange); outline-offset: 3px; }
+      ::selection { background: var(--x-green); color: var(--x-paper); }
+      .x-cap { font: var(--weight-regular) var(--size-caption)/1.45 var(--x-mono); letter-spacing: 0.06em; text-transform: uppercase; }
+      .x-display { margin: 0; font-family: var(--x-cond); font-weight: 400; text-transform: uppercase; line-height: 0.9; color: var(--x-green); }
+      .x-rule { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 12px; border-top: 1px solid var(--x-ink); }
+      .x-a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap, 44px); }
+      .x-a:hover { text-decoration: underline; text-underline-offset: 4px; }
+      .x-word { font: 400 clamp(28px, 3vw, 38px)/1 var(--x-cond); color: var(--x-green); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; min-height: 44px; }
+      .l-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+      .l-top nav { display: flex; gap: 0 20px; flex-wrap: wrap; }
+      .l-head { padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(32px, 5vw, 56px); }
+      .l-head h1 { font-size: clamp(56px, 11vw, 150px); margin-top: 20px; }
+      .l-lang { display: flex; gap: 0 20px; margin-top: 24px; }
+      .l-lang a { text-decoration: underline; text-underline-offset: 4px; }
+      .l-note { margin-top: 28px; max-width: 70ch; padding: 14px 16px; border: 1px dashed var(--x-orange); background: rgba(232,100,44,.07); font: var(--weight-regular) var(--size-small)/1.5 var(--sans); }
+      .l-doc { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2.4vw, 32px); padding-bottom: clamp(48px, 7vw, 96px); }
+      .l-doc > .x-rule { grid-column: 1 / -1; margin-bottom: clamp(28px, 4vw, 48px); }
+      .l-doc > .l-body { grid-column: 3 / span 8; }
+      .l-body h2 { font: 400 clamp(30px, 3.6vw, 44px)/1 var(--x-cond); text-transform: uppercase; color: var(--x-green); margin: 0 0 18px; }
+      .l-body h3 { font: var(--weight-medium) var(--size-caption)/1.45 var(--x-mono); letter-spacing: .06em; text-transform: uppercase; margin: 36px 0 10px; padding-top: 12px; border-top: 1px solid var(--x-ink); }
+      .l-body p, .l-body li { font-size: var(--size-prose); line-height: 1.6; max-width: 66ch; overflow-wrap: anywhere; }
+      .l-body p { margin: 0 0 12px; }
+      .l-body p.x-cap { font-size: var(--size-caption); line-height: 1.45; }
+      .l-body ul { margin: 0 0 12px; padding-left: 20px; }
+      .l-body address { font-style: normal; }
+      .l-body a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+      mark.ph { background: var(--x-orange); color: #141414; padding: 0 4px; font: var(--weight-medium) 0.9em/1.4 var(--x-mono); }
+      .l-foot { padding-block: 16px 32px; }
+      .l-foot nav { display: flex; flex-wrap: wrap; gap: 0 20px; }
+      @media (max-width: 860px) { .l-doc > .l-body { grid-column: 1 / -1; } }
+      @media (max-width: 760px) { :root { --x-cell: 180px; } .l-top nav .x-a.l-hide { display: none; } }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="l-top">
+        <a class="x-word" href="index.html">Contour</a>
+        <nav class="x-cap" aria-label="Site">
+          <a class="x-a l-hide" href="index.html">Home</a>
+          
+          <a class="x-a" href="privacy.html" aria-current="page">Privacy</a>
+        </nav>
+      </header>
+      <main>
+        <section class="l-head">
+          <div class="x-rule x-cap"><span>Datenschutz · Privacy</span><span>Contour — working name</span></div>
+          <h1 class="x-display">Datenschutz<br />Privacy</h1>
+          <p class="x-cap l-lang"><a href="#de">Deutsch</a><a href="#en">English</a></p>
+          <p class="l-note"><b>Draft · Entwurf.</b> Highlighted fields are placeholders to be completed before this page goes live. / Markierte Felder sind Platzhalter und vor Veröffentlichung auszufüllen.</p>
+        </section>
+        <section class="l-doc" id="de" lang="de">
+          <div class="x-rule x-cap"><span>DE</span><span>Deutsch</span></div>
+          <div class="l-body">
+            <h2>Datenschutzerklärung</h2>
+            <p class="x-cap">Stand: Oktober 2026</p>
+            <h3>1. Verantwortlicher</h3>
+            <address><p>Luigi Ramba<br />E-Mail: <a href="mailto:luizramba01@gmail.com">luizramba01@gmail.com</a></p></address>
+            <p>Ein Datenschutzbeauftragter ist nicht benannt, da hierzu keine gesetzliche Pflicht besteht.</p>
+            <h3>2. Das Wichtigste in Kürze</h3>
+            <ul>
+              <li>Wir setzen keine Cookies, keine Analyse- oder Tracking-Tools, keine Werbe-Pixel und keine Social-Media-Plugins ein.</li>
+              <li>Schriftarten werden lokal von unserem Webspace geladen; es findet keine Verbindung zu Google Fonts statt.</li>
+              <li>Personenbezogene Daten verarbeiten wir nur beim Hosting der Website (technisch notwendig) und wenn Sie sich freiwillig für unsere E-Mail-Liste oder für eine Veranstaltung anmelden.</li>
+            </ul>
+            <h3>3. Hosting über GitHub Pages</h3>
+            <p>Diese Website wird bei GitHub Pages gehostet, einem Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Website verarbeitet GitHub technisch notwendige Daten, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Abrufs, die aufgerufene Seite sowie Browser- und Geräteinformationen. Nach eigenen Angaben speichert GitHub die IP-Adressen der Besucher zu Sicherheitszwecken. Wir haben auf diese Protokolle keinen Zugriff.</p>
+            <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der sicheren und zuverlässigen Bereitstellung der Website. Die Daten werden in die USA übermittelt. GitHub ist unter dem EU-US Data Privacy Framework zertifiziert; für die USA besteht insoweit ein Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
+            <h3 id="de-anmeldung">4. Anmeldung zur E-Mail-Liste (Early Access)</h3>
+            <p>Wenn Sie sich auf unserer Website für die E-Mail-Liste eintragen, verarbeiten wir Ihre E-Mail-Adresse sowie den Zeitpunkt Ihrer Einwilligung, um Sie über den Start von „Expedition 01“ und künftige Produkte von Contour zu informieren. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie über das Kontrollkästchen im Formular erteilen.</p>
+            <p>Die Formulardaten werden über den Dienst FormSubmit (formsubmit.co, betrieben von Devro LABS) an unser E-Mail-Postfach weitergeleitet. FormSubmit kann die übermittelten Daten dabei vorübergehend verarbeiten und speichern und hat seinen Sitz nach öffentlich verfügbaren Angaben außerhalb der EU (Sri Lanka); für dieses Land besteht kein Angemessenheitsbeschluss der EU-Kommission, sodass ein mit der EU vergleichbares Datenschutzniveau nicht garantiert ist. Die Übermittlung erfolgt auf Grundlage Ihrer ausdrücklichen Einwilligung (Art. 49 Abs. 1 lit. a DSGVO). Die eingehenden Anmeldungen empfangen wir in einem E-Mail-Postfach bei Google (Gmail; Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland), wobei Daten auch an Google LLC in den USA übermittelt werden können (EU-US Data Privacy Framework).</p>
+            <p>Ihre E-Mail-Adresse speichern wir, bis Sie sich abmelden oder Ihre Einwilligung widerrufen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, über den Abmeldelink in unseren E-Mails oder per E-Mail an <a href="mailto:luizramba01@gmail.com">luizramba01@gmail.com</a>. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt. Die Angabe Ihrer E-Mail-Adresse ist freiwillig; ohne sie können wir Sie jedoch nicht informieren.</p>
+            <h3 id="de-rennen">4a. Anmeldung zur „Mezza di Natale“ (Lauf am 20.12.2026)</h3>
+            <p>Wenn Sie sich für den Lauf anmelden, verarbeiten wir Vor- und Nachname, E-Mail-Adresse, die gewählte Distanz und den Zeitpunkt der Anmeldung, um die Veranstaltung zu organisieren und Sie über Startzeit und Details zu informieren. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Die Daten werden über Google Apps Script in einer privaten Google-Tabelle gespeichert, auf die nur wir Zugriff haben (Google Ireland Limited / Google LLC; Übermittlung in die USA auf Grundlage des EU-US Data Privacy Framework, Art. 45 DSGVO). Wir löschen die Daten spätestens 30 Tage nach der Veranstaltung. Sie können Ihre Einwilligung jederzeit per E-Mail an <a href="mailto:luizramba01@gmail.com">luizramba01@gmail.com</a> widerrufen.</p>
+            <h3>5. Kontakt per E-Mail</h3>
+            <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht), um Ihre Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO). Wir löschen die Daten, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+            <h3>6. Ihre Rechte</h3>
+            <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18) und Datenübertragbarkeit (Art. 20) sowie das Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen (Art. 7 Abs. 3 DSGVO).</p>
+            <p><b>Widerspruchsrecht:</b> Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, können Sie aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen (Art. 21 DSGVO).</p>
+            <p><b>Beschwerderecht:</b> Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO), z. B. bei der Berliner Beauftragten für Datenschutz und Informationsfreiheit, Alt-Moabit 59–61, 10555 Berlin.</p>
+            <h3>7. Sicherheit und automatisierte Entscheidungen</h3>
+            <p>Die Website wird ausschließlich verschlüsselt über HTTPS ausgeliefert. Eine automatisierte Entscheidungsfindung einschließlich Profiling findet nicht statt.</p>
+            <h3>8. Änderungen</h3>
+            <p>Wir passen diese Datenschutzerklärung an, sobald sich die Website oder die eingesetzten Dienste ändern (z. B. bei Eröffnung eines Onlineshops). Es gilt die jeweils hier veröffentlichte Fassung.</p>
+          </div>
+        </section>
+        <section class="l-doc" id="en" lang="en">
+          <div class="x-rule x-cap"><span>EN</span><span>English</span></div>
+          <div class="l-body">
+            <h2>Privacy policy</h2>
+            <p class="x-cap">Last updated: October 2026</p>
+            <h3>1. Controller</h3>
+            <address><p>Luigi Ramba<br />Email: <a href="mailto:luizramba01@gmail.com">luizramba01@gmail.com</a></p></address>
+            <p>No data protection officer has been appointed, as there is no legal obligation to do so.</p>
+            <h3>2. In short</h3>
+            <ul>
+              <li>We use no cookies, no analytics or tracking tools, no advertising pixels and no social media plugins.</li>
+              <li>Fonts are served from our own web space; no connection is made to Google Fonts.</li>
+              <li>We only process personal data to host the website (technically necessary) and when you choose to join our email list or sign up for an event.</li>
+            </ul>
+            <h3>3. Hosting on GitHub Pages</h3>
+            <p>This website is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you visit, GitHub processes technically necessary data, in particular your IP address, date and time of access, the page requested and browser and device information. According to GitHub, visitors’ IP addresses are logged and stored for security purposes. We have no access to these logs.</p>
+            <p>Legal basis: Art. 6(1)(f) GDPR; our legitimate interest is providing the website securely and reliably. Data are transferred to the USA. GitHub is certified under the EU-US Data Privacy Framework, which is covered by an adequacy decision of the European Commission (Art. 45 GDPR). More: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
+            <h3 id="signup">4. Joining the email list (early access)</h3>
+            <p>If you join our email list, we process your email address and the time you gave consent, in order to tell you about the launch of “Expedition 01” and future Contour products. The legal basis is your consent (Art. 6(1)(a) GDPR), given via the checkbox in the form.</p>
+            <p>The form data are forwarded to our inbox via the service FormSubmit (formsubmit.co, operated by Devro LABS). FormSubmit may process and temporarily store the data it relays and, according to publicly available information, is based outside the EU (Sri Lanka). There is no EU adequacy decision for that country, so a level of data protection comparable to the EU cannot be guaranteed. The transfer is based on your explicit consent (Art. 49(1)(a) GDPR). We receive sign-ups in an email inbox at Google (Gmail; Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Ireland); data may also be transferred to Google LLC in the USA (EU-US Data Privacy Framework).</p>
+            <p>We keep your email address until you unsubscribe or withdraw consent. You can withdraw consent at any time with effect for the future, via the unsubscribe link in our emails or by writing to <a href="mailto:luizramba01@gmail.com">luizramba01@gmail.com</a>. This does not affect the lawfulness of processing before withdrawal. Giving your email address is voluntary, but without it we cannot keep you informed.</p>
+            <h3 id="race">4a. Signing up for the “Mezza di Natale” run (20 Dec 2026)</h3>
+            <p>If you sign up for the run, we process your first and last name, email address, chosen distance and the time of sign-up to organise the event and send you the start time and details. The legal basis is your consent (Art. 6(1)(a) GDPR). The data are stored via Google Apps Script in a private Google Sheet that only we can access (Google Ireland Limited / Google LLC; transfers to the USA under the EU-US Data Privacy Framework, Art. 45 GDPR). We delete the data no later than 30 days after the event. You can withdraw consent at any time by writing to <a href="mailto:luizramba01@gmail.com">luizramba01@gmail.com</a>.</p>
+            <h3>5. Contacting us by email</h3>
+            <p>If you email us, we process the details you provide (e.g. name, email address, message) to answer your request (Art. 6(1)(b) or (f) GDPR) and delete them once it is resolved, unless statutory retention duties apply.</p>
+            <h3>6. Your rights</h3>
+            <p>You have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18) and data portability (Art. 20), and the right to withdraw consent at any time with effect for the future (Art. 7(3) GDPR).</p>
+            <p><b>Right to object:</b> where we process data on the basis of Art. 6(1)(f) GDPR, you may object at any time on grounds relating to your particular situation (Art. 21 GDPR).</p>
+            <p><b>Right to complain:</b> you may lodge a complaint with a data protection supervisory authority (Art. 77 GDPR), e.g. the Berlin Commissioner for Data Protection and Freedom of Information, Alt-Moabit 59–61, 10555 Berlin, Germany.</p>
+            <h3>7. Security and automated decisions</h3>
+            <p>The website is delivered over encrypted HTTPS only. No automated decision-making, including profiling, takes place.</p>
+            <h3>8. Changes</h3>
+            <p>We will update this policy whenever the website or the services we use change (for example when an online shop opens). The version published here applies.</p>
+            <p class="x-cap">The German version is the legally binding one.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="l-foot">
+        <div class="x-rule x-cap">
+          <nav aria-label="Legal"><a class="x-a" href="index.html">← Back to Contour</a><a class="x-a" href="privacy.html">Privacy / Datenschutz</a></nav>
+          <span style="align-self:center">© 2026 Contour</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
