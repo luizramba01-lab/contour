@@ -157,7 +157,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
     }
     var o={_subject:"Iscrizione Mezza di Natale: "+f.nome.value.trim()+" "+f.cognome.value.trim()+" ("+d.get("distanza")+" km)",_template:"table",_captcha:"false",
       Nome:f.nome.value.trim(),Cognome:f.cognome.value.trim(),Email:f.email.value.trim(),Distanza:d.get("distanza")==="21"?"21,1 km":"10 km",Consenso:"si",Data:new Date().toISOString(),Fonte:"sito"};
-    fetch("https://formsubmit.co/ajax/luizramba01@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)})
+    fetch("https://formsubmit.co/ajax/7a8d6f74e17fb9ae373b8345cde6ddfe",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)})
       .then(function(r){return r.json()}).then(function(j){if(j&&(j.success===true||j.success==="true")){box.classList.add("sent")}else{throw 0}}).catch(fail);
   });
 })();
