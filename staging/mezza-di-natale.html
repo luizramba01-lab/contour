@@ -31,7 +31,8 @@ a{color:inherit}
 .hero{padding:clamp(28px,5vw,56px) 0 0}
 .map{position:relative;margin:clamp(16px,3vw,32px) calc(-1*clamp(18px,4vw,48px)) 0}
 .map img{display:block;width:100%;height:auto}
-h1{margin:clamp(-120px,-8vw,-40px) 0 0;position:relative;font:400 clamp(64px,13.5vw,176px)/.88 var(--cond);text-transform:uppercase;letter-spacing:.005em}
+.lbl{position:absolute;transform:translateY(-80%);font-size:clamp(9px,1.5vw,15px);white-space:nowrap}
+h1{margin:clamp(8px,1.5vw,20px) 0 0;position:relative;font:400 clamp(64px,13.5vw,176px)/.88 var(--cond);text-transform:uppercase;letter-spacing:.005em}
 .sub{margin:18px 0 6px;font:500 clamp(20px,2.6vw,32px)/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}
 .when{margin:0;font:500 clamp(15px,1.6vw,19px)/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.8}
 .cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:28px;padding:0 26px;border:0;background:var(--ink);color:var(--paper);font:500 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer}
@@ -70,7 +71,7 @@ legend{padding:0;margin-bottom:8px}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--orange);margin-right:10px;vertical-align:-1px}
 footer{margin-top:clamp(72px,10vw,128px);padding:14px 0 40px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px}
 footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-underline-offset:4px}
-@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid rgba(21,21,21,.25)}.g{grid-template-columns:1fr}.row{grid-template-columns:1fr}h1{margin-top:-24px}.top .hide-s{display:none}}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid rgba(21,21,21,.25)}.g{grid-template-columns:1fr}.row{grid-template-columns:1fr}.top .hide-s{display:none}}
 </style>
 </head>
 <body>
@@ -83,7 +84,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
 
   <section class="hero">
     <div class="rule cap"><span>Evento 01 / Arenzano (GE)</span><span>44°23′58″N · 8°41′08″E</span></div>
-    <div class="map"><img src="route-map-mezza.svg" width="1080" height="720" alt="Mappa del percorso: dal punto di partenza e arrivo ad Arenzano lungo il mare fino al giro di boa verso Cogoleto, linee di livello delle colline sopra la costa" /></div>
+    <div class="map"><span class="cap lbl" style="left:11.6%;top:82.5%">Giro di boa</span><span class="cap lbl" style="right:9.5%;top:15.2%">Partenza · Arrivo</span><img src="route-map-mezza.svg" width="1080" height="720" alt="Mappa del percorso: dal punto di partenza e arrivo ad Arenzano lungo il mare fino al giro di boa verso Cogoleto, linee di livello delle colline sopra la costa" /></div>
     <h1>Mezza di Natale.</h1>
     <p class="sub">Mezza maratona &amp; 10 km</p>
     <p class="when">Arenzano (GE) · Domenica 20.12.2026</p>
