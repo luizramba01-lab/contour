@@ -1,15 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="robots" content="noindex" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
     <title>CONTOUR — Every city has a summit.</title>
     <script>if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)&&"IntersectionObserver" in window)document.documentElement.classList.add("mo");</script>
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="stylesheet" href="contour-fonts.css" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
     <link rel="stylesheet" href="../hark.css" />
     <link rel="stylesheet" href="../hark-hero.css" />
     <style>
@@ -99,7 +104,7 @@
       .x-plate img { width: 100%; height: auto; }
       .x-plate figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 12px; }
       .x-ridge { margin-top: clamp(28px, 4vw, 48px); }
-      .x-ridge img { aspect-ratio: 1376 / 768; object-fit: cover; }
+      .x-ridge img { aspect-ratio: 1376 / 768; object-fit: cover; object-position: 50% 18%; }
 
       /* manifesto */
       .x-mani { padding-bottom: clamp(160px, 22vw, 300px); }
@@ -151,7 +156,7 @@
       .x-notes .x-field { top: clamp(72px, 10vw, 128px); right: calc(50% - 50vw); width: min(46vw, 600px); }
       .x-notes .x-field svg { transform: scaleX(-1); }
       .x-g > .x-notes__fig { grid-column: 1 / span 8; }
-      .x-notes__fig img { aspect-ratio: 1408 / 768; object-fit: cover; }
+      .x-notes__fig img { aspect-ratio: 1264 / 848; object-fit: cover; }
       .x-g > .x-notes__h { grid-column: 9 / -1; align-self: end; font-size: clamp(44px, 5.6vw, 80px); }
       .x-g > .x-notes__c1 { grid-column: 5 / span 4; margin-top: clamp(40px, 5vw, 64px); }
       .x-g > .x-notes__c2 { grid-column: 9 / -1; margin-top: clamp(40px, 5vw, 64px); display: grid; gap: 20px; align-content: start; }
@@ -230,7 +235,7 @@
       }
 
       /* ================================================================
-         MOTION + MOBILE LAYER (staging) — transform/opacity only
+         MOTION + MOBILE LAYER — transform/opacity only
          ================================================================ */
 
       /* --- no horizontal scroll: contour fields bleed to the viewport edge, never past it --- */
@@ -373,15 +378,6 @@
         .x-g > .x-way--b { grid-column: 1 / span 5; margin-top: clamp(24px, 4vw, 64px); }
         .x-g > .x-tagline { grid-column: 6 / -1; align-self: end; margin-top: 0; padding-bottom: 8px; }
       }
-      /* legal: consent + footer links (staging) */
-      .x-consent { display: flex; align-items: flex-start; gap: 12px; max-width: 600px; font: var(--weight-regular) var(--size-small)/1.5 var(--sans); cursor: pointer; }
-      .x-consent input { flex: none; appearance: none; -webkit-appearance: none; width: 20px; height: 20px; margin: 1px 0 0; border: 1px solid var(--x-ink); border-radius: 0; background: transparent; display: grid; place-items: center; cursor: pointer; }
-      .x-consent input:checked { background: var(--x-green); border-color: var(--x-green); }
-      .x-consent input:checked::after { content: ""; width: 10px; height: 5px; border-left: 2px solid var(--x-paper); border-bottom: 2px solid var(--x-paper); transform: translateY(-1px) rotate(-45deg); }
-      .x-consent a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-      .x-join.is-sent .x-consent { display: none; }
-      .x-foot__legal { display: flex; flex-wrap: wrap; gap: 0 20px; }
-      .x-foot__legal .x-a { min-height: 32px; text-decoration: underline; text-underline-offset: 4px; }
     </style>
   </head>
   <body>
@@ -401,8 +397,8 @@
         <a href="#piece"><span class="x-cap">02</span>The piece</a>
         <a href="#specs"><span class="x-cap">03</span>Specs</a>
         <a href="#notes"><span class="x-cap">04</span>Field notes</a>
-        <a href="#events"><span class="x-cap">05</span>Events</a>
-        <a href="#join"><span class="x-cap">06</span>Join</a>
+        <a href="#join"><span class="x-cap">05</span>Join</a>
+        <a href="#events"><span class="x-cap">06</span>Events</a>
       </nav>
       <div class="x-rule x-cap"><span>Expedition 01 — AW26</span><span>52.52°N 13.40°E</span></div>
     </div>
@@ -420,8 +416,8 @@
               <a class="x-a" href="#piece">02 The piece</a>
               <a class="x-a" href="#specs">03 Specs</a>
               <a class="x-a" href="#notes">04 Field notes</a>
-              <a class="x-a" href="#events">05 Events</a>
-              <a class="x-a" href="#join">06 Join</a>
+              <a class="x-a" href="#join">05 Join</a>
+              <a class="x-a" href="#events">06 Events</a>
             </nav>
             <button class="m-btn" type="button" data-menu-open aria-controls="m-sheet" aria-expanded="false"><span>Menu</span><i aria-hidden="true"></i></button>
           </header>
@@ -436,8 +432,8 @@
         </section>
 
         <figure class="x-plate x-ridge">
-          <img src="../hero-ridge.jpg" srcset="hero-ridge-640.jpg 640w, hero-ridge-1080.jpg 1080w, ../hero-ridge.jpg 1376w" sizes="(max-width: 1184px) 94vw, 1088px" width="1376" height="768" fetchpriority="high" decoding="async" alt="A runner on an alpine ridge at dawn" />
-          <figcaption class="x-cap"><span>Plate 01 — Ridgeline, first light</span><span>46.55°N 07.98°E · Alt 2,970 m · 05:42 local</span></figcaption>
+          <img src="../hero-berlin.jpg" srcset="../hero-berlin-640.jpg 640w, ../hero-berlin-1080.jpg 1080w, ../hero-berlin.jpg 1448w" sizes="(max-width: 1184px) 94vw, 1088px" width="1448" height="1086" fetchpriority="high" decoding="async" alt="A runner in a Contour long sleeve looking out over Berlin at dawn" />
+          <figcaption class="x-cap"><span>Plate 01 — Berlin, first light</span><span>52.52°N 13.40°E · 06:58 local</span></figcaption>
         </figure>
 
         <section class="x-sec x-mani" id="manifesto" data-nav="Manifesto">
@@ -470,35 +466,35 @@
           <div class="x-g x-ways">
             <article class="x-way--a">
               <figure class="x-spec-plate">
-                <div class="x-spec-plate__bar x-cap"><span>Colourway 01 — Contour 01</span><span>Front / Back · 52.52°N 13.40°E</span></div>
-                <img src="../a-v3-front-back.jpg" srcset="a-v3-front-back-640.jpg 640w, a-v3-front-back-1080.jpg 1080w, ../a-v3-front-back.jpg 1408w" sizes="(max-width: 860px) 92vw, 620px" width="1408" height="768" loading="lazy" decoding="async" alt="Contour 01 long sleeve in bone, front and back, with cobalt topo grid and orange route print" />
+                <div class="x-spec-plate__bar x-cap"><span>Colourway 01 — Keep Climbing</span><span>Front / Back · 52.52°N 13.40°E</span></div>
+                <img src="../cw01-studio-front-back.jpg" srcset="../cw01-studio-front-back-640.jpg 640w, ../cw01-studio-front-back-1080.jpg 1080w, ../cw01-studio-front-back.jpg 2000w" sizes="(max-width: 860px) 92vw, 620px" width="2000" height="802" loading="lazy" decoding="async" alt="Keep Climbing long sleeve in bone, front and back: Contour 01 on the chest, Elevation · Pace · Distance on the sleeve, a cobalt topo map with orange route and Keep Climbing across the back" />
               </figure>
               <div class="x-way__meta">
-                <p class="x-body">Bone with cobalt topo grid and orange route print.</p>
+                <p class="x-body">Bone with a cobalt topo grid, orange route markers and an elevation profile. Sleeve: Elevation · Pace · Distance.</p>
                 <p class="x-cap"><span class="x-sw" style="background: #efe9dc"></span>Base: bone · Sheet A</p>
                 <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“Keep climbing”</p></div>
               </div>
             </article>
             <article class="x-way--c">
               <figure class="x-spec-plate">
-                <div class="x-spec-plate__bar x-cap"><span>Colourway 02 — Night Ascent</span><span>Front / Back · 45.9224°N 7.6183°E</span></div>
-                <img src="c-black-v4-front-back.jpg" srcset="c-black-v4-front-back-640.jpg 640w, c-black-v4-front-back-1080.jpg 1080w, c-black-v4-front-back.jpg 2000w" sizes="(max-width: 860px) 92vw, 700px" width="2000" height="1091" loading="lazy" decoding="async" alt="Night Ascent long sleeve in black, front and back: Contour ring logo on the chest, arched No map. Just miles. across the back shoulders, a Field Log elevation profile with an orange summit marker, and altitude scales on both sleeves" />
+                <div class="x-spec-plate__bar x-cap"><span>Colourway 02 — Field Manual</span><span>Front / Back · 45.9224°N 7.6183°E</span></div>
+                <img src="../cw02-studio-front-back.jpg" srcset="../cw02-studio-front-back-640.jpg 640w, ../cw02-studio-front-back-1080.jpg 1080w, ../cw02-studio-front-back.jpg 2000w" sizes="(max-width: 860px) 92vw, 700px" width="2000" height="657" loading="lazy" decoding="async" alt="Field Manual long sleeve in black, front and back: Contour logo on the chest, a bone-white technical blueprint across the back with terrain and elevation profile figures, and lettering on both sleeves" />
               </figure>
               <div class="x-way__meta">
-                <p class="x-body">Black with a bone-white Field Log: the night’s elevation profile, summit marked in orange. Sleeves: altitude scale to +1840 M.</p>
+                <p class="x-body">Black with a bone-white technical blueprint: terrain and elevation profile figures, summit marked in orange. Sleeves: Night Ascent · Field Manual, and the coordinates to +1840 M.</p>
                 <p class="x-cap"><span class="x-sw" style="background: #111111"></span>Base: black · Sheet B</p>
-                <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“No map. Just miles.”</p></div>
+                <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“Every city has a summit”</p></div>
               </div>
             </article>
             <article class="x-way--b">
               <figure class="x-spec-plate">
-                <div class="x-spec-plate__bar x-cap"><span>Colourway 03 — Unknown Territory</span><span>Front / Back · 46.55°N 07.98°E</span></div>
-                <img src="../b-v3-front-back.jpg" srcset="b-v3-front-back-640.jpg 640w, ../b-v3-front-back.jpg 880w" sizes="(max-width: 860px) 92vw, 440px" width="880" height="1192" loading="lazy" decoding="async" alt="Unknown Territory long sleeve in forest green, front and back, with mint reflective mountain contours" />
+                <div class="x-spec-plate__bar x-cap"><span>Colourway 03 — First Light</span><span>Front / Back · 45.9763°N 7.6586°E</span></div>
+                <img src="../cw03-studio-front-back.jpg" srcset="../cw03-studio-front-back-640.jpg 640w, ../cw03-studio-front-back-1080.jpg 1080w, ../cw03-studio-front-back.jpg 2000w" sizes="(max-width: 860px) 92vw, 440px" width="2000" height="696" loading="lazy" decoding="async" alt="First Light long sleeve, front and back: night navy fading to orange at the hem and cuffs, a contour ring across the back and First Light lettering" />
               </figure>
               <div class="x-way__meta">
-                <p class="x-body">Forest green with mint / reflective mountain contours.</p>
-                <p class="x-cap"><span class="x-sw" style="background: #1f3a2e"></span>Base: forest · Sheet C</p>
-                <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“No map. Just miles.”</p></div>
+                <p class="x-body">Night navy fading to orange along a ridge line, like first light on the mountain. Chest: Every city has a summit.</p>
+                <p class="x-cap"><span class="x-sw" style="background: #1c2a44"></span>Base: night navy · Sheet C</p>
+                <div class="x-way__back"><span class="x-cap">Back</span><p class="x-h3">“First light”</p></div>
               </div>
             </article>
             <p class="x-display x-tagline">Clean front.<span>The story's on the back.</span></p>
@@ -511,22 +507,22 @@
             <h2 class="x-display x-h2 x-spec__h">Built like equipment.</h2>
             <figure class="x-plate x-cuff">
               <div class="x-cuff__in">
-                <img src="detail-cuff-slit2.jpg" srcset="detail-cuff-slit2-640.jpg 640w, detail-cuff-slit2-1080.jpg 1080w, detail-cuff-slit2.jpg 1408w" sizes="(max-width: 1184px) 92vw, 1060px" width="1408" height="768" loading="lazy" decoding="async" alt="Cuff detail: the watch face sits through a bonded slit in the cuff, which covers the back of the hand" />
+                <img src="../detail-cuff-slit2.jpg" srcset="../detail-cuff-slit2-640.jpg 640w, ../detail-cuff-slit2-1080.jpg 1080w, ../detail-cuff-slit2.jpg 1408w" sizes="(max-width: 1184px) 92vw, 1060px" width="1408" height="768" loading="lazy" decoding="async" alt="Cuff detail: the watch face sits through a bonded slit in the cuff, which covers the back of the hand" />
                 <svg viewBox="0 0 1408 768" preserveAspectRatio="none" aria-hidden="true">
                   <path d="M470 575V690H300" />
                   <rect class="x-tick" x="464" y="569" width="12" height="12" />
                   <ellipse class="x-ring" cx="720" cy="388" rx="135" ry="135" />
                   <path d="M815 293L1100 150H1180" />
                 </svg>
-                <span class="x-call x-cap" style="right: 78.7%; top: 86%"><b>01</b><span>Thumbhole</span></span>
+                <span class="x-call x-cap" style="right: 78.7%; top: 86%"><b>01</b><span>Thumb opening</span></span>
                 <span class="x-call x-cap" style="left: 83.8%; top: 19.5%"><b>02</b><span>Watch slit</span></span>
               </div>
               <figcaption class="x-cap"><span>Fig. 01 — Cuff, both sides</span><span>Callouts 01 · 02</span></figcaption>
             </figure>
             <ol class="x-legend">
-              <li><span class="x-cap">01</span><h3 class="x-h3">Thumbholes</h3><p>Bound cuffs keep hands warm on cold starts.</p></li>
+              <li><span class="x-cap">01</span><h3 class="x-h3">Thumb opening</h3><p>Built into the cuff seam, so the sleeve covers your hand on cold starts.</p></li>
               <li><span class="x-cap">02</span><h3 class="x-h3">Watch slit</h3><p>A bonded slit on both cuffs. Slide the watch through, read your pace, and the sleeve stays put. Closed flat when you don’t need it.</p></li>
-              <li><span class="x-cap">03</span><h3 class="x-h3">Breathable knit</h3><p>120–140 gsm recycled polyester/elastane. Moisture-wicking, 4-way stretch.</p></li>
+              <li><span class="x-cap">03</span><h3 class="x-h3">Breathable knit</h3><p>Lightweight polyester/elastane, 130–150 gsm. Moisture-wicking, 4-way stretch.</p></li>
               <li><span class="x-cap">04</span><h3 class="x-h3">Mesh ventilation</h3><p>Underarm and side panels.</p></li>
               <li><span class="x-cap">05</span><h3 class="x-h3">Flatlock seams, tagless</h3><p>Nothing to rub over long miles.</p></li>
               <li><span class="x-cap">06</span><h3 class="x-h3">Reflective tab</h3><p>Back hem, for low light.</p></li>
@@ -545,7 +541,7 @@
           <div class="x-rule x-cap"><span>04 / Field notes</span><span>Designed in Europe</span></div>
           <div class="x-g">
             <figure class="x-plate x-notes__fig">
-              <img src="../explorer-flatlay.jpg" srcset="explorer-flatlay-640.jpg 640w, explorer-flatlay-1080.jpg 1080w, ../explorer-flatlay.jpg 1408w" sizes="(max-width: 860px) 92vw, 700px" width="1408" height="768" loading="lazy" decoding="async" alt="A topographic map, compass and folded shirt laid flat" />
+              <img src="../field-manual-flatlay.jpg" srcset="../field-manual-flatlay-640.jpg 640w, ../field-manual-flatlay-1080.jpg 1080w, ../field-manual-flatlay.jpg 1264w" sizes="(max-width: 860px) 92vw, 700px" width="1264" height="848" loading="lazy" decoding="async" alt="The Field Manual long sleeve laid flat on a topographic map with a compass, pencil and fabric swatch" />
               <figcaption class="x-cap"><span>Plate 02 — Studio table</span><span>48.14°N 11.58°E</span></figcaption>
             </figure>
             <h2 class="x-display x-notes__h">Drawn from survey maps.</h2>
@@ -644,8 +640,8 @@
         <section class="x-sec x-events" id="events" data-nav="Events" aria-labelledby="events-title">
           <div class="x-rule x-cap"><span>06 / Events</span><span>Evento 01 · Arenzano</span></div>
           <div class="x-g">
-            <a class="x-ev__card" href="mezza-di-natale.html">
-              <img src="event-mezza-di-natale-640.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Mezza di Natale poster: route along the sea from Arenzano, half marathon and 10 km, 20.12.2026" />
+            <a class="x-ev__card" href="../mezza-di-natale.html">
+              <img src="../event-mezza-di-natale-640.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Mezza di Natale poster: route along the sea from Arenzano, half marathon and 10 km, 20.12.2026" />
               <div class="x-ev__body">
                 <p class="x-cap"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--x-orange);margin-right:8px"></span>Sunday 20.12.2026 · Arenzano (GE)</p>
                 <h2 class="x-display x-ev__h" id="events-title">Mezza di Natale.</h2>
@@ -660,7 +656,7 @@
           <div class="x-field" aria-hidden="true">
             <svg viewBox="0 0 1000 800"><g data-k="join"><path d="M1000 659 987 642 979 625 939 525 934 483 938 400 933 367 922 342 887 292 877 275 868 250 864 225 865 200 870 183 875 179 917 164 933 155 958 138 970 125 979 108 981 100 979 83 975 75 967 67 958 64 950 64 933 68 917 78 900 92 886 108 861 158 858 162 850 166 825 163 742 145 600 128 567 128 550 131 533 136 511 150 492 167 467 198 450 225 440 250 434 275 433 300 437 325 445 350 507 475 525 506 542 529 558 546 575 559 633 595 663 617 712 658 726 675 729 683 731 700 717 767 717 800"/><path d="M933 72 917 82 906 92 889 117 884 133 885 142 888 150 892 153 900 156 908 156 933 148 958 132 971 117 977 100 977 92 975 83 970 75 958 68 950 68 933 72Z"/><path d="M1000 683 977 667 961 650 944 625 937 608 927 567 922 525 922 483 929 408 925 375 920 358 911 342 875 293 865 275 855 250 844 208 835 192 825 183 800 170 767 159 733 153 592 137 567 138 542 144 517 158 500 172 475 200 460 225 450 250 445 275 445 300 449 317 458 341 483 391 514 467 527 492 545 517 558 531 575 545 633 579 658 597 738 658 750 672 753 683 753 692 736 742 731 767 730 783 732 800"/><path d="M942 73 921 83 904 100 896 117 894 125 895 133 900 142 908 146 917 147 933 142 950 133 967 117 973 100 970 83 967 78 958 72 942 73Z"/><path d="M1000 703 974 692 946 675 896 642 886 633 879 625 878 617 880 608 895 575 904 542 918 433 919 392 915 375 909 358 899 342 858 283 831 217 820 200 808 189 783 175 758 167 725 160 592 147 567 149 542 155 521 167 501 183 483 205 470 225 460 250 457 267 457 292 461 308 492 374 514 442 525 467 542 496 558 517 583 536 650 574 717 625 742 638 775 650 788 658 790 667 788 675 758 727 749 750 745 775 749 800"/><path d="M933 79 917 92 910 100 902 117 902 125 906 133 917 139 933 137 950 129 962 117 969 100 967 86 958 77 950 75 933 79Z"/><path d="M583 158 550 164 533 171 516 183 500 199 487 217 475 240 470 258 469 283 473 300 501 358 522 433 535 467 551 492 575 517 592 527 652 558 705 600 725 613 742 620 767 624 792 622 817 612 842 596 864 575 876 558 888 533 904 467 910 417 908 383 898 358 850 290 816 217 802 200 791 192 767 179 725 168 675 162 583 158Z"/><path d="M1000 720 955 708 883 680 858 678 842 680 825 687 808 698 792 713 775 733 767 750 763 767 763 783 768 800"/><path d="M558 173 533 185 507 208 490 233 484 250 482 267 486 292 508 340 515 358 535 442 551 475 567 495 583 508 658 545 708 585 733 600 750 605 775 606 792 601 817 589 837 575 855 558 867 543 876 525 885 500 894 467 900 433 901 408 898 383 892 366 882 350 840 292 808 225 794 208 775 194 758 185 733 178 692 172 617 168 583 169 558 173Z"/><path d="M1000 735 942 729 867 711 850 711 833 715 808 728 800 736 790 750 784 767 784 775 790 800"/><path d="M575 182 547 192 523 208 505 233 498 258 500 283 525 348 540 425 549 450 558 467 571 483 583 494 600 504 650 524 667 533 717 572 742 586 758 590 775 589 800 580 817 571 833 559 850 542 862 525 871 508 887 458 891 433 892 408 888 383 881 367 871 350 833 300 800 233 788 217 767 200 750 192 725 184 692 180 658 178 608 179 575 182Z"/><path d="M1000 750 925 751 858 745 842 747 825 755 816 767 814 783 817 800"/><path d="M933 91 924 100 920 108 921 117 925 121 933 122 942 120 950 114 955 108 958 100 956 92 950 87 942 87 933 91Z"/><path d="M600 191 567 198 542 212 523 233 517 248 515 258 518 283 535 333 548 417 556 442 564 458 575 472 592 486 608 495 650 510 675 521 693 533 725 559 742 569 758 573 775 573 792 568 808 560 833 542 848 525 863 500 873 475 881 442 883 417 881 392 871 367 825 304 789 233 775 218 763 208 733 195 700 188 658 187 600 191Z"/><path d="M1000 764 967 766 883 776 867 782 858 787 849 800"/><path d="M625 200 592 206 565 217 546 233 537 250 536 275 546 325 554 400 560 425 566 442 583 466 600 479 617 486 659 500 678 508 742 551 750 555 767 558 783 556 800 550 825 533 841 517 852 500 863 475 872 442 874 417 871 392 864 375 854 358 817 308 782 242 769 225 759 217 733 204 708 198 675 196 625 200Z"/><path d="M1000 777 967 779 933 785 906 792 886 800"/><path d="M642 208 608 216 588 225 576 233 568 242 559 258 557 283 561 383 565 408 573 433 583 450 590 458 608 471 688 500 750 538 775 542 800 535 817 525 833 509 845 492 853 475 861 450 865 425 863 400 858 383 849 367 808 313 775 248 764 233 754 225 733 213 708 206 675 204 642 208Z"/><path d="M667 225 639 233 617 247 600 266 591 283 581 325 578 367 580 400 589 425 600 440 617 453 633 460 692 479 750 508 775 514 792 511 800 508 817 496 825 486 837 467 843 450 846 433 846 417 844 400 837 383 794 325 764 267 753 250 744 242 725 230 708 225 692 223 667 225Z"/><path d="M683 233 658 238 635 250 617 267 606 283 594 317 587 350 586 383 592 409 600 425 606 433 625 447 700 472 758 498 775 500 792 498 808 488 817 480 826 467 833 450 837 433 837 417 830 392 820 375 783 325 758 275 742 253 733 246 717 237 700 233 683 233Z"/><path d="M675 256 658 263 642 276 628 292 614 317 606 342 602 367 604 392 610 408 625 426 650 439 758 473 775 474 792 470 800 464 808 453 816 433 815 408 808 392 767 333 745 292 733 274 725 266 708 257 692 254 675 256Z"/><path d="M675 281 658 290 647 300 634 317 625 333 620 350 617 367 618 383 625 401 631 408 642 417 675 430 750 448 767 449 783 442 789 433 792 425 792 417 788 400 726 300 717 289 700 279 692 278 675 281Z"/><path d="M675 305 657 317 649 325 639 342 633 367 635 383 638 392 645 400 658 409 692 419 733 424 750 421 757 417 761 408 758 392 717 321 700 306 692 303 675 305Z"/><path d="M667 332 657 342 649 358 649 375 652 383 667 396 683 402 708 403 721 400 728 392 728 383 723 367 708 341 700 333 692 328 683 326 675 327 667 332Z"/><path d="M675 348 666 358 664 367 666 375 675 383 683 386 692 386 700 383 704 375 703 367 699 358 692 350 683 347 675 348Z"/><path d="M910 470 922 520 906 560 914 610 890 650 872 700 880 760 862 800" class="x-river"/></g><circle class="x-dot" cx="683" cy="367" r="7" /></svg>
           </div>
-          <div class="x-rule x-cap"><span>07 / Early access</span><span>Expedition 01</span></div>
+          <div class="x-rule x-cap"><span>06 / Early access</span><span>Expedition 01</span></div>
           <div class="x-g">
             <h2 class="x-display x-join__h" id="join-title">Join the first expedition</h2>
             <div class="x-join__in">
@@ -670,10 +666,6 @@
                 <input id="x-email" name="email" type="email" placeholder="you@trailhead.com" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" required />
                 <button class="x-btn" type="submit">Join the list</button>
               </form>
-              <label class="x-consent" for="x-consent">
-                <input id="x-consent" name="consent" type="checkbox" form="x-form" value="yes" required />
-                <span>I agree that Contour may email me about Expedition 01 and future drops. I can unsubscribe at any time. Details in the <a href="privacy.html#signup">Privacy Policy</a> · <span lang="de">Einwilligung, siehe <a href="privacy.html#de-anmeldung">Datenschutzerklärung</a></span>.</span>
-              </label>
               <div class="x-thanks" role="status" aria-live="polite">
                 <p class="x-cap">Position logged</p>
                 <p class="x-h3">You're on the list.</p>
@@ -700,14 +692,10 @@
               <a class="x-a" href="#piece">02 The piece</a>
               <a class="x-a" href="#specs">03 Specs</a>
               <a class="x-a" href="#notes">04 Field notes</a>
-              <a class="x-a" href="#events">05 Events</a>
-              <a class="x-a" href="#join">06 Join</a>
+              <a class="x-a" href="#join">05 Join</a>
+              <a class="x-a" href="#events">06 Events</a>
             </nav>
             <p class="x-foot__social x-cap"><span>Instagram</span><span>Strava</span></p>
-            <nav class="x-foot__legal x-cap" aria-label="Legal">
-              <a class="x-a" href="impressum.html">Impressum</a>
-              <a class="x-a" href="privacy.html">Privacy / Datenschutz</a>
-            </nav>
           </div>
         </div>
         <div class="x-rule x-cap"><span>Contour is a working name. Expedition 01 — AW26</span><span>© 2026 Contour</span></div>
@@ -749,19 +737,13 @@
             input.focus();
             return;
           }
-          var consent = document.getElementById("x-consent");
-          if (!consent.checked) {
-            err.textContent = "Tick the box to confirm you want our emails.";
-            consent.focus();
-            return;
-          }
           err.textContent = "";
           var btn = form.querySelector("button");
           btn.disabled = true;
           fetch("https://formsubmit.co/ajax/luizramba01@gmail.com", {
             method: "POST",
             headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify({ email: v, consent: "yes: email updates on Expedition 01 and future drops (privacy.html, Oct 2026)", consent_at: new Date().toISOString(), _subject: "CONTOUR early access signup", _template: "table" })
+            body: JSON.stringify({ email: v, _subject: "CONTOUR early access signup", _template: "table" })
           }).then(function (r) { return r.json(); }).then(function () {
             join.classList.add("is-sent");
           }).catch(function () {
