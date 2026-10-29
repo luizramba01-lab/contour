@@ -1104,9 +1104,9 @@ html.rm .mani .giant span{transform:none!important}
     // giant manifesto type
     if (giant && giant._top - vh < sy && giant._top + giant._h > sy) {
       var p = clamp((sy + vh - giant._top) / (vh + giant._h), 0, 1);
-      var e = clamp((p - 0.08) / 0.34, 0, 1); e = 1 - (1 - e) * (1 - e) * (1 - e);
-      gl1.style.transform = "translate3d(" + (-(1 - e) * 18).toFixed(2) + "vw,0,0)";
-      gl2.style.transform = "translate3d(" + ((1 - e) * 18).toFixed(2) + "vw,0,0)";
+      var o = (0.5 - p) * 56; /* both lines travel ~56vw through the pass, aligned & fully readable mid-screen */
+      gl1.style.transform = "translate3d(" + o.toFixed(2) + "vw,0,0)";
+      gl2.style.transform = "translate3d(" + (-o).toFixed(2) + "vw,0,0)";
     }
     // profile draw
     if (prof && profLen) {
