@@ -1036,7 +1036,7 @@ html.rm .mani .giant span{transform:none!important}
   }
 
   /* ================= Countdown to 20.12.2026 ================= */
-  var target = Date.parse("2026-12-20T00:00:00+01:00");
+  var target = Date.UTC(2026, 11, 19, 23, 0, 0); /* Sun 20.12.2026 00:00 CET */
   var cD = $("#cD"), cH = $("#cH"), cM = $("#cM"), cS = $("#cS");
   var pad2 = function (n) { return (n < 10 ? "0" : "") + n; };
   function tick() {
