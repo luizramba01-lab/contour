@@ -888,11 +888,10 @@ html.rm .mani .giant span{transform:none!important}
       });
       io.observe(hero);
       var go = function () { W.requestAnimationFrame(heroLoop); };
-      if (LITE) {
-        // phones: draw the static map first, start the living lines on the first touch/scroll (saves CPU and battery on load)
-        var once = function () { ["touchstart", "scroll", "pointerdown", "keydown"].forEach(function (ev) { W.removeEventListener(ev, once, true); }); go(); };
-        ["touchstart", "scroll", "pointerdown", "keydown"].forEach(function (ev) { W.addEventListener(ev, once, { passive: true, capture: true }); });
-      } else if (W.requestIdleCallback) { W.requestIdleCallback(go, { timeout: 1500 }); } else { W.setTimeout(go, 600); }
+      // draw the static map first; start the living lines on the first interaction (mouse move, touch, scroll, key): saves CPU and battery on load
+      var EVS = ["pointermove", "touchstart", "scroll", "pointerdown", "keydown", "wheel"];
+      var once = function () { EVS.forEach(function (ev) { W.removeEventListener(ev, once, true); }); go(); };
+      EVS.forEach(function (ev) { W.addEventListener(ev, once, { passive: true, capture: true }); });
       d.addEventListener("visibilitychange", function () { if (!d.hidden && heroVisible) W.requestAnimationFrame(heroLoop); });
     }
   }
