@@ -192,28 +192,31 @@ html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}
 }
 
 /* ---------- 03 SPEC SHEET ---------- */
-.sheet{padding:118px 0 110px}
+.sheet{padding:118px 0 110px;overflow-x:clip}
 .sheet .h2{margin:28px 0 36px}
-.cuff{position:relative;margin:0 calc(-1 * var(--pad))}
-.cuff img{width:100%;height:auto}
+.cuff{position:relative;margin:0 calc(50% - 50vw)}
+.cuff img{width:100%;height:auto;display:block}
 .cuff svg{position:absolute;inset:0;width:100%;height:100%}
-.cuff svg path,.cuff svg ellipse{fill:none;stroke:var(--bone);stroke-width:2.2;vector-effect:non-scaling-stroke}
-.cuff svg rect{fill:var(--bone)}
-.call{position:absolute;display:flex;gap:8px;padding:5px 8px;background:var(--bone);color:var(--ink);border:1px solid var(--ink);transform:translateY(-50%);white-space:nowrap}
+.cuff svg path,.cuff svg ellipse{fill:none;stroke:var(--bone);stroke-width:2.4;vector-effect:non-scaling-stroke}
+.cuff svg ellipse{stroke:var(--orange);stroke-width:3}
+.cuff svg rect{fill:var(--orange)}
+.call{position:absolute;display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bone);color:var(--ink);border:0;transform:translateY(-50%);white-space:nowrap;font-size:12px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.call b{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 4px;background:var(--orange);color:var(--bone);font-weight:600}
 .call span{display:none}
-.cuff figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px var(--pad) 0}
-.specs{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--lichen)}
-.specs li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:18px 0;border-bottom:1px solid rgba(169,184,154,.4)}
-.specs h3{margin:0;font:400 26px/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
-.specs p{grid-column:2;margin:4px 0 0;opacity:.88;max-width:44ch}
+.cuff figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px var(--pad) 0;max-width:var(--max);margin:0 auto}
+.specs{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:14px;border:0}
+.specs li{position:relative;display:block;padding:26px 24px 28px;border:1px solid rgba(169,184,154,.45);background:rgba(0,0,0,.14);overflow:hidden}
+.specs li>.cap{display:block;font:400 76px/.85 var(--display);letter-spacing:0;color:var(--orange);margin:0 0 18px}
+.specs h3{margin:0;font:400 34px/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.specs p{margin:10px 0 0;opacity:.88;max-width:34ch;font-size:16px}
 .sizes{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
 .sizes li{min-width:52px;padding:12px 0;text-align:center;border:1px solid var(--lichen);font:400 22px/1 var(--display)}
-.sheet .sfoot{display:grid;gap:22px;margin-top:40px}
-@media (min-width:700px){.call span{display:inline}}
+.sheet .sfoot{display:grid;gap:22px;margin-top:44px}
+@media (min-width:700px){.call span{display:inline}.call{font-size:13px;padding:9px 14px}}
 @media (min-width:900px){
-  .cuff{margin:0}
-  .cuff figcaption{padding:10px 0 0}
-  .specs{grid-template-columns:repeat(3,1fr);column-gap:40px}
+  .call{font-size:14px}
+  .specs{grid-template-columns:repeat(3,1fr);gap:20px}
+  .specs li>.cap{font-size:104px}
   .sheet .sfoot{grid-template-columns:1fr 1fr;gap:56px;align-items:end}
 }
 
@@ -379,7 +382,7 @@ html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}
 .o-wrap{position:relative}
 @media (min-width:900px){.o-wrap .stk-foglio-d{left:56%;top:-6px}.o-wrap .stk-teufel-d{left:79%;top:-34px}}
 .o-chart{width:100%;height:auto;margin:10px 0 0;overflow:visible}
-.o-chart .o-land{fill:var(--orange);fill-opacity:.08}
+.o-chart .o-land{fill:#050505;fill-opacity:.7}
 .o-chart .o-line{fill:none;stroke:var(--bone);stroke-width:1.4}
 .o-chart .o-route{fill:none;stroke:var(--orange);stroke-width:2.2;stroke-dasharray:4 8}
 .o-chart .o-ring{fill:none;stroke:var(--bone);stroke-width:.7;opacity:0;transform-origin:140px 78px;transform:scale(.6);transition:opacity .8s ease,transform 1.2s ease;transition-delay:calc(var(--i)*90ms)}
@@ -564,7 +567,7 @@ html.rm .mani .giant span{transform:none!important}
     <figure class="cuff" style="margin-bottom:0">
       <div style="position:relative">
         <picture>
-          <source type="image/webp" srcset="assets/cuff-720.webp 720w, assets/cuff-1400.webp 1400w" sizes="(min-width:1240px) 1096px, (min-width:900px) 90vw, 100vw">
+          <source type="image/webp" srcset="assets/cuff-720.webp 720w, assets/cuff-1400.webp 1400w, assets/cuff-2000.webp 2000w" sizes="100vw">
           <img src="assets/cuff-1400.jpg" width="1400" height="781" loading="lazy" decoding="async" alt="A runner on a Berlin bridge at dawn checks his watch through the slit in the cuff of a black Contour long sleeve">
         </picture>
         <svg viewBox="0 0 1376 768" preserveAspectRatio="none" aria-hidden="true">
