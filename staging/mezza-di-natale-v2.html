@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mezza di Natale · 20.12.2026 · Arenzano — CONTOUR</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Mezza maratona &amp; 10 km vista mare. Domenica 20 dicembre 2026, Arenzano (GE). Iscriviti." />
+<meta name="theme-color" content="#151515" />
+<meta property="og:title" content="Mezza di Natale — Arenzano, 20.12.2026" />
+<meta property="og:description" content="Mezza maratona &amp; 10 km vista mare. Iscriviti." />
+<meta property="og:image" content="https://luizramba01-lab.github.io/contour/og-mezza-di-natale.jpg" />
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+<link rel="preload" href="../assets/anton.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../assets/plex-500.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+@font-face{font-family:"Anton";src:url(../assets/anton.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Barlow";src:url(../assets/barlow-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Barlow";src:url(../assets/barlow-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Plex";src:url(../assets/plex-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Plex";src:url(../assets/plex-500.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{
+  --forest:#1E4636;--bone:#EFE9DC;--cobalt:#2E4FA3;--orange:#F0531C;--ink:#151515;--stone:#8A8478;
+  --field:#1D1D1C;--line:rgba(239,233,220,.62);--hair:rgba(239,233,220,.22);--err:#FF9B85;
+  --display:"Anton","Impact","Arial Narrow",sans-serif;--mono:"Plex",ui-monospace,"SFMono-Regular",Menlo,monospace;--sans:"Barlow",system-ui,-apple-system,sans-serif;
+  --pad:clamp(22px,5vw,72px);--max:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--ink);scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--bone);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.cap{font:500 11.5px/1.45 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.wrap{position:relative;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.disp{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.004em;margin:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--bone);color:var(--ink);padding:10px 14px;text-decoration:none}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* header */
+.hud{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;height:calc(56px + env(safe-area-inset-top));
+  padding:env(safe-area-inset-top) max(var(--pad),calc((100vw - var(--max))/2 + var(--pad))) 0;background:var(--ink);color:var(--bone);border-bottom:1px solid var(--hair)}
+.hud .brand{display:block;color:inherit;line-height:0}
+.hud .brand svg{width:124px;height:36px}
+.hud nav{display:flex;align-items:center;gap:clamp(16px,2.4vw,32px)}
+.hud nav a{text-decoration:none;padding:10px 0}
+.hud nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.hud nav .go-s{color:var(--orange)}
+@media (min-width:900px){.hud .brand svg{width:150px;height:43px}}
+
+/* map hero */
+.map{position:relative;height:100vw;max-height:640px;overflow:hidden;background:var(--ink)}
+.map>svg,.map>img{position:absolute;inset:0;width:100%;height:100%}
+.map>img{object-fit:cover}
+.map .rt{fill:none;stroke:var(--bone);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.map .st{fill:var(--bone);stroke:var(--ink);stroke-width:4}
+.map .tn{fill:var(--ink);stroke:var(--bone);stroke-width:4}
+.map .lbl{position:absolute;z-index:2;left:0;top:0;visibility:hidden;white-space:nowrap;font:500 9.5px/1.35 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 7px;background:var(--ink);border:1px solid var(--line)}
+.map .lbl.on{visibility:visible}
+.map .lbl b{display:block;font:400 17px/1 var(--display);letter-spacing:.02em}
+.map .grid-k{position:absolute;left:12px;bottom:10px;z-index:2;opacity:.8;font-size:9.5px}
+.wpm{position:absolute;top:22px;left:var(--pad);z-index:2;display:flex;align-items:center;gap:8px}
+.wpm i{display:block;width:13px;height:13px;border:1.6px solid var(--orange);border-radius:50%;background:var(--ink)}
+.wpm span{font:500 12px/1 var(--mono);letter-spacing:.14em}
+.stk{position:absolute;z-index:3;width:var(--w,120px);pointer-events:none}
+.stk img{width:100%;height:auto;transform:rotate(var(--r,0deg))}
+.stk-stamp{--w:92px;right:16px;bottom:40px}
+.stk-alba{display:none}
+.mzt{display:none}
+.mzt-m{padding-top:28px}
+.when{margin:0 0 14px}
+.mzt-m .disp,.mzt .disp{font-size:clamp(72px,21vw,150px)}
+
+/* intro */
+.intro{padding-bottom:clamp(72px,9vw,120px)}
+.mzgrid{display:grid;gap:28px;margin-top:26px}
+.sub{margin:0;font:500 clamp(15px,2vw,19px)/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.lede{margin:14px 0 0;max-width:42ch;font-size:clamp(17px,1.6vw,19px)}
+.go{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;margin-top:28px;padding:0 28px;border:0;border-radius:0;background:var(--orange);color:var(--ink);text-decoration:none;cursor:pointer;
+  font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,background-color .2s}
+.go:hover{transform:translateY(-2px)}
+.go::after{content:"→";font-size:18px;line-height:1}
+.go:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+.coords{opacity:.8}
+.facts{display:grid;grid-template-columns:1fr 1fr;margin:56px 0 0;border-top:1px solid rgba(239,233,220,.5)}
+.facts div{padding:14px 12px 14px 0;border-bottom:1px solid var(--hair)}
+.facts div:nth-child(even){padding-left:14px;border-left:1px solid var(--hair)}
+.facts dt{opacity:.75}
+.facts dd{margin:6px 0 0;font:400 22px/1.05 var(--display);text-transform:uppercase;overflow-wrap:anywhere}
+
+/* sign-up */
+.sec{position:relative;padding:clamp(56px,8vw,104px) 0 clamp(72px,9vw,120px);border-top:1px solid var(--hair);overflow:hidden}
+.sec::before{content:"";position:absolute;inset:0;background:url(../assets/mezza-map.svg) center/cover no-repeat;opacity:.16;pointer-events:none}
+.sec .wrap{z-index:1}
+.rule{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 24px;padding-top:12px;border-top:1px solid rgba(239,233,220,.5);margin-bottom:clamp(28px,4vw,48px)}
+.g{display:grid;gap:36px;align-items:start}
+h2.disp{font-size:clamp(56px,12vw,104px)}
+.pin{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--orange);margin-right:10px;vertical-align:-1px}
+form{display:grid;gap:20px;padding:clamp(20px,3vw,32px);background:rgba(21,21,21,.92);border:1px solid var(--line)}
+.row{display:grid;gap:20px}
+label.f{display:grid;gap:8px}
+input[type=text],input[type=email]{width:100%;min-height:52px;padding:0 14px;border:1px solid var(--line);border-radius:0;background:var(--field);color:var(--bone);font:400 17px var(--sans);-webkit-appearance:none;appearance:none;transition:border-color .15s}
+input[type=text]:hover,input[type=email]:hover{border-color:var(--bone)}
+input[type=text]:focus,input[type=email]:focus{outline:2px solid var(--orange);outline-offset:0;border-color:var(--orange)}
+input[type=text]:user-invalid,input[type=email]:user-invalid{border-color:var(--err)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{padding:0;margin-bottom:10px}
+.dist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dist label{position:relative;display:block;cursor:pointer}
+.dist input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.dist span{position:relative;display:grid;gap:6px;min-height:92px;padding:14px;border:1px solid var(--line);background:var(--field);transition:background-color .15s,color .15s,border-color .15s}
+.dist span::after{content:"";position:absolute;top:14px;right:14px;width:13px;height:13px;border:1.6px solid var(--line);border-radius:50%}
+.dist label:hover span{border-color:var(--bone)}
+.dist b{font:400 32px/1 var(--display);text-transform:uppercase;font-weight:400}
+.dist small{font-size:10.5px}
+.dist input:checked+span{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.dist input:checked+span::after{background:var(--orange);border-color:var(--orange)}
+.dist input:focus-visible+span{outline:2px solid var(--orange);outline-offset:3px}
+.consent{display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:15px;line-height:1.5;cursor:pointer}
+.consent input{width:22px;height:22px;margin:1px 0 0;-webkit-appearance:none;appearance:none;border:1.5px solid var(--bone);border-radius:0;background:var(--field) center/16px 16px no-repeat;cursor:pointer}
+.consent input:checked{background-color:var(--orange);border-color:var(--orange);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 4.8' fill='none' stroke='%23151515' stroke-width='2.4'/%3E%3C/svg%3E")}
+.consent input:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.consent a{text-underline-offset:3px;text-decoration-thickness:1px}
+.consent a:hover{color:var(--orange)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{color:var(--err);min-height:1.45em;margin:0}
+form .go{width:100%;margin-top:0}
+form .go:disabled{cursor:progress;background:var(--stone);transform:none}
+.thanks{display:none;padding:clamp(22px,3vw,34px);border:1px solid var(--line);border-left:6px solid var(--orange);background:rgba(21,21,21,.92)}
+.thanks h3{margin:12px 0 14px;font-size:clamp(44px,7vw,72px)}
+.thanks p{margin:0}
+.sent form{display:none}.sent .thanks{display:block}
+.side{position:relative}
+.stk-train{display:none}
+
+footer{border-top:1px solid var(--hair);padding:18px 0 calc(40px + env(safe-area-inset-bottom))}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-underline-offset:4px}
+
+@media (min-width:600px){.row{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){
+  .map{height:min(calc(100vh - 56px),900px);min-height:640px;max-height:none}
+  .map .mzt{display:block;position:absolute;z-index:3;right:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));bottom:56px}
+  .map .mzt .disp{font-size:clamp(96px,9vw,136px)}
+  .map .grid-k{left:auto;right:12px}
+  .mzt-m{display:none}
+  .wpm{left:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));top:28px}
+  .stk-stamp{--w:clamp(120px,11vw,160px);right:auto;bottom:auto;left:clamp(40px,5vw,96px);top:96px}
+  .stk-alba{display:block;--w:clamp(120px,10vw,150px);left:33%;top:60%}
+  .intro{padding-top:56px}
+  .mzgrid{grid-template-columns:6fr 5fr;gap:64px;align-items:end;margin-top:0}
+  .mzgrid .coords{text-align:right}
+  .facts{grid-template-columns:repeat(4,1fr);margin-top:72px}
+  .facts div,.facts div:nth-child(even){padding:16px 16px 18px 0;border-bottom:0;border-left:0;border-right:1px solid var(--hair)}
+  .facts div+div,.facts div+div:nth-child(even){padding-left:16px}
+  .facts div:last-child{border-right:0}
+  .g{grid-template-columns:5fr 7fr;gap:64px}
+  .stk-train{display:block;position:relative;--w:200px;margin-top:48px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .go:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="logo" viewBox="0 0 854.35 244.16"><path fill="currentColor" fill-rule="evenodd" d="M115.8 187.1L122.5 186.6L126.8 185.8L135.3 183.4L141.6 181.2L145.2 179.4L149.3 176.8L153.6 173.2L157.7 169.1L161 164.8L163.7 160.2L166.3 154.4L168.7 147.9L170.6 141.5L172 135L172.8 128.1L173.2 121.2L173 114.6L172.4 108.5L171.3 102.9L169.3 96.5L167.2 91.4L163.6 84.5L159.7 78.3L155.6 72.7L152.4 69.2L148.1 65L143.9 61.8L139.4 59.1L134.7 57.1L129.7 55.6L124.2 54.6L118.7 54.2L113.4 54.5L108 55.7L102.6 57.7L97.7 60.2L93.2 63.1L88.8 66.9L84.4 71.5L81.2 75.4L76.8 82.2L73.3 89L66.5 103.6L58.3 122.6L55.8 128.8L54.5 133.4L53.6 137.8L53.1 142.5L53.3 147.1L54 151.6L55.2 155.8L57.1 160.1L59.7 164.3L62.7 168.1L66 171.5L68.8 173.7L72.9 176.4L77.8 178.9L83.5 181.3L89.9 183.4L96.3 185L102.5 186.1L110 186.9L115.8 187.1ZM103.6 179.5L93.3 177.4L83 173.9L79.4 172.3L75.3 170.1L69.8 165.8L67.1 163L64.6 159.6L62.6 156.2L61.2 152.7L60.3 149.1L59.8 145.4L59.8 141.7L60.3 138L61.5 133L63.5 127.6L76.3 98.2L82.5 85.5L84.9 81.8L88.5 77L93.5 71.7L97.2 68.5L102 65.5L106.6 63.3L111.1 61.8L115.3 61L119.7 60.9L124.5 61.4L129.2 62.4L134.4 64.2L139.2 66.7L142.9 69.3L147.6 73.7L151.4 78.2L155.1 83.5L158.6 89.2L161.2 94.2L163.4 100L164.8 104.5L165.8 109.5L166.4 115.1L166.5 121.1L166.2 127.5L165.4 133.9L164.1 139.8L162.4 145.8L160.2 151.8L157.2 158.3L155.4 161.2L152.7 164.7L149.1 168.3L145.3 171.4L142 173.6L137.7 175.5L129.9 178.1L124 179.6L120.5 180.1L115.7 180.4L110.5 180.3L105 179.7ZM116.3 173.5L120.7 172.8L125.1 171.7L129.4 170.1L134.5 167.7L138.2 165.6L141.6 163.1L144.8 160.2L147.7 157L150.4 153.3L153.4 148.3L155.6 143.9L156.9 140.3L158.4 135.2L159.6 129.1L160.4 118.6L160.3 113.8L159.8 109.2L158.9 104.8L157.5 100.1L155.7 95.6L152.8 89.9L150.1 85.8L147.3 82.2L144.1 79L140.6 76L137 73.5L133.5 71.6L129.8 70.1L125.8 69L121.7 68.4L117.7 68.5L113.6 69.2L109.1 70.5L105.8 71.7L101.5 74L97.5 76.7L94 79.7L91.4 82.4L88.8 85.8L85.1 91.5L81.8 97.9L69.8 123.9L66.4 133.4L65.5 137.9L65.1 142.2L65.2 145L65.9 148.7L67.1 152.2L68.7 155.6L70.9 158.8L73.3 161.6L76.1 164.2L78.7 166L82.4 168.1L86.7 170L91 171.5L95.5 172.6L100.3 173.4L105.2 173.8L115.2 173.6ZM103.3 167L95.8 165.8L89.1 163.8L83 160.8L78.6 157.5L76.6 155.3L74.9 153L73.6 150.4L72.5 147.7L71.8 143L72.4 137.1L73.5 133L75.3 128.1L85.2 106.1L90.9 94.9L95.7 87.7L97.9 85.2L100.9 82.6L104.1 80.2L107.5 78.3L111.2 76.8L115.1 75.7L119.2 75.1L122.1 75.2L126.1 75.9L129.1 76.9L132.7 78.7L135.7 80.7L138.8 83.2L142.2 86.6L144.6 89.7L147.5 94.3L149.6 98.3L151.2 102.4L152.4 106.4L153.2 110.2L153.7 115.3L153.7 119.6L153.4 125L152.7 130.3L150.2 139.2L147 146.1L142.6 152.7L139.5 156.1L136.7 158.4L130.5 162.3L125.9 164.3L122.2 165.6L114.5 166.9L108.9 167.2L104.4 167.1ZM127.4 209.8L134.8 209L142.7 207.5L151.3 205.5L155.6 203.9L163.7 199.2L169.8 194.7L175.4 189.6L181 183L185.3 176.2L189 168.9L190.6 165L191.9 159.4L193.1 152.4L194.6 139.2L196 122.5L196 115.5L194.7 107.6L193.2 102.3L189.1 91.7L185.7 84.7L180.1 75.3L174 66.5L166.7 57.2L161.1 51.4L156.8 47.8L150.2 43.6L144.4 40.9L138.3 38.6L131.4 36.5L124 35L115.8 34.2L109.9 34.1L104.6 34.8L98.7 36.4L93 38.9L87.7 42L80.4 47.5L74.6 52.8L69.3 58.6L65.3 63.9L59.9 73L52.9 87.2L45.9 103L41.1 115.5L37.6 126.6L34.8 137.7L34.1 144L34.3 150.5L35.2 156.7L36.5 161.9L38.4 167L40.6 171.4L44.5 177.4L47.5 181.3L51 184.7L55.1 187.9L61.2 191.6L73.2 197.7L80 200.8L89.6 204.3L98.5 206.8L111.2 209.4L118.7 210.1L126.3 209.8ZM116 200.8L111.2 200.2L103.1 198.6L95.1 196.6L89.4 194.8L83.4 192.4L73.8 188L65.6 183.7L58.8 179.5L55.1 176.2L52.6 173.3L49.1 168L46.6 163.2L45.1 159.4L44.1 154.9L43.3 149.6L43.1 145.1L43.6 139.5L46.3 129L49.5 118.5L52.9 109.7L59.7 93.9L65.2 82.5L69.2 74.9L74 67.2L78.5 61.7L84.8 55.5L90.2 51.3L96 47.5L100.5 45.4L106.4 43.6L110.5 43.1L117.2 43.3L122.5 43.9L129.2 45.3L135.5 47.1L142.2 49.7L147 52.2L151.6 55.1L154.9 57.9L158.6 61.7L163.9 68.2L169.6 75.9L173.9 82.4L178.8 91L182.6 99.6L185.1 106.7L186.6 113.3L187.1 118.9L184.7 147.3L183.7 154.6L182.6 160.1L181.4 163.7L177.4 171.8L174.5 176.5L171.1 181L166.7 185.6L161.6 189.7L154.6 194.2L150.1 196.4L140.8 198.7L132.2 200.2L123.7 201L117 200.9ZM262.5 150.2L263.4 154.1L264.8 157.6L266.6 160.9L268.8 163.8L271.5 166.5L274.5 168.7L277.9 170.5L281.5 171.8L285.4 172.7L289.6 173.2L295.1 173.1L299.3 172.5L303.2 171.5L306.7 170.1L310 168.2L313.6 165.2L315.6 163.1L317.7 160.1L319.4 156.8L320.4 154.1L321.3 150.2L321.8 146.1L321.8 142.4L320.9 141.1L299.4 140.1L298.6 140.6L298.2 141.4L298.1 146.4L297.6 149L296.8 150.5L295.5 151.8L293.2 152.8L291.2 152.9L289.9 152.7L287.9 151.5L286.4 149.4L285.9 147.9L285.7 145.9L285.8 97.3L286.5 94.6L288.2 92.4L290.6 91.3L293.2 91.3L295.6 92.4L297.4 94.6L298.1 97.1L298.2 102.8L298.9 103.8L299.9 103.9L320.4 103.1L321.4 102.5L321.8 101.5L321.8 97.9L321.3 93.7L320.4 89.9L319.1 86.3L317.2 83.1L314.9 80.1L312.2 77.5L309.2 75.4L305.9 73.6L302.2 72.3L298.3 71.4L293 71L288.5 71.1L283.4 71.8L279.6 72.9L276.2 74.4L273 76.4L270.1 78.8L267.1 82.3L264.8 86.3L263.1 90.8L262.2 95.8L262 100.1L262 143.9L262.3 149.2ZM108 163.8L115.6 162.8L122.2 160.8L126.6 158.9L130.1 156.9L136.2 152.4L138.6 150L141.3 146.7L144.9 140.8L147.7 134.1L149.5 126.7L149.9 122.8L150 117.5L149.3 109.5L148.5 106.1L147.1 101.8L143.8 95.3L141.2 91.8L138.7 89.1L136.1 86.8L133.1 84.8L130.2 83.2L127 82L123.7 81.3L120.1 80.9L116.3 81.2L113.5 81.7L107.9 83.6L102.4 87.1L99.4 89.8L97 92.4L93.9 96.6L90.6 102.2L82.6 117.9L78 128.6L76.6 133.3L75.9 136.7L75.7 142.5L76.8 147.5L79.1 152.1L80.9 154.4L83.2 156.7L87.6 159.8L93.3 162.1L100.2 163.5L107.9 163.8ZM98 156.4L92.8 154.9L89.3 153L86 150.1L83.7 146.6L82.5 142.9L82.4 138.8L83 134.9L85 128.9L88.6 120.7L95.5 107L99.5 100.3L103.5 95.1L107.7 91.5L110.2 89.9L112.8 88.8L117.9 87.7L120.6 87.6L123.2 88L126.2 88.8L129.1 90.2L132 92.1L134.1 93.9L136 96L138.1 98.9L141.1 105L142.8 110.7L143.4 118.5L142.7 126.5L140.8 133.6L138.3 139.1L134.6 144.4L130.6 148.5L125.2 152.1L118.3 155.2L112.7 156.6L105.1 157.1L98.7 156.5ZM107.2 152.8L112.3 152.1L118.4 150.2L123 147.9L127.9 144.2L131.9 139.9L134.6 135.7L136.7 130.8L138.5 124.3L139 118.9L138.5 112.4L137.2 106.9L135 102.8L132 99.2L128.1 96.3L123.2 94.5L120.7 94L118 94L114.1 94.6L109.8 96.5L106.8 98.7L103.2 102.6L98.6 109.1L93.7 117.9L90.2 125.6L88.3 131.8L87.6 136.7L87.8 140.2L89.1 144L91.2 147.3L94.1 149.8L97.3 151.3L102.3 152.5L107.1 152.8ZM98.3 144.6L96.3 142.9L95.1 141.1L94.3 138.6L94.3 136.5L95.4 130.8L98.6 123L99.2 119.2L100.9 115.4L103.2 112.4L105.9 110.2L110.3 104.5L113.2 102.2L115.9 101.1L118.7 100.6L121.7 101L124.1 101.8L127.4 104L129.9 107.2L131.2 110.3L132.2 115.5L132.3 119.7L131.7 124.3L130.1 129.7L128.2 133.4L126 136.6L122.8 139.9L118.6 142.7L114.8 144.4L110.9 145.6L106.9 146.1L103.3 145.9L98.6 144.7ZM468.3 72.1L467.4 72.7L467 73.7L467.1 123.5L466.8 123.9L466.3 123.5L451.6 72.7L450.1 72.1L427.4 72.1L426.6 72.4L426 73.1L425.9 170.8L426.5 171.7L427.4 172.1L447.7 172.1L448.6 171.8L449.1 171.1L449 120.8L449.3 120.4L449.9 120.9L464.4 171.4L465.9 172.1L489.1 172.1L490 171.5L490.4 170.4L490.4 73.5L489.8 72.5L488.8 72.1L468.4 72.1ZM575.2 73.3L574.6 72.5L573.7 72.1L513.3 72.1L512.4 72.7L512 73.7L512 90.9L512.6 92L513.5 92.4L530.8 92.4L531.4 92.8L531.6 171.1L532.1 171.8L533 172.1L553.8 172L554.7 171.5L555.1 170.5L555.2 92.8L555.7 92.4L573.6 92.4L574.7 92L575.3 90.8L575.2 73.4ZM796.3 171.5L797.7 172.1L818.8 172.1L819.8 171.8L820.2 171L807.8 128.3L812.3 124L815.7 119L818.1 113L818.9 109.5L819.3 105.7L819.1 98L818.4 93.9L817.5 90.7L814.7 84.7L812.9 82.2L810.8 79.8L807.5 77L803.2 74.5L799.1 73.1L794.6 72.2L760.4 72.1L759.3 72.6L758.9 73.6L759 171L759.6 171.8L760.4 172.1L781 172.1L782.3 171.3L782.6 170.5L782.6 132.8L783 132.2L785.5 132.2L786.1 132.8L795.9 170.8L796.3 171.4ZM782.6 92.7L783.2 92.4L787.6 92.4L789.7 92.7L792.2 94L793.8 95.7L795.1 98.7L795.7 102.5L795.5 106.5L794.4 109.7L792.4 112.3L790 113.7L787.6 114.1L783.2 114.1L782.7 113.8L782.6 92.7ZM343.9 153.1L345.1 156.7L346.8 160.1L349 163.1L351.6 165.9L354.6 168.2L357.9 170.1L361.5 171.5L364.4 172.3L369.6 173.1L374.1 173.2L378.5 172.9L382.5 172.1L386.3 170.9L389.7 169.2L392.9 167.1L395.7 164.6L398.7 160.9L401 156.7L402.5 152.1L403.3 147L403.4 100.5L403.2 96.2L402.5 92.2L401.3 88.4L399.7 85L397.6 81.8L395.1 79L392.1 76.5L388.9 74.5L385.4 73L381.5 71.8L376.3 71.1L371.8 71L367.5 71.3L363.4 72.1L359.6 73.3L356.2 75L353.1 77.1L350.2 79.7L347.3 83.4L345.1 87.5L343.6 92.2L342.8 97.2L342.7 143.7L342.9 148L343.6 152.1ZM372.6 152.9L371.3 151.9L369.5 149.6L368.7 147.8L367.9 144.7L366.4 134.8L366.1 122.7L367 110.2L368.6 103.3L370.2 98L371.9 93.8L373.5 91.8L374.9 91.2L376.1 92L377.1 93.5L378.8 99.9L379.7 108.3L380.1 121.5L379.1 133.2L377 145L376.2 147.8L375.1 150.3L373.7 152.3L372.7 152.9ZM594.7 153.1L596 156.7L597.7 160.1L599.9 163.1L602.5 165.9L605.4 168.2L608.7 170.1L612.3 171.5L615.2 172.3L620.5 173.1L625 173.2L629.3 172.9L633.4 172.1L637.1 170.9L640.6 169.2L643.7 167.1L646.6 164.6L649.6 160.9L651.8 156.7L653.4 152.1L654.1 147L654.3 99.4L654 96.2L653.4 92.2L652.2 88.4L650.6 85L648.5 81.8L645.9 79L643 76.5L639.8 74.5L636.2 73L632.4 71.8L627.2 71.1L622.7 71L618.3 71.3L614.2 72.1L610.5 73.3L607 75L603.9 77.1L601.1 79.7L598.2 83.4L596 87.5L594.5 92.2L593.7 97.2L593.6 144.8L594.5 152.1ZM630.4 147L629.6 149.5L628.3 151.2L626.4 152.5L624.4 152.9L622.1 152.8L620.1 151.8L618.5 149.9L617.6 147.8L617.3 144.7L617.3 99.5L617.5 97.1L618.1 94.9L619.3 93.1L620.9 91.9L623.3 91.2L625.6 91.4L627.6 92.3L629.3 94.2L630.2 96.6L630.6 99.2L630.4 146.8ZM676.7 148.7L677.5 152.7L679.1 157.1L681 160.5L683.6 164L686.3 166.6L689.9 169.1L693.3 170.8L697.7 172.3L702.4 173.1L707.5 173.2L712.3 172.7L716.2 171.7L720.4 170L723.7 168.1L726.6 165.8L729.6 162.5L732 158.8L733.8 154.6L735.1 150.1L735.6 145.9L735.7 73.6L735.1 72.5L734.1 72.1L713.6 72.1L712.8 72.4L712.1 73.2L711.9 146.6L711.4 149L709.9 151.3L708.1 152.6L706 152.9L703.9 152.6L701.9 151.1L700.6 149L700 146.3L699.9 73.2L699.2 72.4L698.4 72.1L677.9 72.1L676.7 72.7L676.3 73.7L676.3 142.9L676.6 148Z"/><path fill="#F0531C" d="M124.7 123.6L124.5 121.6L123.9 119.8L123 118L121.7 116.5L119.1 114.6L117.2 113.9L115.3 113.6L113.3 113.7L111.4 114.1L109.6 114.9L108 116.1L106.7 117.5L105.7 119.2L105 121L104.6 122.9L104.7 124.9L105.2 126.8L106 128.6L107.1 130.2L108.5 131.5L110.2 132.6L112 133.3L114 133.6L116 133.5L117.9 133.1L119.7 132.3L121.2 131.1L122.6 129.7L123.6 128L124.3 126.2L124.6 124.2Z"/></symbol></svg>
+<a class="skip" href="#iscriviti">Vai al form di iscrizione</a>
+
+<header class="hud">
+  <a class="brand" href="../" aria-label="CONTOUR, torna alla home"><svg aria-hidden="true"><use href="#logo"/></svg></a>
+  <nav class="cap" aria-label="Pagina">
+    <a href="../">← Home</a>
+    <a class="go-s" href="#iscriviti">Iscriviti →</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="t-mezza">
+  <h1 class="sr" id="t-mezza">Mezza di Natale · Mezza maratona e 10 km · Arenzano (GE), domenica 20 dicembre 2026</h1>
+  <div class="map" id="map">
+    <div class="wpm" aria-hidden="true"><i></i><span>EVENTO 01</span></div>
+    <img src="../assets/mezza-map.svg" width="1600" height="1000" alt="Mappa del percorso: dal punto di partenza e arrivo ad Arenzano lungo il mare fino al giro di boa a Cogoleto, linee di livello delle colline sopra la costa" decoding="async" />
+    <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path class="rt" d="M1251.4 241L1255.7 262.3L1257.1 280.4L1255 288.4L1240.7 309.8L1232.4 319.5L1212.2 337.9L1210.1 340.8L1182.5 365.1L1167.6 375.2L1126 398.5L1120.5 400.1L1096.3 402.4L1030.8 419.2L979.8 433.6L947.2 444.8L896.5 447.8L885.1 451.1L713.5 458.1L687.5 460.8L675.5 462.4L609 476.1L604.1 478.9L591.6 490.5L585.9 493.2L581 493.2L576.6 490.1L575.3 490.1L568.9 492.2L565 490.8L555.8 494.4L552.5 498.7L527.4 512.1L522.1 512.2L517.4 516L508.1 526.3L497.8 532.8L495.9 536L478.3 544.3L472.8 543.7L454.9 551L436.4 561.7L431.5 565.5L420 578L406.5 604.1L397.9 623.6L384.3 660.6L373.5 685.7L368.2 693.6L368 696.5L366.8 696.3L359.8 699.7L355.4 700L342.9 697.8"/>
+      <circle class="tn" cx="342.9" cy="697.8" r="11"/>
+      <circle class="st" cx="1251.4" cy="241.0" r="12"/>
+    </svg>
+    <span class="lbl" data-at="1251.4,241.0" data-pos="nw" aria-hidden="true"><b>Arenzano</b>Partenza · Arrivo</span>
+    <span class="lbl" data-at="342.9,697.8" data-pos="s" aria-hidden="true"><b>Cogoleto</b>Giro di boa</span>
+    <span class="grid-k cap" aria-hidden="true">Griglia 1 km · Isoipse 25 m</span>
+    <div class="stk stk-stamp" style="--r:-8deg" aria-hidden="true"><img src="../assets/st-stamp.webp" width="356" height="440" alt="" decoding="async" /></div>
+    <div class="stk stk-alba" style="--r:7deg" aria-hidden="true"><img src="../assets/st-alba.webp" width="440" height="397" alt="" decoding="async" /></div>
+    <div class="mzt" aria-hidden="true">
+      <p class="when cap">Evento 01 / Arenzano (GE)<br>Domenica 20.12.2026</p>
+      <p class="disp">Mezza di<br>Natale.</p>
+    </div>
+  </div>
+  <div class="wrap intro">
+    <div class="mzt-m" aria-hidden="true">
+      <p class="when cap">Evento 01 / Arenzano (GE)<br>Domenica 20.12.2026</p>
+      <p class="disp">Mezza di<br>Natale.</p>
+    </div>
+    <div class="mzgrid">
+      <div>
+        <p class="sub">Mezza maratona &amp; 10 km</p>
+        <p class="lede">La nostra prima corsa insieme: mezza maratona o 10 km vista mare, andata e ritorno da Arenzano.</p>
+        <a class="go" href="#iscriviti">Iscriviti alla corsa</a>
+      </div>
+      <p class="cap coords">44°23′58″N · 8°41′08″E<br>Arenzano (GE) · Domenica 20.12.2026</p>
+    </div>
+    <dl class="facts">
+      <div><dt class="cap">Data</dt><dd>20.12.2026</dd></div>
+      <div><dt class="cap">Distanze</dt><dd>21,1 km · 10 km</dd></div>
+      <div><dt class="cap">Partenza · Arrivo</dt><dd>Arenzano</dd></div>
+      <div><dt class="cap">Percorso</dt><dd>Vista mare, andata e ritorno</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sec" id="iscriviti" aria-labelledby="t-iscr">
+  <div class="wrap">
+    <div class="rule cap"><span>Iscrizioni</span><span>Every city has a summit.</span></div>
+    <div class="g" id="box">
+      <div class="side">
+        <p class="cap"><span class="pin" aria-hidden="true"></span>Iscrizioni aperte</p>
+        <h2 class="disp" id="t-iscr">Corri con noi.</h2>
+        <p class="lede">Lasciaci nome, email e distanza. Ti scriviamo noi con orario di partenza e dettagli prima della gara.</p>
+        <div class="stk stk-train" style="--r:-5deg" aria-hidden="true"><img src="../assets/st-train.webp" width="440" height="269" alt="" decoding="async" /></div>
+      </div>
+      <div>
+        <form id="f" novalidate>
+          <div class="row">
+            <label class="f"><span class="cap">Nome</span><input type="text" name="nome" autocomplete="given-name" required maxlength="60" /></label>
+            <label class="f"><span class="cap">Cognome</span><input type="text" name="cognome" autocomplete="family-name" required maxlength="60" /></label>
+          </div>
+          <label class="f"><span class="cap">Email</span><input type="email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required maxlength="120" /></label>
+          <fieldset>
+            <legend class="cap">Distanza</legend>
+            <div class="dist">
+              <label><input type="radio" name="distanza" value="21" required /><span><b>21,1 km</b><small class="cap">Mezza maratona</small></span></label>
+              <label><input type="radio" name="distanza" value="10" /><span><b>10 km</b><small class="cap">Corsa breve</small></span></label>
+            </div>
+          </fieldset>
+          <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+          <label class="consent"><input type="checkbox" name="consenso" value="si" required /><span>Acconsento al trattamento dei miei dati (nome, email, distanza) per l'organizzazione della corsa. I dati arrivano solo all'organizzatore e vengono cancellati entro 30 giorni dall'evento. <a href="../privacy.html#race">Privacy</a></span></label>
+          <p class="cap err" id="err" aria-live="assertive"></p>
+          <button class="go" type="submit">Iscrivimi</button>
+        </form>
+        <div class="thanks" role="status" aria-live="polite">
+          <p class="cap"><span class="pin" aria-hidden="true"></span>Posizione registrata</p>
+          <h3 class="disp">Ci vediamo al via.</h3>
+          <p class="cap">Ti scriviamo con orario e dettagli prima del 20.12.2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="cap">
+  <div class="wrap">
+    <span>Contour · Every city has a summit.</span>
+    <span><a href="../">Home</a> · <a href="../privacy.html">Privacy</a></span>
+  </div>
+</footer>
+<script>
+(function(){
+  var ENDPOINT="__ENDPOINT__";
+  var f=document.getElementById("f"),err=document.getElementById("err"),box=document.getElementById("box");
+  f.addEventListener("submit",function(e){
+    e.preventDefault();err.textContent="";
+    var d=new FormData(f);
+    if(!f.nome.value.trim()||!f.cognome.value.trim()){err.textContent="Inserisci nome e cognome.";return}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())){err.textContent="Controlla l'indirizzo email.";return}
+    if(!d.get("distanza")){err.textContent="Scegli la distanza.";return}
+    if(!f.consenso.checked){err.textContent="Serve il consenso per iscriverti.";return}
+    var b=new URLSearchParams();d.forEach(function(v,k){b.append(k,String(v).trim())});b.append("fonte","sito");
+    var btn=f.querySelector("button");btn.disabled=true;btn.textContent="Invio…";
+    if(f.website&&f.website.value){box.classList.add("sent");return}
+    var fail=function(){err.textContent="Invio non riuscito. Riprova tra poco.";btn.disabled=false;btn.textContent="Iscrivimi"};
+    if(ENDPOINT.indexOf("http")===0){
+      fetch(ENDPOINT,{method:"POST",body:b}).then(function(r){return r.json()}).then(function(j){if(j&&j.ok){box.classList.add("sent")}else{throw 0}}).catch(fail);
+      return;
+    }
+    var o={_subject:"Iscrizione Mezza di Natale: "+f.nome.value.trim()+" "+f.cognome.value.trim()+" ("+d.get("distanza")+" km)",_template:"table",_captcha:"false",
+      Nome:f.nome.value.trim(),Cognome:f.cognome.value.trim(),Email:f.email.value.trim(),Distanza:d.get("distanza")==="21"?"21,1 km":"10 km",Consenso:"si",Data:new Date().toISOString(),Fonte:"sito"};
+    fetch("https://formsubmit.co/ajax/7a8d6f74e17fb9ae373b8345cde6ddfe",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)})
+      .then(function(r){return r.json()}).then(function(j){if(j&&(j.success===true||j.success==="true")){box.classList.add("sent")}else{throw 0}}).catch(fail);
+  });
+})();
+</script>
+<script>
+(function(){
+  var m=document.getElementById("map");if(!m)return;
+  var L=m.querySelectorAll(".lbl");
+  function place(){
+    var W=m.clientWidth,H=m.clientHeight,s=Math.max(W/1600,H/1000),ox=(W-1600*s)/2,oy=(H-1000*s)/2;
+    for(var i=0;i<L.length;i++){
+      var el=L[i],a=el.getAttribute("data-at").split(","),x=a[0]*s+ox,y=a[1]*s+oy,w=el.offsetWidth,h=el.offsetHeight,lx,ly;
+      if(el.getAttribute("data-pos")==="nw"){lx=x-w-16;ly=y-h-12}else{lx=x-w/2;ly=y+18}
+      lx=Math.max(8,Math.min(W-w-8,lx));ly=Math.max(8,Math.min(H-h-8,ly));
+      el.style.transform="translate("+Math.round(lx)+"px,"+Math.round(ly)+"px)";el.classList.add("on");
+    }
+  }
+  place();window.addEventListener("resize",place);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
+})();
+</script>
+</body>
+</html>
