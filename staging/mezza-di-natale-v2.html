@@ -85,6 +85,15 @@ a{color:inherit}
 .go::after{content:"→";font-size:18px;line-height:1}
 .go:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
 .coords{opacity:.8}
+/* countdown (from homepage .count) */
+.cnt{margin-top:30px}
+.cnt-k{margin:0 0 10px;opacity:.8}
+.count{display:flex;gap:clamp(12px,2.4vw,30px);padding:14px 0 0;border-top:1px solid rgba(239,233,220,.5);font-variant-numeric:tabular-nums}
+.count div{display:flex;flex-direction:column;gap:8px}
+.count b{font:400 clamp(50px,13vw,104px)/.9 var(--display);min-width:1.9ch}
+.count .d b{min-width:2.1ch}
+.count small{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.cnt .coords{margin:16px 0 0}
 .facts{display:grid;grid-template-columns:1fr 1fr;margin:56px 0 0;border-top:1px solid rgba(239,233,220,.5)}
 .facts div{padding:14px 12px 14px 0;border-bottom:1px solid var(--hair)}
 .facts div:nth-child(even){padding-left:14px;border-left:1px solid var(--hair)}
@@ -153,6 +162,9 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
   .intro{padding-top:56px}
   .mzgrid{grid-template-columns:6fr 5fr;gap:64px;align-items:end;margin-top:0}
   .mzgrid .coords{text-align:right}
+  .cnt{margin-top:0}
+  .count{justify-content:flex-end}
+  .count b{font-size:clamp(64px,6.6vw,96px)}
   .facts{grid-template-columns:repeat(4,1fr);margin-top:72px}
   .facts div,.facts div:nth-child(even){padding:16px 16px 18px 0;border-bottom:0;border-left:0;border-right:1px solid var(--hair)}
   .facts div+div,.facts div+div:nth-child(even){padding-left:16px}
@@ -164,6 +176,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .go:hover{transform:none}
+  .count .s{display:none}
 }
 </style>
 </head>
@@ -211,7 +224,16 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
         <p class="lede">La nostra prima corsa insieme: mezza maratona o 10 km vista mare, andata e ritorno da Arenzano.</p>
         <a class="go" href="#iscriviti">Iscriviti alla corsa</a>
       </div>
-      <p class="cap coords">44°23′58″N · 8°41′08″E<br>Arenzano (GE) · Domenica 20.12.2026</p>
+      <div class="cnt">
+        <p class="cap cnt-k">T-minus · 20.12.2026</p>
+        <div class="count" id="count" role="timer" aria-label="Countdown to Sunday 20 December 2026">
+          <div class="d"><b id="cD">--</b><small>Giorni</small></div>
+          <div><b id="cH">--</b><small>Ore</small></div>
+          <div><b id="cM">--</b><small>Min</small></div>
+          <div class="s"><b id="cS">--</b><small>Sec</small></div>
+        </div>
+        <p class="cap coords">44°23′58″N · 8°41′08″E<br>Arenzano (GE) · Domenica 20.12.2026</p>
+      </div>
     </div>
     <dl class="facts">
       <div><dt class="cap">Data</dt><dd>20.12.2026</dd></div>
@@ -292,6 +314,22 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline;text-unde
     fetch("https://formsubmit.co/ajax/7a8d6f74e17fb9ae373b8345cde6ddfe",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)})
       .then(function(r){return r.json()}).then(function(j){if(j&&(j.success===true||j.success==="true")){box.classList.add("sent")}else{throw 0}}).catch(fail);
   });
+})();
+</script>
+<script>
+/* Countdown to 20.12.2026, same target as the homepage: Sunday 20.12.2026 00:00 CET (UTC+01:00) = 19.12.2026 23:00 UTC */
+(function(){
+  var cD=document.getElementById("cD"),cH=document.getElementById("cH"),cM=document.getElementById("cM"),cS=document.getElementById("cS");
+  if(!cD)return;
+  var target=Date.UTC(2026,11,19,23,0,0);
+  var RM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pad2=function(n){return(n<10?"0":"")+n};
+  function tick(){
+    var ms=Math.max(0,target-Date.now()),sec=Math.floor(ms/1000);
+    var dd=Math.floor(sec/86400),hh=Math.floor(sec%86400/3600),mm=Math.floor(sec%3600/60),ss=sec%60;
+    cD.textContent=pad2(dd);cH.textContent=pad2(hh);cM.textContent=pad2(mm);cS.textContent=pad2(ss);
+  }
+  tick();window.setInterval(tick,RM?30000:1000);
 })();
 </script>
 <script>
