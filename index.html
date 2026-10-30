@@ -191,31 +191,106 @@ html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}
   .plate .info{padding-top:0}
 }
 
-/* ---------- 03 SPEC SHEET ---------- */
+/* ---------- 03 SPEC SHEET (interactive anatomy, staging 30 Oct) ---------- */
 .sheet{padding:118px 0 110px}
-.sheet .h2{margin:28px 0 36px}
-.cuff{position:relative;margin:0 calc(-1 * var(--pad))}
-.cuff img{width:100%;height:auto}
-.cuff svg{position:absolute;inset:0;width:100%;height:100%}
-.cuff svg path,.cuff svg ellipse{fill:none;stroke:var(--bone);stroke-width:2.2;vector-effect:non-scaling-stroke}
-.cuff svg rect{fill:var(--bone)}
-.call{position:absolute;display:flex;gap:8px;padding:5px 8px;background:var(--bone);color:var(--ink);border:1px solid var(--ink);transform:translateY(-50%);white-space:nowrap}
-.call span{display:none}
-.cuff figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px var(--pad) 0}
-.specs{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--lichen)}
-.specs li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:18px 0;border-bottom:1px solid rgba(169,184,154,.4)}
-.specs h3{margin:0;font:400 26px/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
-.specs p{grid-column:2;margin:4px 0 0;opacity:.88;max-width:44ch}
+.sheet .h2{margin:28px 0 30px}
+.anat{position:relative}
+.an-ctl{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 20px;margin:0 0 16px}
+.an-cws{display:flex;flex-wrap:wrap;gap:8px}
+.an-chip{display:inline-flex;align-items:center;gap:9px;padding:9px 12px 9px 10px;background:transparent;color:var(--bone);border:1px solid rgba(239,233,220,.38);cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
+.an-chip i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(239,233,220,.6);flex:none}
+.an-chip b{font-weight:500;display:none}
+.an-chip:hover{border-color:var(--bone)}
+.an-chip[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.an-chip[aria-pressed="true"] i{border-color:var(--ink)}
+.an-flip{display:inline-flex;border:1px solid rgba(239,233,220,.38)}
+.an-flip button{padding:9px 16px;background:transparent;color:var(--bone);border:0;cursor:pointer;transition:background-color .2s,color .2s}
+.an-flip button[aria-pressed="true"]{background:var(--orange);color:var(--ink)}
+.an-chip:focus-visible,.an-flip button:focus-visible,.an-dot:focus-visible,.an-list button:focus-visible,.an-nav button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.an-grid{position:relative;display:grid;gap:16px}
+.an-fig{margin:0;border:1px solid var(--bone);background:var(--bone);color:var(--ink);min-width:0}
+.an-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:9px 12px;border-bottom:1px solid var(--ink)}
+.an-stage{position:relative;aspect-ratio:1264/848;overflow:hidden;background:var(--bg,#ECE9E4);transition:background-color .5s;perspective:1400px}
+.an-im{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:rotateY(10deg) scale(.985);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.an-im[data-side="back"]{transform:rotateY(-10deg) scale(.985)}
+.an-im.on{opacity:1;transform:none}
+.an-dot{position:absolute;z-index:3;left:0;top:0;width:26px;height:26px;margin:-13px 0 0 -13px;padding:0;border:0;border-radius:50%;background:var(--orange);color:var(--ink);font:500 9.5px/26px var(--mono);letter-spacing:.02em;cursor:pointer;opacity:0;transform:scale(.4);pointer-events:none;transition:opacity .35s,transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .2s;box-shadow:0 0 0 2px rgba(239,233,220,.9)}
+.an-dot span{position:relative;z-index:1}
+.an-dot::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--orange);opacity:.55;animation:anPulse 2.2s cubic-bezier(.2,.7,.2,1) infinite;animation-play-state:paused}
+.anat.live .an-dot::before{animation-play-state:running}
+.an-dot.vis{opacity:1;transform:none;pointer-events:auto}
+.an-dot.act{box-shadow:0 0 0 2px var(--ink),0 0 0 5px rgba(240,83,28,.35);transform:scale(1.15)}
+@keyframes anPulse{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(2.3);opacity:0}}
+.an-fig figcaption{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-top:1px solid var(--ink)}
+.an-card{position:relative;display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:start;padding:16px;background:var(--bone);color:var(--ink);border:1px solid var(--bone);min-width:0}
+.an-lens{position:relative;width:128px;height:128px;border-radius:50%;overflow:hidden;border:2px solid var(--ink);box-shadow:0 0 0 4px var(--orange);background-color:#ECE9E4;background-repeat:no-repeat;transition:background-position .45s cubic-bezier(.2,.7,.2,1)}
+.an-lens::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:1px solid rgba(240,83,28,.9);border-radius:50%;pointer-events:none;transition:opacity .3s}
+.an-watch{position:absolute;left:50%;top:50%;width:74px;height:40px;margin:-20px 0 0 -37px;border-radius:20px;background:#0d0d0d;box-shadow:inset 0 0 0 2px #2b2b2b,0 0 0 1px rgba(0,0,0,.35);transform:rotate(var(--ang,50deg));clip-path:inset(50% 8% 50% 8% round 20px);transition:clip-path .65s cubic-bezier(.2,.7,.2,1) .15s;display:grid;place-items:center}
+.an-wf{display:flex;flex-direction:column;align-items:center;line-height:1;color:var(--bone);transform:rotate(calc(-1 * var(--ang,50deg)))}
+.an-wf b{font:500 13px/1 var(--mono);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.an-wf small{font:500 6px/1 var(--mono);letter-spacing:.14em;margin-top:2px;color:var(--orange)}
+.an-wf i{display:none}
+.an-card.watch .an-watch{clip-path:inset(0 0 0 0 round 20px)}
+.an-card.watch .an-lens::after{opacity:0}
+.an-hd{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.an-no{display:inline-block;padding:3px 7px;background:var(--orange);color:var(--ink)}
+.an-nav{display:flex;gap:6px}
+.an-nav button{width:34px;height:34px;padding:0;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 15px/1 var(--mono);cursor:pointer;transition:background-color .2s,color .2s}
+.an-nav button:hover{background:var(--ink);color:var(--bone)}
+.an-t{margin:12px 0 0;font:400 26px/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.an-p{margin:8px 0 0;font-size:15.5px;line-height:1.5}
+.an-cw{margin:12px 0 0;padding-top:10px;border-top:1px solid rgba(21,21,21,.2);color:var(--stone);font-size:10px}
+.an-txt{min-width:0;transition:opacity .25s}
+.an-card.swap .an-txt{opacity:0}
+.an-line{display:none;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:4}
+.an-line path{fill:none;stroke:var(--orange);stroke-width:1.5;stroke-dasharray:var(--len,0) var(--len,0);stroke-dashoffset:var(--len,0)}
+.an-line.draw path{stroke-dashoffset:0;transition:stroke-dashoffset .6s cubic-bezier(.2,.7,.2,1)}
+.an-line rect{fill:var(--orange);opacity:0;transition:opacity .2s .45s}
+.an-line.draw rect{opacity:1}
+.an-list{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--lichen)}
+.an-list li{border-bottom:1px solid rgba(169,184,154,.4)}
+.an-list button{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;width:100%;padding:18px 0;background:none;border:0;color:var(--bone);text-align:left;font:inherit;cursor:pointer}
+.an-ln{grid-row:1/4;transition:color .2s}
+.an-lt{font:400 26px/1 var(--display);text-transform:uppercase;letter-spacing:.01em;transition:color .2s}
+.an-ld{opacity:.88;max-width:44ch}
+.an-na{color:var(--lichen);font-size:10px}
+.an-na:empty{display:none}
+.an-list button[aria-current="true"] .an-ln,.an-list button[aria-current="true"] .an-lt{color:var(--orange)}
+.an-list button:hover .an-lt{color:var(--orange)}
+.an-list button.na .an-lt,.an-list button.na .an-ld{opacity:.55}
 .sizes{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
 .sizes li{min-width:52px;padding:12px 0;text-align:center;border:1px solid var(--lichen);font:400 22px/1 var(--display)}
 .sheet .sfoot{display:grid;gap:22px;margin-top:40px}
-@media (min-width:700px){.call span{display:inline}}
+@media (max-width:699px){
+  .an-fig{margin:0 calc(-1 * var(--pad));border-left:0;border-right:0}
+  .an-card{margin:0 calc(-1 * var(--pad));border-left:0;border-right:0;padding:16px var(--pad)}
+  .an-bar{font-size:10px}
+  .an-dot{width:24px;height:24px;margin:-12px 0 0 -12px;line-height:24px;font-size:9px}
+  .an-chip{padding:8px 10px 8px 9px}
+  .an-flip button{padding:8px 13px}
+}
+@media (min-width:560px){.an-chip b{display:inline}}
+@media (min-width:700px){
+  .an-card{grid-template-columns:150px 1fr;gap:20px;padding:20px}
+  .an-lens{width:150px;height:150px}
+  .an-watch{width:86px;height:46px;margin:-23px 0 0 -43px;border-radius:23px}
+  .an-wf b{font-size:15px}.an-wf small{font-size:7px}
+}
 @media (min-width:900px){
-  .cuff{margin:0}
-  .cuff figcaption{padding:10px 0 0}
-  .specs{grid-template-columns:repeat(3,1fr);column-gap:40px}
+  .an-grid{grid-template-columns:minmax(0,1fr) 300px;gap:44px;align-items:center}
+  .an-card{grid-template-columns:1fr;gap:18px;padding:22px}
+  .an-lens{width:176px;height:176px}
+  .an-watch{width:100px;height:54px;margin:-27px 0 0 -50px;border-radius:27px}
+  .an-wf b{font-size:17px}.an-wf small{font-size:7.5px}
+  .an-line{display:block}
+  .an-list{grid-template-columns:repeat(4,1fr);column-gap:32px}
+  .an-list li{border-bottom:0}
+  .an-list button{grid-template-columns:1fr;padding:18px 0 4px}
+  .an-ln{grid-row:auto}
   .sheet .sfoot{grid-template-columns:1fr 1fr;gap:56px;align-items:end}
 }
+@media (min-width:1200px){.an-grid{grid-template-columns:minmax(0,1fr) 320px}}
+@media (prefers-reduced-motion:reduce){.an-dot::before{display:none}.an-im{transform:none!important}}
 
 /* ---------- 04 ORIGIN ---------- */
 .origin{padding:118px 0 110px;overflow:hidden}
@@ -561,26 +636,54 @@ html.rm .mani .giant span{transform:none!important}
   <div class="wrap">
     <div class="row cap"><span>03 / Spec sheet</span><span>Contour LS · Rev. AW26 · Sheet 1/1</span></div>
     <h2 class="disp h2">Built like equipment.</h2>
-    <figure class="cuff" style="margin-bottom:0">
-      <div style="position:relative">
-        <picture>
-          <source type="image/webp" srcset="assets/cuff-720.webp 720w, assets/cuff-1400.webp 1400w" sizes="(min-width:1240px) 1096px, (min-width:900px) 90vw, 100vw">
-          <img src="assets/cuff-1400.jpg" width="1400" height="781" loading="lazy" decoding="async" alt="A runner on a Berlin bridge at dawn checks his watch through the slit in the cuff of a black Contour long sleeve">
-        </picture>
-        <svg viewBox="0 0 1376 768" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M540 500V680H330"/><rect x="534" y="494" width="12" height="12"/>
-          <ellipse cx="685" cy="370" rx="75" ry="75"/><path d="M735 312L900 90H980"/>
-        </svg>
-        <span class="call cap" style="right:76%;top:88.5%"><b>01</b><span>Thumb opening</span></span>
-        <span class="call cap" style="left:71.2%;top:11.7%"><b>02</b><span>Watch slit</span></span>
+    <div class="anat" data-cw="cw01" data-side="front">
+      <div class="an-ctl">
+        <div class="an-cws" role="group" aria-label="Colourway">
+          <button type="button" class="an-chip cap" data-cw="cw01" aria-pressed="true"><i style="background:#EFE9DC"></i><span>CW01 <b>Keep Climbing</b></span></button>
+          <button type="button" class="an-chip cap" data-cw="cw02" aria-pressed="false"><i style="background:#151515"></i><span>CW02 <b>Field Manual</b></span></button>
+          <button type="button" class="an-chip cap" data-cw="cw03" aria-pressed="false"><i style="background:linear-gradient(180deg,#2C3A5C 0 50%,#F08A3C 100%)"></i><span>CW03 <b>First Light</b></span></button>
+        </div>
+        <div class="an-flip" role="group" aria-label="View">
+          <button type="button" class="cap" data-side="front" aria-pressed="true">Front</button><button type="button" class="cap" data-side="back" aria-pressed="false">Back</button>
+        </div>
       </div>
-      <figcaption class="cap"><span>Fig. 01 — Cuff, both sides</span><span class="d-only">Callouts 01 · 02</span></figcaption>
-    </figure>
-    <ul class="specs">
-      <li><span class="cap">01</span><h3>Thumb opening</h3><p>Built into the cuff seam. Warm hands on cold starts.</p></li>
-      <li><span class="cap">02</span><h3>Watch slit</h3><p>A bonded slit on both cuffs. Slide the watch through and read your pace.</p></li>
-      <li><span class="cap">03</span><h3>Breathable knit</h3><p>130–150 gsm, mesh side panels, flatlock seams, reflective tab.</p></li>
-    </ul>
+      <div class="an-grid">
+        <figure class="an-fig">
+          <div class="an-bar cap"><span class="an-name">Colourway 01 — Keep Climbing</span><span class="an-vw">Front · Hotspots <span class="an-cnt">01–04</span></span></div>
+          <div class="an-stage">
+            <img class="an-im on" data-cw="cw01" data-side="front" src="assets/cw01-front-1264.webp" srcset="assets/cw01-front-760.webp 760w, assets/cw01-front-1264.webp 1264w" sizes="(max-width: 900px) 92vw, 860px" width="1264" height="848" loading="lazy" decoding="async" alt="Keep Climbing long sleeve in bone, front">
+            <img class="an-im" data-cw="cw01" data-side="back" src="assets/cw01-back-1264.webp" srcset="assets/cw01-back-760.webp 760w, assets/cw01-back-1264.webp 1264w" sizes="(max-width: 900px) 92vw, 860px" width="1264" height="848" loading="lazy" decoding="async" alt="Keep Climbing long sleeve in bone, back">
+            <img class="an-im" data-cw="cw02" data-side="front" src="assets/cw02-front-1264.webp" srcset="assets/cw02-front-760.webp 760w, assets/cw02-front-1264.webp 1264w" sizes="(max-width: 900px) 92vw, 860px" width="1264" height="848" loading="lazy" decoding="async" alt="Field Manual long sleeve in black, front">
+            <img class="an-im" data-cw="cw02" data-side="back" src="assets/cw02-back-1264.webp" srcset="assets/cw02-back-760.webp 760w, assets/cw02-back-1264.webp 1264w" sizes="(max-width: 900px) 92vw, 860px" width="1264" height="848" loading="lazy" decoding="async" alt="Field Manual long sleeve in black, back">
+            <img class="an-im" data-cw="cw03" data-side="front" src="assets/cw03-front-1264.webp" srcset="assets/cw03-front-760.webp 760w, assets/cw03-front-1264.webp 1264w" sizes="(max-width: 900px) 92vw, 860px" width="1264" height="848" loading="lazy" decoding="async" alt="First Light long sleeve, front">
+            <img class="an-im" data-cw="cw03" data-side="back" src="assets/cw03-back-1264.webp" srcset="assets/cw03-back-760.webp 760w, assets/cw03-back-1264.webp 1264w" sizes="(max-width: 900px) 92vw, 860px" width="1264" height="848" loading="lazy" decoding="async" alt="First Light long sleeve, back">
+            <button type="button" class="an-dot" data-h="1" aria-label="01 Watch slit"><span>01</span></button>
+            <button type="button" class="an-dot" data-h="2" aria-label="02 Thumb opening"><span>02</span></button>
+            <button type="button" class="an-dot" data-h="3" aria-label="03 Flatlock seams"><span>03</span></button>
+            <button type="button" class="an-dot" data-h="4" aria-label="04 Side panels"><span>04</span></button>
+          </div>
+          <figcaption class="cap"><span class="an-cap">Fig. 01 — Contour LS, front</span><span class="d-only">Tap a point</span></figcaption>
+        </figure>
+        <aside class="an-card" aria-live="polite">
+          <div class="an-lens" aria-hidden="true">
+            <div class="an-watch"><div class="an-wf"><b class="an-pace">4:52</b><small>/KM</small><i></i></div></div>
+          </div>
+          <div class="an-txt">
+            <div class="an-hd"><span class="an-no cap">01</span><span class="an-nav"><button type="button" class="an-prev" aria-label="Previous point">&#8592;</button><button type="button" class="an-next" aria-label="Next point">&#8594;</button></span></div>
+            <h3 class="an-t">Watch slit</h3>
+            <p class="an-p">A bonded slit on both cuffs. Slide the watch through and read your pace.</p>
+            <p class="an-cw cap">Bone with a cobalt topo grid, orange route markers and an elevation profile.</p>
+          </div>
+        </aside>
+        <svg class="an-line" aria-hidden="true"><path d=""/><rect width="8" height="8"/></svg>
+      </div>
+    </div>
+    <ol class="specs an-list">
+      <li><button type="button" data-h="1"><span class="cap an-ln">01</span><span class="an-lt">Watch slit</span><span class="an-ld">A bonded slit on both cuffs. Slide the watch through and read your pace.</span><span class="cap an-na"></span></button></li>
+      <li><button type="button" data-h="2"><span class="cap an-ln">02</span><span class="an-lt">Thumb opening</span><span class="an-ld">Built into the cuff seam. Warm hands on cold starts.</span><span class="cap an-na"></span></button></li>
+      <li><button type="button" data-h="3"><span class="cap an-ln">03</span><span class="an-lt">Flatlock seams</span><span class="an-ld">Flat seams, tagless neck. Nothing rubs at km 18.</span><span class="cap an-na"></span></button></li>
+      <li><button type="button" data-h="4"><span class="cap an-ln">04</span><span class="an-lt">Side panels</span><span class="an-ld">Lighter side panels where you heat up most.</span><span class="cap an-na"></span></button></li>
+    </ol>
     <div class="sfoot">
       <p class="cap" style="margin:0">Construction — cut-and-sew sublimated print, reflective details</p>
       <div><p class="cap" style="margin:0">Sizes</p><ul class="sizes"><li>XS</li><li>S</li><li>M</li><li>L</li><li>XL</li><li>XXL</li></ul></div>
@@ -1219,6 +1322,200 @@ html.rm .mani .giant span{transform:none!important}
   });
 })();
 
+</script>
+<script>
+/* 03 · Spec sheet anatomy (staging). No rAF loops: CSS transitions + one short-lived interval for the watch pace. */
+(function () {
+  var root = document.querySelector("#spec .anat");
+  if (!root) return;
+  var W = 1264, H = 848;
+  /* Hotspot coordinates in the 1264x848 render space, read off each image */
+  var P = {
+    cw01: { front: { 1: [722, 642], 2: [338, 690], 3: [495, 195], 4: [428, 520] }, back: { 2: [129, 702], 3: [525, 180], 4: [442, 560] } },
+    cw02: { front: { 2: [165, 607], 3: [510, 205], 4: [447, 520] }, back: { 3: [487, 190], 4: [410, 540] } },
+    cw03: { front: { 1: [1055, 561], 2: [172, 655], 3: [490, 209], 4: [414, 470] }, back: { 3: [524, 154], 4: [418, 500] } }
+  };
+  var CW = {
+    cw01: { n: "Colourway 01 — Keep Climbing", bg: "#ECE9E4", d: "Bone with a cobalt topo grid, orange route markers and an elevation profile." },
+    cw02: { n: "Colourway 02 — Field Manual", bg: "#EEEDE8", d: "Black with a bone-white technical blueprint, summit marked in orange." },
+    cw03: { n: "Colourway 03 — First Light", bg: "#EAE6DE", d: "Night navy fading to orange along a ridge line, like first light on the mountain." }
+  };
+  var T = {
+    1: ["Watch slit", "A bonded slit on both cuffs. Slide the watch through and read your pace."],
+    2: ["Thumb opening", "Built into the cuff seam. Warm hands on cold starts."],
+    3: ["Flatlock seams", "Flat seams, tagless neck. Nothing rubs at km 18."],
+    4: ["Side panels", "Lighter side panels where you heat up most."]
+  };
+  var ANG = { cw01: 50, cw03: -29 }; /* watch-slit angle in each render */
+  var ZOOM = 2.5;
+  var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var q = function (s) { return root.querySelector(s); };
+  var qa = function (s, c) { return [].slice.call((c || root).querySelectorAll(s)); };
+  var stage = q(".an-stage"), grid = q(".an-grid"), card = q(".an-card"), lens = q(".an-lens");
+  var svg = q(".an-line"), path = svg.querySelector("path"), sq = svg.querySelector("rect");
+  var imgs = qa(".an-im"), dots = qa(".an-dot"), chips = qa(".an-chip"), sides = qa(".an-flip button");
+  var list = qa("button", root.parentNode.querySelector(".an-list"));
+  var paceEl = q(".an-pace");
+  var st = { cw: "cw01", side: "front", h: 1 };
+  var cycleT = null, cycled = false, paceT = null, inView = false, swapT = null;
+
+  function avail(cw, side) { return Object.keys(P[cw][side]).map(Number).sort(); }
+  function curImg() { return root.querySelector('.an-im[data-cw="' + st.cw + '"][data-side="' + st.side + '"]'); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  function render() {
+    root.setAttribute("data-cw", st.cw); root.setAttribute("data-side", st.side);
+    stage.style.setProperty("--bg", CW[st.cw].bg);
+    imgs.forEach(function (im) {
+      var on = im.getAttribute("data-cw") === st.cw && im.getAttribute("data-side") === st.side;
+      im.classList.toggle("on", on);
+      if (on && inView) im.loading = "eager";
+    });
+    chips.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-cw") === st.cw ? "true" : "false"); });
+    sides.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-side") === st.side ? "true" : "false"); });
+    var pts = P[st.cw][st.side], av = avail(st.cw, st.side);
+    dots.forEach(function (d) {
+      var h = +d.getAttribute("data-h"), p = pts[h];
+      d.classList.toggle("vis", !!p);
+      d.tabIndex = p ? 0 : -1;
+      d.setAttribute("aria-hidden", p ? "false" : "true");
+      if (p) { d.style.left = (p[0] / W * 100) + "%"; d.style.top = (p[1] / H * 100) + "%"; }
+    });
+    list.forEach(function (b) {
+      var h = +b.getAttribute("data-h"), ok = !!pts[h];
+      b.classList.toggle("na", !ok);
+      var na = b.querySelector(".an-na");
+      if (ok) { na.textContent = ""; }
+      else {
+        var other = st.side === "front" ? "back" : "front";
+        na.textContent = P[st.cw][other][h] ? "On the " + other + " view" : "Shown on another colourway";
+      }
+    });
+    q(".an-name").textContent = CW[st.cw].n;
+    q(".an-vw").firstChild.nodeValue = (st.side === "front" ? "Front" : "Back") + " · Hotspots ";
+    q(".an-cnt").textContent = av.map(pad).join(" · ");
+    q(".an-cap").textContent = "Fig. 01 — Contour LS, " + st.side;
+    q(".an-cw").textContent = CW[st.cw].d;
+    if (!pts[st.h]) st.h = av[0];
+    activate(st.h, true);
+  }
+
+  function lensBg() {
+    var im = curImg(), p = P[st.cw][st.side][st.h];
+    if (!im || !p) return;
+    var src = im.currentSrc || im.src, L = lens.clientWidth, r = stage.getBoundingClientRect();
+    var bw = r.width * ZOOM, bh = r.height * ZOOM;
+    lens.style.setProperty("--ang", (ANG[st.cw] || 50) + "deg");
+    lens.style.backgroundImage = 'url("' + src + '")';
+    lens.style.backgroundSize = bw + "px " + bh + "px";
+    lens.style.backgroundPosition = (L / 2 - p[0] / W * bw) + "px " + (L / 2 - p[1] / H * bh) + "px";
+  }
+
+  function line() {
+    svg.classList.remove("draw");
+    if (getComputedStyle(svg).display === "none") return;
+    var p = P[st.cw][st.side][st.h]; if (!p) return;
+    var g = grid.getBoundingClientRect(), s = stage.getBoundingClientRect(), c = card.getBoundingClientRect(), l = lens.getBoundingClientRect();
+    var x1 = s.left - g.left + p[0] / W * s.width, y1 = s.top - g.top + p[1] / H * s.height;
+    var x2 = c.left - g.left, y2 = l.top - g.top + l.height / 2;
+    var xm = s.right - g.left - 18;
+    if (xm < x1 + 20) xm = x1 + 20;
+    var d = "M" + x1.toFixed(1) + " " + y1.toFixed(1) + "L" + xm.toFixed(1) + " " + y2.toFixed(1) + "L" + x2.toFixed(1) + " " + y2.toFixed(1);
+    path.setAttribute("d", d);
+    sq.setAttribute("x", (x2 - 4).toFixed(1)); sq.setAttribute("y", (y2 - 4).toFixed(1));
+    var len = Math.hypot(xm - x1, y2 - y1) + Math.abs(x2 - xm);
+    svg.style.setProperty("--len", len.toFixed(1));
+    void path.getBoundingClientRect();
+    svg.classList.add("draw");
+  }
+
+  function pace(on) {
+    clearInterval(paceT); paceT = null;
+    var s = 52; paceEl.textContent = "4:52";
+    if (!on || rm || !inView) return;
+    paceT = setInterval(function () {
+      s = s > 46 ? s - 1 : 52;
+      paceEl.textContent = "4:" + pad(s);
+    }, 1300);
+  }
+
+  function activate(h, quiet) {
+    st.h = h;
+    dots.forEach(function (d) { d.classList.toggle("act", +d.getAttribute("data-h") === h && d.classList.contains("vis")); });
+    list.forEach(function (b) { b.setAttribute("aria-current", +b.getAttribute("data-h") === h ? "true" : "false"); });
+    var fill = function () {
+      q(".an-no").textContent = pad(h);
+      q(".an-t").textContent = T[h][0];
+      q(".an-p").textContent = T[h][1];
+      card.classList.remove("swap");
+    };
+    if (quiet || rm) fill(); else { card.classList.add("swap"); clearTimeout(swapT); swapT = setTimeout(fill, 160); }
+    card.classList.toggle("watch", h === 1);
+    pace(h === 1);
+    lensBg();
+    line();
+  }
+
+  function stopCycle() { clearTimeout(cycleT); cycleT = null; cycled = true; }
+  function user() { if (!cycled || cycleT) stopCycle(); }
+  function runCycle() {
+    if (cycled || rm) return;
+    cycled = true;
+    var seq = avail(st.cw, st.side), i = 0;
+    var step = function () {
+      if (!inView) { cycleT = null; return; }
+      activate(seq[i]); i++;
+      cycleT = i < seq.length ? setTimeout(step, 2600) : setTimeout(function () { cycleT = null; activate(seq[0]); }, 2600);
+    };
+    step();
+  }
+
+  function go(dir) {
+    var av = avail(st.cw, st.side), i = av.indexOf(st.h);
+    activate(av[(i + dir + av.length) % av.length]);
+  }
+  function want(h) {
+    if (P[st.cw][st.side][h]) { activate(h); return; }
+    var other = st.side === "front" ? "back" : "front";
+    if (P[st.cw][other][h]) { st.side = other; st.h = h; render(); return; }
+    var order = ["cw01", "cw02", "cw03"];
+    for (var k = 0; k < order.length; k++) {
+      if (P[order[k]].front[h]) { st.cw = order[k]; st.side = "front"; st.h = h; render(); return; }
+    }
+  }
+
+  dots.forEach(function (d) {
+    var h = +d.getAttribute("data-h");
+    d.addEventListener("click", function () { user(); activate(h); });
+    d.addEventListener("focus", function () { if (st.h !== h) { user(); activate(h); } });
+    d.addEventListener("mouseenter", function () { if (st.h !== h && matchMedia("(hover:hover)").matches) { user(); activate(h); } });
+  });
+  list.forEach(function (b) { b.addEventListener("click", function () { user(); want(+b.getAttribute("data-h")); }); });
+  chips.forEach(function (b) { b.addEventListener("click", function () { user(); st.cw = b.getAttribute("data-cw"); render(); }); });
+  sides.forEach(function (b) { b.addEventListener("click", function () { user(); st.side = b.getAttribute("data-side"); render(); }); });
+  q(".an-prev").addEventListener("click", function () { user(); go(-1); });
+  q(".an-next").addEventListener("click", function () { user(); go(1); });
+  imgs.forEach(function (im) { im.addEventListener("load", function () { if (im.classList.contains("on")) lensBg(); }); });
+
+  var rz = null;
+  window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { lensBg(); line(); }, 150); }, { passive: true });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        inView = e.isIntersecting;
+        root.classList.toggle("live", inView);
+        if (inView) {
+          imgs.forEach(function (im) { if (im.getAttribute("data-cw") === st.cw) im.loading = "eager"; });
+          lensBg(); line(); pace(st.h === 1);
+          if (e.intersectionRatio >= 0.35) runCycle();
+        } else { pace(false); if (cycleT) { clearTimeout(cycleT); cycleT = null; } }
+      });
+    }, { threshold: [0, 0.35] }).observe(root);
+  } else { inView = true; }
+
+  render();
+})();
 </script>
 </body>
 </html>
