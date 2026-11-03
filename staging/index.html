@@ -505,10 +505,9 @@ html.rm .mani .giant span{transform:none!important}
 .light :focus-visible,.hud[data-g="light"] :focus-visible,.an-card :focus-visible,.an-dot:focus-visible{outline-color:var(--ink)!important}
 .dark :focus-visible,.hero :focus-visible,.foot :focus-visible,.hud[data-g="dark"] :focus-visible,.hud[data-g="hero"] :focus-visible,#spec .an-chip:focus-visible,#spec .an-flip button:focus-visible,#spec .an-list button:focus-visible{outline-color:var(--bone)!important}
 .an-cw{color:rgba(21,21,21,.72)}
-/* altimeter: hidden on phones/tablets, fades out wherever it would cover content on desktop */
+/* altimeter: always visible and fixed (Luigi 2026-11-03), a bit smaller on desktop */
 .alti{transition:background-color .35s,color .35s,opacity .25s}
-.alti.off{opacity:0}
-@media (max-width:899px){.alti{display:none}}
+@media (min-width:900px){.alti{bottom:20px;padding:9px 13px 9px 10px;gap:11px}.alti .v{font-size:30px}.alti .bar{height:42px}}
 /* NO MAP. / JUST MILES. : lines no longer touch (words unchanged) */
 .mani .giant{line-height:.98}
 .foot .tag{line-height:.98}
@@ -1422,7 +1421,6 @@ html.rm .mani .giant span{transform:none!important}
       if (hud.getAttribute("data-g") !== g) hud.setAttribute("data-g", g);
     }
     var as = secAt(sy + vh - 40); if (as && alti.getAttribute("data-g") !== as.g) alti.setAttribute("data-g", as.g);
-    var hit = altiHit(sy); if (hit !== alti.classList.contains("off")) alti.classList.toggle("off", hit);
     // altimeter
     var probe = sy + vh * 0.5, alt = altAt(probe);
     aV.textContent = fmt(alt);
@@ -1430,7 +1428,7 @@ html.rm .mani .giant span{transform:none!important}
     var dir = alt < lastAlt - 0.5 ? "▼" : alt > lastAlt + 0.5 ? "▲" : aT.textContent;
     if (aT.textContent !== dir) aT.textContent = dir;
     lastAlt = alt;
-    if (aBar) aBar.style.setProperty("--y", (54 * (1 - clamp(alt / 2050, 0, 1))).toFixed(1) + "px");
+    if (aBar) aBar.style.setProperty("--y", (40 * (1 - clamp(alt / 2050, 0, 1))).toFixed(1) + "px");
     // route
     routeG.setAttribute("transform", "translate(0," + (-sy).toFixed(1) + ")");
     if (rLen) {
