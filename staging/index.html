@@ -508,6 +508,9 @@ html.rm .mani .giant span{transform:none!important}
 /* altimeter: always visible and fixed (Luigi 2026-11-03), a bit smaller on desktop */
 .alti{transition:background-color .35s,color .35s,opacity .25s}
 @media (min-width:900px){.alti{bottom:20px;padding:9px 13px 9px 10px;gap:11px}.alti .v{font-size:30px}.alti .bar{height:42px}}
+/* fixed box size: never grows or shrinks while scrolling (Luigi 2026-11-03) */
+.alti{box-sizing:border-box}.alti .v{min-width:0;width:5ch;flex:0 0 5ch}.alti .wp{flex:0 0 auto;width:19ch;height:3.75em;overflow:hidden;display:flex;align-items:center}
+@media (min-width:900px){.alti .wp{width:39ch;height:auto;white-space:nowrap}}
 /* NO MAP. / JUST MILES. : lines no longer touch (words unchanged) */
 .mani .giant{line-height:.98}
 .foot .tag{line-height:.98}
