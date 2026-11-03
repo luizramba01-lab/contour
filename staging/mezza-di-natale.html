@@ -206,9 +206,8 @@ mark.tbc{background:transparent;color:var(--orange);font:500 .78em/1.3 var(--mon
 .is-closed.sent .closed{display:none}
 .is-over .count{opacity:.45}
 .maps{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:10px}
-.mbtn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;background:var(--bone);color:var(--ink);text-decoration:none;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
-.mbtn:hover{background:#fff}
-.mlink{font:500 12px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-underline-offset:4px;padding:12px 0}
+.mloc{display:inline-block;padding:12px 0;color:var(--bone);font:500 13px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:6px}
+.mloc:hover{text-decoration-thickness:3px}
 .tstart{margin:18px 0 0}
 @media (min-width:900px){.infos .wide{grid-column:1/-1}}
 footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
@@ -291,7 +290,7 @@ footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
     <h2 class="disp" id="t-info">Info pratiche.</h2>
     <dl class="infos">
       <div><dt class="cap">Orario di partenza</dt><dd>Partenza indicativa ore 10:00 · orario definitivo in arrivo</dd></div>
-      <div class="wide"><dt class="cap">Partenza</dt><dd>Arenzano (GE) · 44.39947°N 8.68555°E<br><span class="maps"><a class="mbtn" href="https://www.google.com/maps/search/?api=1&query=44.3994653%2C8.6855477" target="_blank" rel="noopener">Apri in Google Maps <span aria-hidden="true">↗</span></a><a class="mlink" href="https://www.google.com/maps/dir/?api=1&destination=44.3994653%2C8.6855477" target="_blank" rel="noopener">Indicazioni stradali →</a></span></dd></div>
+      <div class="wide"><dt class="cap">Partenza</dt><dd>Arenzano (GE) · 44.39947°N 8.68555°E<br><span class="maps"><a class="mloc" href="https://www.google.com/maps/search/?api=1&query=44.3994653%2C8.6855477" target="_blank" rel="noopener">Luogo di partenza <span aria-hidden="true">↗</span></a></span></dd></div>
       <div><dt class="cap">Quota di iscrizione</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
       <div><dt class="cap">Posti disponibili</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
       <div><dt class="cap">Chiusura iscrizioni</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
@@ -335,7 +334,7 @@ footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
           <p class="cap"><span class="pin" aria-hidden="true"></span>Posizione registrata</p>
           <h3 class="disp">Ci vediamo al via.</h3>
           <p class="cap">Ti scriviamo con orario e dettagli prima del 20.12.2026.</p>
-          <p class="tstart"><span class="cap">Partenza · Arenzano (GE) · indicativa ore 10:00, orario definitivo in arrivo</span><br><span class="maps"><a class="mbtn" href="https://www.google.com/maps/search/?api=1&query=44.3994653%2C8.6855477" target="_blank" rel="noopener">Apri in Google Maps <span aria-hidden="true">↗</span></a><a class="mlink" href="https://www.google.com/maps/dir/?api=1&destination=44.3994653%2C8.6855477" target="_blank" rel="noopener">Indicazioni stradali →</a></span></p>
+          <p class="tstart"><span class="cap">Partenza · Arenzano (GE) · indicativa ore 10:00, orario definitivo in arrivo</span><br><span class="maps"><a class="mloc" href="https://www.google.com/maps/search/?api=1&query=44.3994653%2C8.6855477" target="_blank" rel="noopener">Luogo di partenza <span aria-hidden="true">↗</span></a></span></p>
           <p class="cap nx"><a href="https://www.instagram.com/contour_runclub/" rel="me noopener">Seguici su Instagram →</a><a href="./#specimens">Scopri la Contour Long Sleeve →</a></p>
         </div>
         <div class="closed" role="status">
