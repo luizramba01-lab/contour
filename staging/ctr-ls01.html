@@ -13,11 +13,12 @@
 <meta property="og:url" content="https://luizramba01-lab.github.io/contour/ctr-ls01.html">
 <meta property="og:image" content="https://luizramba01-lab.github.io/contour/og-contour.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "CTR-LS01 Long Sleeve", "sku": "CTR-LS01", "brand": {"@type": "Brand", "name": "CONTOUR"}, "description": "Men’s long-sleeve running tee: thumbholes and a watch slit on both cuffs, raglan sleeves, flat seams, mesh panels, reflective hem tab. Four colours.", "image": ["https://luizramba01-lab.github.io/contour/assets/cw01-back-1264.webp", "https://luizramba01-lab.github.io/contour/assets/cw02-back-1264.webp", "https://luizramba01-lab.github.io/contour/assets/cw03-back-1264.webp"], "color": "White, Black, Green, Gradient", "material": "Polyester / elastane", "url": "https://luizramba01-lab.github.io/contour/ctr-ls01.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "CTR-LS01 Long Sleeve", "sku": "CTR-LS01", "brand": {"@type": "Brand", "name": "CONTOUR"}, "description": "Men’s long-sleeve running tee: thumbholes and a watch slit on both cuffs, raglan sleeves, flat seams, mesh panels, reflective hem tab. Four colours.", "image": ["https://luizramba01-lab.github.io/contour/staging/assets/pdp-white-1-1200.webp", "https://luizramba01-lab.github.io/contour/staging/assets/pdp-black-1-1200.webp", "https://luizramba01-lab.github.io/contour/staging/assets/pdp-gradient-1-1200.webp"], "color": "White, Black, Green, Gradient", "material": "Polyester / elastane", "url": "https://luizramba01-lab.github.io/contour/ctr-ls01.html"}</script>
 <link rel="canonical" href="https://luizramba01-lab.github.io/contour/ctr-ls01.html">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/pdp-white-1-640.webp" imagesrcset="assets/pdp-white-1-640.webp 640w, assets/pdp-white-1-1200.webp 1200w" imagesizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" fetchpriority="high">
 <link rel="preload" href="../assets/anton.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Anton";src:url(../assets/anton.woff2) format("woff2");font-weight:400;font-display:swap}
@@ -70,49 +71,59 @@ mark.ph{background:var(--orange);color:var(--ink);padding:0 5px;font:500 .86em/1
 .foot .links{display:flex;flex-wrap:wrap;gap:6px 22px}
 .foot a{text-decoration:none}.foot a:hover{text-decoration:underline;text-underline-offset:4px}
 
-.hud .gcta{color:var(--ink);background:var(--ink);color:var(--bone);padding:10px 12px!important;text-decoration:none!important}
-.pdp{display:grid;gap:0}
-.gal{position:relative;background:var(--bg,#ECE9E4);transition:background-color .4s}
-.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0;padding:0;list-style:none}
+.hud .gcta{background:var(--ink);color:var(--bone);padding:10px 12px!important;text-decoration:none!important}
+:root{--tile:#E7E3DB;--rule:rgba(21,21,21,.16)}
+.pdp{display:grid}
+/* gallery: mobile = swipe track of squares + dots */
+.gal{position:relative;min-width:0}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;margin:0;padding:0;list-style:none}
 .track::-webkit-scrollbar{display:none}
-.sl{flex:0 0 100%;scroll-snap-align:start;aspect-ratio:1264/848;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.sl img{width:100%;height:100%;object-fit:contain}
-.gnote{position:absolute;right:10px;top:10px;z-index:2;padding:4px 7px;background:rgba(239,233,220,.94);border:1px solid var(--ink);font-size:9.5px}
-.gcount{position:absolute;left:12px;bottom:10px;z-index:2;padding:4px 7px;background:var(--bone);border:1px solid var(--ink);font-size:10px}
-.gnav{position:absolute;right:10px;bottom:10px;z-index:2;display:flex;gap:6px}
-.gnav button{width:40px;height:40px;border:1px solid var(--ink);background:var(--bone);cursor:pointer;font:500 15px/1 var(--mono)}
-.buy{padding:28px var(--pad) 40px}
-.buy .eye{margin:0;opacity:.75}
-.buy h1{font-size:clamp(46px,9vw,72px);margin:12px 0 6px;color:var(--forest)}
-.buy .sub{margin:0 0 18px;font-size:17px}
-.price{margin:0 0 22px;font:500 15px/1.4 var(--mono)}
-.lbl{display:flex;justify-content:space-between;gap:12px;margin:0 0 10px}
-.sws{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
-.sw{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:8px 12px 8px 10px;border:1px solid rgba(21,21,21,.35);background:transparent;cursor:pointer}
-.sw i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(21,21,21,.5);flex:none}
-.sw[aria-pressed="true"]{border:2px solid var(--ink);padding:7px 11px 7px 9px}
-.szs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:0 0 8px}
-.sz{min-height:48px;border:1px solid rgba(21,21,21,.35);background:transparent;cursor:pointer;font:400 18px/1 var(--display);letter-spacing:.02em}
+.track:focus-visible{outline-offset:-3px}
+.sl{flex:0 0 100%;scroll-snap-align:start;aspect-ratio:1/1;background:var(--tile);overflow:hidden}
+.sl img{display:block;width:100%;height:100%;object-fit:cover}
+.dots{display:flex;justify-content:center;gap:2px;padding:10px 0 0}
+.dot{width:24px;height:24px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.dot::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink);opacity:.22;transition:opacity .2s,transform .2s}
+.dot[aria-current="true"]::before{opacity:1;transform:scale(1.15)}
+/* info column */
+.buy{padding:22px var(--pad) 8px}
+.eye{margin:0 0 10px;opacity:.7}
+.buy h1{font-size:clamp(40px,11vw,56px);color:var(--forest)}
+.design{margin:12px 0 0;font:500 17px/1.3 var(--sans)}
+.price{margin:6px 0 0;font:500 14px/1.4 var(--mono)}
+.opt{margin:26px 0 0;padding:18px 0 0;border-top:1px solid var(--rule)}
+.lbl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 12px}
+.lbl b{font-weight:500;opacity:.7}
+.sws{display:flex;gap:6px}
+.sw{width:44px;height:44px;padding:0;border:0;border-radius:50%;background:none;cursor:pointer;display:grid;place-items:center;position:relative}
+.sw i{width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(21,21,21,.28)}
+.sw::after{content:"";position:absolute;inset:3px;border-radius:50%;border:1.5px solid transparent;transition:border-color .2s}
+.sw:hover::after{border-color:rgba(21,21,21,.35)}
+.sw[aria-pressed="true"]::after{border-color:var(--ink)}
+.szs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.sz{min-height:46px;border:1px solid rgba(21,21,21,.3);background:transparent;cursor:pointer;font:500 13px/1 var(--mono);letter-spacing:.06em;color:var(--ink)}
+.sz:hover{border-color:var(--ink)}
 .sz[aria-pressed="true"]{background:var(--ink);color:var(--bone);border-color:var(--ink)}
-.linkbtn{background:none;border:0;padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;font:500 11.5px/1.45 var(--mono);letter-spacing:.12em;text-transform:uppercase}
-.szn{margin:4px 0 24px;font-size:14px;opacity:.75}
-.cta{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:0 22px;background:var(--ink);color:var(--bone);text-decoration:none;font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.linkbtn{background:none;border:0;padding:4px 0;cursor:pointer;color:inherit;text-decoration:underline;text-underline-offset:4px;font:500 11.5px/1.45 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.szn{margin:10px 0 0;font-size:14px;opacity:.7}
+.cta{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:0 22px;margin:22px 0 0;background:var(--ink);color:var(--bone);text-decoration:none;font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;transition:background-color .2s}
 .cta:hover{background:var(--forest)}
 .cta span{font-size:18px}
-.lim{margin:12px 0 0;display:flex;align-items:center;gap:10px}
-.lim i{width:10px;height:10px;border-radius:50%;background:var(--orange)}
-.acc{padding:12px var(--pad) 56px;max-width:900px}
-.acc details{border-bottom:1px solid rgba(21,21,21,.25)}
-.acc summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 0;cursor:pointer;list-style:none;font:400 26px/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.meta{margin:14px 0 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;opacity:.75}
+.meta .lim{display:inline-flex;align-items:center;gap:8px}
+.meta .lim i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.acc{margin:28px 0 0;border-top:1px solid var(--rule)}
+.acc details{border-bottom:1px solid var(--rule)}
+.acc summary{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;cursor:pointer;list-style:none}
 .acc summary::-webkit-details-marker{display:none}
-.acc summary::after{content:"+";font:400 22px/1 var(--mono)}
+.acc summary::after{content:"+";font:400 18px/1 var(--mono)}
 .acc details[open] summary::after{content:"−"}
-.acc .in{padding:0 0 22px}
-.acc p,.acc li{max-width:64ch;line-height:1.6}
-.acc p{margin:0 0 12px}
-.acc ul{margin:0 0 12px;padding-left:20px}
-.acc .brandl{font:400 22px/1.1 var(--display);text-transform:uppercase;color:var(--forest);margin:20px 0 0}
-dialog{width:min(640px,calc(100vw - 24px));padding:0;border:1px solid var(--ink);background:var(--bone);color:var(--ink)}
+.acc .in{padding:0 0 18px;font-size:15.5px}
+.acc p,.acc li{line-height:1.6}
+.acc p{margin:0 0 10px}
+.acc ul{margin:0 0 10px;padding-left:18px}
+.acc .brandl{font:400 22px/1.1 var(--display);text-transform:uppercase;color:var(--forest);margin:16px 0 0}
+dialog{width:min(560px,calc(100vw - 24px));padding:0;border:1px solid var(--ink);background:var(--bone);color:var(--ink)}
 dialog::backdrop{background:rgba(21,21,21,.6)}
 .dlg{padding:22px}
 .dlg .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 14px}
@@ -122,24 +133,20 @@ dialog::backdrop{background:rgba(21,21,21,.6)}
 .dlg thead th{font:500 10.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .dlg tbody th{font:400 20px/1 var(--display)}
 .dlg p{font-size:14px;line-height:1.5;margin:12px 0 0}
-.x{width:44px;height:44px;border:1px solid var(--ink);background:none;cursor:pointer;font:500 18px/1 var(--mono)}
-.sbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--bone);border-top:1px solid var(--ink);transform:translateY(110%);transition:transform .3s}
-.sbar.on{transform:none}
-.sbar .cta{width:auto;min-height:48px;padding:0 16px;white-space:nowrap;gap:10px}
+.x{width:44px;height:44px;border:1px solid var(--ink);background:none;cursor:pointer;font:500 18px/1 var(--mono);color:var(--ink)}
+.sbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--bone);border-top:1px solid var(--ink);transform:translateY(110%);transition:transform .3s;visibility:hidden}
+.sbar.on{transform:none;visibility:visible}
+.sbar .cta{width:auto;min-height:48px;margin:0;padding:0 16px;white-space:nowrap;gap:10px}
 .sbar>.cap{min-width:0}
-body{padding-bottom:76px}
+main{padding-bottom:72px}
 @media (min-width:1000px){
-  body{padding-bottom:0}
+  main{padding-bottom:0}
   .sbar{display:none}
-  .pdp{grid-template-columns:minmax(0,1fr) 420px;align-items:start;max-width:1440px;margin:0 auto}
-  .gal{background:transparent}
-  .track{display:grid;grid-template-columns:1fr 1fr;gap:4px;overflow:visible}
-  .sl{background:var(--bg,#ECE9E4);transition:background-color .4s}
-  .sl.big{grid-column:1/-1}
-  .gcount,.gnav{display:none}
-  .buy{position:sticky;top:56px;padding:40px 44px}
-  .buy h1{font-size:clamp(44px,4.2vw,60px)}
-    .acc{padding-left:max(var(--pad),calc((100vw - 1240px)/2 + var(--pad)))}
+  .pdp{grid-template-columns:minmax(0,1fr) 440px;align-items:start;max-width:1680px;margin:0 auto}
+  .track{display:grid;grid-template-columns:1fr 1fr;gap:4px;overflow:visible;padding:4px 0 4px 4px}
+  .dots{display:none}
+  .buy{position:sticky;top:56px;padding:44px 48px 48px}
+  .buy h1{font-size:clamp(42px,3.6vw,54px)}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -157,71 +164,77 @@ body{padding-bottom:76px}
 </header>
 <main id="main">
 <div class="pdp">
-  <section class="gal" id="gal" aria-label="Images" style="--bg:#ECE9E4">
-    <ul class="track" id="track">
-        <li class="sl big"><img src="../assets/cw01-back-1264.webp" srcset="../assets/cw01-back-760.webp 760w, ../assets/cw01-back-1264.webp 1264w" sizes="(min-width:1000px) 62vw, 100vw" alt="Keep Climbing long sleeve in bone, back: a cobalt topo map with orange route markers, an elevation profile and Keep Climbing lettering" loading="eager" fetchpriority="high" decoding="async" width="1264" height="848"></li>
-        <li class="sl"><img src="../assets/cw01-front-1264.webp" srcset="../assets/cw01-front-760.webp 760w, ../assets/cw01-front-1264.webp 1264w" sizes="(min-width:1000px) 62vw, 100vw" alt="Keep Climbing long sleeve in bone, front: Contour 01 on the chest and Elevation · Pace · Distance down the sleeve" loading="lazy" decoding="async" width="1264" height="848"></li>
-        <li class="sl"><img src="../assets/cw01-d-print.webp" alt="Close-up of the Keep Climbing back print: topo grid, route markers and elevation profile" loading="lazy" decoding="async" width="1264" height="848"></li>
-        <li class="sl"><img src="../assets/cw01-d-sleeve.webp" alt="Close-up of the sleeve lettering: Elevation · Pace · Distance" loading="lazy" decoding="async" width="1264" height="848"></li>
-        <li class="sl"><img src="../assets/cw01-d-cuff.webp" alt="Close-up of the cuff with thumb opening and side mesh panel" loading="lazy" decoding="async" width="1264" height="848"></li>
+  <section class="gal" aria-label="Product images">
+    <ul class="track" id="track" tabindex="0" aria-label="Images of the White long sleeve">
+      <li class="sl"><img src="assets/pdp-white-1-640.webp" srcset="assets/pdp-white-1-640.webp 640w, assets/pdp-white-1-1200.webp 1200w" sizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" alt="Keep Climbing long sleeve in bone white, back: a cobalt topo map with orange route markers, an elevation profile and Keep Climbing lettering" loading="eager" fetchpriority="high" decoding="async" width="1200" height="1200"></li>
+      <li class="sl"><img src="assets/pdp-white-2-640.webp" srcset="assets/pdp-white-2-640.webp 640w, assets/pdp-white-2-1200.webp 1200w" sizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" alt="Keep Climbing long sleeve in bone white, front: Contour 01 on the chest and Elevation · Pace · Distance down the sleeve" loading="eager" decoding="async" width="1200" height="1200"></li>
+      <li class="sl"><img src="assets/pdp-white-3-640.webp" srcset="assets/pdp-white-3-640.webp 640w, assets/pdp-white-3-1200.webp 1200w" sizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" alt="Close-up of the back print: topo grid, route markers, elevation profile and Keep Climbing" loading="lazy" decoding="async" width="1200" height="1200"></li>
+      <li class="sl"><img src="assets/pdp-white-4-640.webp" srcset="assets/pdp-white-4-640.webp 640w, assets/pdp-white-4-1200.webp 1200w" sizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" alt="Close-up of the crew neck and the Contour 01 chest lettering" loading="lazy" decoding="async" width="1200" height="1200"></li>
+      <li class="sl"><img src="assets/pdp-white-5-640.webp" srcset="assets/pdp-white-5-640.webp 640w, assets/pdp-white-5-1200.webp 1200w" sizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" alt="Close-up of the sleeve lettering Elevation · Pace · Distance and the mesh side panel" loading="lazy" decoding="async" width="1200" height="1200"></li>
+      <li class="sl"><img src="assets/pdp-white-6-640.webp" srcset="assets/pdp-white-6-640.webp 640w, assets/pdp-white-6-1200.webp 1200w" sizes="(min-width:1000px) calc((100vw - 440px) / 2), 100vw" alt="Close-up of the cuff with the watch slit" loading="lazy" decoding="async" width="1200" height="1200"></li>
     </ul>
-    <span class="gnote cap">Renders · samples in production</span>
-    <span class="gcount cap" id="gcount" aria-live="polite">1 / 5</span>
-    <div class="gnav"><button type="button" id="gprev" aria-label="Previous image">←</button><button type="button" id="gnext" aria-label="Next image">→</button></div>
+    <div class="dots" id="dots"><button type="button" class="dot" aria-label="Image 1 of 6" aria-current="true"></button><button type="button" class="dot" aria-label="Image 2 of 6"></button><button type="button" class="dot" aria-label="Image 3 of 6"></button><button type="button" class="dot" aria-label="Image 4 of 6"></button><button type="button" class="dot" aria-label="Image 5 of 6"></button><button type="button" class="dot" aria-label="Image 6 of 6"></button></div>
   </section>
+
   <section class="buy" aria-labelledby="pname">
     <p class="cap eye">Men’s running long sleeve</p>
     <h1 class="disp" id="pname">CTR-LS01 Long Sleeve</h1>
-    <p class="sub"><span id="cname">White</span> · <span id="ccw">Keep Climbing</span></p>
+    <p class="design" id="cdesign">Keep Climbing</p>
     <p class="price"><mark class="ph">[prezzo da confermare]</mark></p>
-    <p class="cap lbl"><span>Colour</span><span id="cname2">White</span></p>
-    <div class="sws" role="group" aria-label="Colour">
-        <button type="button" class="sw" data-c="white" aria-pressed="true" aria-label="White"><i style="background:#EFE9DC"></i><span class="cap">White</span></button>
-        <button type="button" class="sw" data-c="black" aria-pressed="false" aria-label="Black"><i style="background:#151515"></i><span class="cap">Black</span></button>
-        <button type="button" class="sw" data-c="green" aria-pressed="false" aria-label="Green"><i style="background:#1E4636"></i><span class="cap">Green</span></button>
-        <button type="button" class="sw" data-c="gradient" aria-pressed="false" aria-label="Gradient"><i style="background:linear-gradient(180deg,#2C3A5C 0 50%,#F08A3C 100%)"></i><span class="cap">Gradient</span></button>
+
+    <div class="opt">
+      <p class="cap lbl"><span>Colour</span><b id="cname">White</b></p>
+      <div class="sws" role="group" aria-label="Colour">
+      <button type="button" class="sw" data-c="white" aria-pressed="true" aria-label="White"><i style="background:#EFE9DC"></i></button>
+      <button type="button" class="sw" data-c="black" aria-pressed="false" aria-label="Black"><i style="background:#151515"></i></button>
+      <button type="button" class="sw" data-c="green" aria-pressed="false" aria-label="Green"><i style="background:#1E4636"></i></button>
+      <button type="button" class="sw" data-c="gradient" aria-pressed="false" aria-label="Gradient"><i style="background:linear-gradient(180deg,#2C3A5C 0 50%,#F08A3C 100%)"></i></button>
+      </div>
     </div>
-    <div class="lbl"><span class="cap">Size</span><button type="button" class="linkbtn" id="sgopen" aria-haspopup="dialog">Size guide</button></div>
-    <div class="szs" role="group" aria-label="Size (preview only)"><button type="button" class="sz" aria-pressed="false">XS</button><button type="button" class="sz" aria-pressed="false">S</button><button type="button" class="sz" aria-pressed="false">M</button><button type="button" class="sz" aria-pressed="false">L</button><button type="button" class="sz" aria-pressed="false">XL</button><button type="button" class="sz" aria-pressed="false">XXL</button></div>
-    <p class="szn">Regular fit. Preview only: nothing is on sale yet.</p>
+
+    <div class="opt">
+      <div class="lbl"><span class="cap">Size</span><button type="button" class="linkbtn" id="sgopen" aria-haspopup="dialog">Size guide</button></div>
+      <div class="szs" role="group" aria-label="Size (preview only)"><button type="button" class="sz" aria-pressed="false">XS</button><button type="button" class="sz" aria-pressed="false">S</button><button type="button" class="sz" aria-pressed="false">M</button><button type="button" class="sz" aria-pressed="false">L</button><button type="button" class="sz" aria-pressed="false">XL</button><button type="button" class="sz" aria-pressed="false">XXL</button></div>
+      <p class="szn">Regular fit. Preview only: nothing is on sale yet.</p>
+    </div>
+
     <a class="cta" id="buycta" href="./#join">Get first access <span aria-hidden="true">→</span></a>
-    <p class="cap lim"><i aria-hidden="true"></i>First batch · limited</p>
+    <p class="cap meta"><span class="lim"><i aria-hidden="true"></i>First batch · limited</span><span>Renders · samples in production</span></p>
+
+    <div class="acc">
+      <details>
+        <summary class="cap">Details</summary>
+        <div class="in">
+          <p id="cdesc">Bone white with a cobalt topo map on the back.</p>
+          <ul>
+            <li>Thumbholes and a watch slit on both cuffs</li>
+            <li>Raglan sleeves, flat seams for no chafing</li>
+            <li>Mesh panels at the sides and back to vent heat</li>
+            <li>Reflective tab at the hem</li>
+          </ul>
+          <p class="brandl">No map. Just miles.</p>
+        </div>
+      </details>
+      <details>
+        <summary class="cap">Fit &amp; size</summary>
+        <div class="in">
+          <p>Regular running fit, slightly longer at the back. Sizes XS–XXL.</p>
+          <p><button type="button" class="linkbtn" data-sg>Open the size guide</button></p>
+        </div>
+      </details>
+      <details>
+        <summary class="cap">Materials &amp; care</summary>
+        <div class="in">
+          <ul>
+            <li>Light, stretchy, quick-drying fabric (polyester / elastane)</li>
+            <li>PFAS-free</li>
+            <li>Machine wash at 30 °C. No tumble dryer, no iron.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
   </section>
 </div>
-
-
-<section class="acc" aria-label="Product information">
-  <details open>
-    <summary>Details</summary>
-    <div class="in">
-      <p id="cdesc">Bone white with a cobalt topo map on the back.</p>
-      <ul>
-        <li>Thumbholes and a watch slit on both cuffs</li>
-        <li>Raglan sleeves, flat seams for no chafing</li>
-        <li>Mesh panels at the sides and back to vent heat</li>
-        <li>Reflective tab at the hem</li>
-      </ul>
-      <p class="brandl">No map. Just miles.</p>
-    </div>
-  </details>
-  <details>
-    <summary>Fit &amp; size</summary>
-    <div class="in">
-      <p>Regular running fit, slightly longer at the back. Sizes XS–XXL.</p>
-      <p><button type="button" class="linkbtn" data-sg>Open the size guide</button></p>
-    </div>
-  </details>
-  <details>
-    <summary>Materials &amp; care</summary>
-    <div class="in">
-      <ul>
-        <li>Light, stretchy, quick-drying fabric (polyester / elastane)</li>
-        <li>PFAS-free</li>
-        <li>Machine wash at 30 °C. No tumble dryer, no iron.</li>
-      </ul>
-    </div>
-  </details>
-</section>
 </main>
 
 <dialog id="sg" aria-labelledby="sgt">
@@ -235,7 +248,7 @@ body{padding-bottom:76px}
   </div>
 </dialog>
 
-<div class="sbar" id="sbar"><span class="cap"><span id="sbn">White</span> · First batch</span><a class="cta" href="./#join">Get first access <span aria-hidden="true">→</span></a></div>
+<div class="sbar" id="sbar" aria-hidden="true"><span class="cap"><span id="sbn">White</span> · First batch</span><a class="cta" href="./#join" tabindex="-1">Get first access <span aria-hidden="true">→</span></a></div>
 <footer class="foot">
   <div class="wrap">
     <svg class="logo" viewBox="0 0 854.35 244.16" role="img" aria-label="CONTOUR"><use href="#logo"/></svg>
@@ -247,27 +260,39 @@ body{padding-bottom:76px}
 </footer>
 <script>
 (function () {
-  var D = {"white": {"name": "White", "cw": "Keep Climbing", "bg": "#ECE9E4", "desc": "Bone white with a cobalt topo map on the back.", "imgs": [{"src": "../assets/cw01-back-1264.webp", "set": "../assets/cw01-back-760.webp 760w, ../assets/cw01-back-1264.webp 1264w", "alt": "Keep Climbing long sleeve in bone, back: a cobalt topo map with orange route markers, an elevation profile and Keep Climbing lettering"}, {"src": "../assets/cw01-front-1264.webp", "set": "../assets/cw01-front-760.webp 760w, ../assets/cw01-front-1264.webp 1264w", "alt": "Keep Climbing long sleeve in bone, front: Contour 01 on the chest and Elevation · Pace · Distance down the sleeve"}, {"src": "../assets/cw01-d-print.webp", "set": null, "alt": "Close-up of the Keep Climbing back print: topo grid, route markers and elevation profile"}, {"src": "../assets/cw01-d-sleeve.webp", "set": null, "alt": "Close-up of the sleeve lettering: Elevation · Pace · Distance"}, {"src": "../assets/cw01-d-cuff.webp", "set": null, "alt": "Close-up of the cuff with thumb opening and side mesh panel"}]}, "black": {"name": "Black", "cw": "Field Manual", "bg": "#EEEDE8", "desc": "Black with a white blueprint print on the back.", "imgs": [{"src": "../assets/cw02-back-1264.webp", "set": "../assets/cw02-back-760.webp 760w, ../assets/cw02-back-1264.webp 1264w", "alt": "Field Manual long sleeve in black, back: a bone-white technical blueprint with terrain, elevation profile and compass figures and Every city has a summit"}, {"src": "../assets/cw02-front-1264.webp", "set": "../assets/cw02-front-760.webp 760w, ../assets/cw02-front-1264.webp 1264w", "alt": "Field Manual long sleeve in black, front: Contour logo on the chest and lettering on both sleeves"}, {"src": "../assets/cw02-d-print.webp", "set": null, "alt": "Close-up of the Field Manual back blueprint: contour map, elevation profile, compass and Every city has a summit"}, {"src": "../assets/cw02-d-sleeve.webp", "set": null, "alt": "Close-up of the sleeve coordinates lettering ending in +1840 M"}, {"src": "../assets/cw02-d-chest.webp", "set": null, "alt": "Close-up of the Contour summit-ring logo on the chest"}, {"src": "../assets/cuff-1400.webp", "set": "../assets/cuff-720.webp 720w, ../assets/cuff-1400.webp 1400w", "alt": "A runner on a Berlin bridge at dawn checks his watch through the slit in the cuff of a black Contour long sleeve"}]}, "green": {"name": "Green", "cw": "New design coming", "bg": "#E6E3D7", "desc": "A new green design is on its way; images are a preview.", "imgs": [{"src": "assets/green-b3-pair-1264.webp", "set": "assets/green-b3-pair-760.webp 760w, assets/green-b3-pair-1264.webp 1264w", "alt": "Placeholder render of a green long sleeve, front and back"}, {"src": "assets/green-b3-d-chest.webp", "set": null, "alt": "Placeholder render, green long sleeve: chest logo"}, {"src": "assets/green-b3-d-print.webp", "set": null, "alt": "Placeholder render, green long sleeve: back print"}, {"src": "assets/green-b3-d-cuff.webp", "set": null, "alt": "Placeholder render, green long sleeve: cuff"}]}, "gradient": {"name": "Gradient", "cw": "First Light", "bg": "#EAE6DE", "desc": "Night navy fading to orange, like first light.", "imgs": [{"src": "../assets/cw03-back-1264.webp", "set": "../assets/cw03-back-760.webp 760w, ../assets/cw03-back-1264.webp 1264w", "alt": "First Light long sleeve, back: night navy fading to orange at the hem, a contour ring and First Light lettering"}, {"src": "../assets/cw03-front-1264.webp", "set": "../assets/cw03-front-760.webp 760w, ../assets/cw03-front-1264.webp 1264w", "alt": "First Light long sleeve, front: Contour and Every city has a summit on the chest, navy fading to orange at the hem and cuffs"}, {"src": "../assets/cw03-d-print.webp", "set": null, "alt": "Close-up of the First Light back: contour rings and First Light lettering above the orange fade"}, {"src": "../assets/cw03-d-chest.webp", "set": null, "alt": "Close-up of the chest: Contour wordmark, summit-ring mark and Every city has a summit"}, {"src": "../assets/cw03-d-cuff.webp", "set": null, "alt": "Close-up of the orange cuff with the watch slit and thumb opening"}]}};
+  var D = {"white": {"name": "White", "design": "Keep Climbing", "desc": "Bone white with a cobalt topo map on the back.", "imgs": [{"src": "assets/pdp-white-1-640.webp", "set": "assets/pdp-white-1-640.webp 640w, assets/pdp-white-1-1200.webp 1200w", "alt": "Keep Climbing long sleeve in bone white, back: a cobalt topo map with orange route markers, an elevation profile and Keep Climbing lettering"}, {"src": "assets/pdp-white-2-640.webp", "set": "assets/pdp-white-2-640.webp 640w, assets/pdp-white-2-1200.webp 1200w", "alt": "Keep Climbing long sleeve in bone white, front: Contour 01 on the chest and Elevation · Pace · Distance down the sleeve"}, {"src": "assets/pdp-white-3-640.webp", "set": "assets/pdp-white-3-640.webp 640w, assets/pdp-white-3-1200.webp 1200w", "alt": "Close-up of the back print: topo grid, route markers, elevation profile and Keep Climbing"}, {"src": "assets/pdp-white-4-640.webp", "set": "assets/pdp-white-4-640.webp 640w, assets/pdp-white-4-1200.webp 1200w", "alt": "Close-up of the crew neck and the Contour 01 chest lettering"}, {"src": "assets/pdp-white-5-640.webp", "set": "assets/pdp-white-5-640.webp 640w, assets/pdp-white-5-1200.webp 1200w", "alt": "Close-up of the sleeve lettering Elevation · Pace · Distance and the mesh side panel"}, {"src": "assets/pdp-white-6-640.webp", "set": "assets/pdp-white-6-640.webp 640w, assets/pdp-white-6-1200.webp 1200w", "alt": "Close-up of the cuff with the watch slit"}]}, "black": {"name": "Black", "design": "Field Manual", "desc": "Black with a white blueprint print on the back.", "imgs": [{"src": "assets/pdp-black-1-640.webp", "set": "assets/pdp-black-1-640.webp 640w, assets/pdp-black-1-1200.webp 1200w", "alt": "Field Manual long sleeve in black, back: a white technical blueprint with a contour map, elevation profile, compass and Every city has a summit"}, {"src": "assets/pdp-black-2-640.webp", "set": "assets/pdp-black-2-640.webp 640w, assets/pdp-black-2-1200.webp 1200w", "alt": "Field Manual long sleeve in black, front: Contour summit-ring logo on the chest and lettering down both sleeves"}, {"src": "assets/pdp-black-3-640.webp", "set": "assets/pdp-black-3-640.webp 640w, assets/pdp-black-3-1200.webp 1200w", "alt": "Close-up of the back blueprint: contour map, elevation profile, compass and Every city has a summit"}, {"src": "assets/pdp-black-4-640.webp", "set": "assets/pdp-black-4-640.webp 640w, assets/pdp-black-4-1200.webp 1200w", "alt": "Close-up of the crew neck and the Contour summit-ring logo on the chest"}, {"src": "assets/pdp-black-5-640.webp", "set": "assets/pdp-black-5-640.webp 640w, assets/pdp-black-5-1200.webp 1200w", "alt": "Close-up of the sleeve coordinates lettering ending in +1840 M"}, {"src": "assets/pdp-black-6-640.webp", "set": "assets/pdp-black-6-640.webp 640w, assets/pdp-black-6-1200.webp 1200w", "alt": "Close-up of the left sleeve, Night Ascent · Field Manual lettering and the cuff with thumbhole"}]}, "gradient": {"name": "Gradient", "design": "First Light", "desc": "Night navy fading to orange, like first light.", "imgs": [{"src": "assets/pdp-gradient-1-640.webp", "set": "assets/pdp-gradient-1-640.webp 640w, assets/pdp-gradient-1-1200.webp 1200w", "alt": "First Light long sleeve, back: night navy fading to orange at the hem, a contour ring and First Light lettering"}, {"src": "assets/pdp-gradient-2-640.webp", "set": "assets/pdp-gradient-2-640.webp 640w, assets/pdp-gradient-2-1200.webp 1200w", "alt": "First Light long sleeve, front: Contour and Every city has a summit on the chest, navy fading to orange at the hem and cuffs"}, {"src": "assets/pdp-gradient-3-640.webp", "set": "assets/pdp-gradient-3-640.webp 640w, assets/pdp-gradient-3-1200.webp 1200w", "alt": "Close-up of the back: contour rings above First Light lettering"}, {"src": "assets/pdp-gradient-4-640.webp", "set": "assets/pdp-gradient-4-640.webp 640w, assets/pdp-gradient-4-1200.webp 1200w", "alt": "Close-up of the chest: Contour wordmark, summit-ring mark and Every city has a summit"}, {"src": "assets/pdp-gradient-5-640.webp", "set": "assets/pdp-gradient-5-640.webp 640w, assets/pdp-gradient-5-1200.webp 1200w", "alt": "Close-up of the curved back hem where the navy fades into orange"}, {"src": "assets/pdp-gradient-6-640.webp", "set": "assets/pdp-gradient-6-640.webp 640w, assets/pdp-gradient-6-1200.webp 1200w", "alt": "Close-up of the orange cuff with the watch slit and thumbhole"}]}, "green": {"name": "Green", "design": "New design coming", "desc": "A new green design is on its way; images are a preview.", "imgs": [{"src": "assets/pdp-green-1-640.webp", "set": "assets/pdp-green-1-640.webp 640w, assets/pdp-green-1-1200.webp 1200w", "alt": "Preview render of a green long sleeve, front and back. A new green design is coming"}, {"src": "assets/pdp-green-2-640.webp", "set": "assets/pdp-green-2-640.webp 640w, assets/pdp-green-2-1200.webp 1200w", "alt": "Preview render, green long sleeve: back print"}, {"src": "assets/pdp-green-3-640.webp", "set": "assets/pdp-green-3-640.webp 640w, assets/pdp-green-3-1200.webp 1200w", "alt": "Preview render, green long sleeve: chest logo"}, {"src": "assets/pdp-green-4-640.webp", "set": "assets/pdp-green-4-640.webp 640w, assets/pdp-green-4-1200.webp 1200w", "alt": "Preview render, green long sleeve: cuff"}]}};
+  var SZ = "(min-width:1000px) calc((100vw - 440px) / 2), 100vw";
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
-  var track = $("#track"), gal = $("#gal"), cnt = $("#gcount"), cur = "white";
+  var track = $("#track"), dots = $("#dots"), cur = "white";
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;"); }
+  function render(d) {
+    track.innerHTML = d.imgs.map(function (x, i) {
+      return '<li class="sl"><img src="' + x.src + '" srcset="' + x.set + '" sizes="' + SZ + '" alt="' + esc(x.alt) + '" loading="' + (i < 2 ? 'eager' : 'lazy') + '" decoding="async" width="1200" height="1200"></li>';
+    }).join("");
+    dots.innerHTML = d.imgs.map(function (x, i) {
+      return '<button type="button" class="dot" aria-label="Image ' + (i + 1) + ' of ' + d.imgs.length + '"' + (i === 0 ? ' aria-current="true"' : '') + '></button>';
+    }).join("");
+    track.setAttribute("aria-label", "Images of the " + d.name + " long sleeve");
+    track.scrollLeft = 0;
+  }
   function setColour(c, push) {
     if (!D[c]) c = "white";
+    if (c === cur && !push) return;
     cur = c; var d = D[c];
     $$(".sw").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-c") === c ? "true" : "false"); });
-    $("#cname").textContent = d.name; $("#cname2").textContent = d.name; $("#sbn").textContent = d.name; $("#ccw").textContent = d.cw;
-    $("#cdesc").textContent = d.desc;
-    gal.style.setProperty("--bg", d.bg);
-    track.innerHTML = d.imgs.map(function (x, i) {
-      return '<li class="sl' + (i === 0 ? ' big' : '') + '"><img src="' + x.src + '"' + (x.set ? ' srcset="' + x.set + '" sizes="(min-width:1000px) 62vw, 100vw"' : '') + ' alt="' + esc(x.alt) + '" loading="' + (i < 2 ? 'eager' : 'lazy') + '" decoding="async" width="1264" height="848"></li>';
-    }).join("");
-    track.scrollLeft = 0; count();
+    $("#cname").textContent = d.name; $("#sbn").textContent = d.name; $("#cdesign").textContent = d.design; $("#cdesc").textContent = d.desc;
+    render(d);
     if (push && history.replaceState) history.replaceState(null, "", "#" + c);
   }
-  function count() { var n = track.children.length, i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); cnt.textContent = Math.min(n, i + 1) + " / " + n; }
-  track.addEventListener("scroll", function () { window.requestAnimationFrame(count); }, { passive: true });
-  $("#gprev").addEventListener("click", function () { track.scrollBy({ left: -track.clientWidth, behavior: "smooth" }); });
-  $("#gnext").addEventListener("click", function () { track.scrollBy({ left: track.clientWidth, behavior: "smooth" }); });
+  function idx() { return Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); }
+  track.addEventListener("scroll", function () {
+    window.requestAnimationFrame(function () { var i = idx(); [].forEach.call(dots.children, function (b, j) { if (j === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); }); });
+  }, { passive: true });
+  dots.addEventListener("click", function (e) {
+    var b = e.target.closest(".dot"); if (!b) return;
+    var i = [].indexOf.call(dots.children, b);
+    track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+  });
   $$(".sw").forEach(function (b) { b.addEventListener("click", function () { setColour(b.getAttribute("data-c"), true); }); });
   window.addEventListener("hashchange", function () { setColour(location.hash.slice(1), false); });
   $$(".sz").forEach(function (b) { b.addEventListener("click", function () { $$(".sz").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); }); });
@@ -278,8 +303,11 @@ body{padding-bottom:76px}
   $("#sgclose").addEventListener("click", function () { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); });
   dlg.addEventListener("click", function (e) { if (e.target === dlg && dlg.close) dlg.close(); });
   var sbar = $("#sbar"), buy = $("#buycta");
-  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { var e = es[0]; sbar.classList.toggle("on", !e.isIntersecting && e.boundingClientRect.top < 0); }).observe(buy);
-  var h = location.hash.slice(1); if (D[h] && h !== "white") setColour(h, false); else count();
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) {
+    var e = es[0], on = !e.isIntersecting && e.boundingClientRect.top < 0;
+    sbar.classList.toggle("on", on); sbar.setAttribute("aria-hidden", on ? "false" : "true"); sbar.querySelector("a").tabIndex = on ? 0 : -1;
+  }).observe(buy);
+  var h = location.hash.slice(1); if (D[h] && h !== "white") setColour(h, false);
 })();
 </script>
 </body>
