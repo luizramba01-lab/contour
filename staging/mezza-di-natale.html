@@ -291,13 +291,11 @@ footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
     <dl class="infos">
       <div><dt class="cap">Orario di partenza</dt><dd>Partenza indicativa ore 10:00 · orario definitivo in arrivo</dd></div>
       <div class="wide"><dt class="cap">Partenza</dt><dd>Arenzano (GE) · 44.39947°N 8.68555°E<br><span class="maps"><a class="mloc" href="https://www.google.com/maps/search/?api=1&query=44.3994653%2C8.6855477" target="_blank" rel="noopener">Luogo di partenza <span aria-hidden="true">↗</span></a></span></dd></div>
-      <div><dt class="cap">Quota di iscrizione</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
-      <div><dt class="cap">Posti disponibili</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
-      <div><dt class="cap">Chiusura iscrizioni</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
-      <div><dt class="cap">Ristoro</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
-      <div><dt class="cap">In caso di maltempo</dt><dd><mark class="tbc">[da confermare]</mark></dd></div>
+      <div><dt class="cap">Quota di iscrizione</dt><dd>Nessuna quota: la partecipazione è gratuita</dd></div>
+      <div><dt class="cap">Chiusura iscrizioni</dt><dd>Martedì 15.12.2026</dd></div>
+      <div><dt class="cap">Accompagnatori in bici</dt><dd>Benvenuti: si può seguire chi corre in bicicletta</dd></div>
     </dl>
-    <p class="disc"><span class="cap k">Bozza · da confermare</span>Evento non competitivo: non è una gara omologata e non c’è cronometraggio ufficiale. Ognuno corre sotto la propria responsabilità.</p>
+    <p class="disc"><span class="cap k">Corsa non competitiva</span>Una corsa non competitiva, aperta ad amici e parenti. Non è una gara omologata e non c’è cronometraggio ufficiale: ognuno corre sotto la propria responsabilità.</p>
   </div>
 </section>
 
@@ -382,11 +380,11 @@ footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
 </script>
 <script>
 /* Countdown to the start. RACE_START: indicative 10:00 CET, final time to be announced.
-   CLOSE [da confermare]: sign-up deadline; defaults to the start. After CLOSE the form is replaced by "Iscrizioni chiuse". */
+   CLOSE: sign-up deadline, Tue 15.12.2026 23:59 CET (Luigi, 2026-11-04). After CLOSE the form is replaced by "Iscrizioni chiuse". */
 (function(){
   var cD=document.getElementById("cD"),cH=document.getElementById("cH"),cM=document.getElementById("cM"),cS=document.getElementById("cS");
   if(!cD)return;
-  var RACE_START=Date.parse("2026-12-20T10:00:00+01:00"),CLOSE=RACE_START;
+  var RACE_START=Date.parse("2026-12-20T10:00:00+01:00"),CLOSE=Date.parse("2026-12-15T23:59:59+01:00");
   var target=RACE_START,box=document.getElementById("box"),stT=document.getElementById("stateT"),closed=false,iv=0;
   function state(){var now=Date.now();if(!closed&&now>=CLOSE){closed=true;box.classList.add("is-closed");if(stT)stT.textContent="Iscrizioni chiuse"}if(now>=RACE_START){document.documentElement.classList.add("is-over");clearInterval(iv)}}
   var RM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
