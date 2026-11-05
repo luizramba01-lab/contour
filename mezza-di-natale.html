@@ -322,7 +322,7 @@ footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
             </div>
           </fieldset>
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-          <label class="consent"><input type="checkbox" name="consenso" value="si" required /><span>Acconsento al trattamento dei miei dati (nome, email, distanza) per l’organizzazione della corsa. I dati passano dal servizio FormSubmit (con sede fuori dall’UE) e arrivano nella casella email dell’organizzatore (Gmail, Google); vengono cancellati entro 30 giorni dall’evento. <a href="privacy.html#it-gara">Privacy</a></span></label>
+          <label class="consent"><input type="checkbox" name="consenso" value="si" required /><span>Acconsento al trattamento dei miei dati (nome, email, distanza) per l’organizzazione della corsa. I dati vengono salvati in un modulo Google (Google Forms) a cui ha accesso solo l’organizzatore; vengono cancellati entro 30 giorni dall’evento. <a href="privacy.html#race">Privacy</a></span></label>
           <p class="cap err" id="err" aria-live="assertive"></p>
           <button class="go" type="submit">Iscrivimi</button>
         </form>
@@ -373,9 +373,7 @@ footer .legal{display:flex;flex-wrap:wrap;gap:6px 22px}
       Nome:f.nome.value.trim(),Cognome:f.cognome.value.trim(),Email:f.email.value.trim(),Distanza:d.get("distanza")==="21"?"21,1 km":"10 km",Consenso:"si",Data:new Date().toISOString(),Fonte:"sito"};
     var GF="https://docs.google.com/forms/d/e/1FAIpQLSfOZ0lAuG3Fmk4ueRkz9kjz_E232T2OOagY1XJnHIeZBhMivw/formResponse",
       g=new URLSearchParams({"entry.306532771":o.Nome,"entry.553368337":o.Cognome,"entry.20007994":o.Email,"entry.1520708631":o.Distanza,"entry.914909700":o.Consenso,"entry.227934662":o.Data,"entry.1568063142":o.Fonte});
-    fetch(GF,{method:"POST",mode:"no-cors",body:g}).then(function(){box.classList.add("sent");
-      try{fetch("https://formsubmit.co/ajax/7a8d6f74e17fb9ae373b8345cde6ddfe",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)}).catch(function(){})}catch(x){}
-    }).catch(fail);
+    fetch(GF,{method:"POST",mode:"no-cors",body:g}).then(function(){box.classList.add("sent");}).catch(fail);
   });
 })();
 </script>
